@@ -19,9 +19,9 @@ export default function SubpageLayout({ children, category, title, subtitle, her
   }, [])
 
   return (
-    <div className="min-h-screen bg-midnight">
+    <div className="min-h-screen bg-surface">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-midnight/80 backdrop-blur-xl border-b border-glass-border">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-glass-border">
         <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 group">
             <span className="text-lg font-serif font-semibold text-text-primary group-hover:text-gold transition-colors duration-300">
@@ -43,7 +43,7 @@ export default function SubpageLayout({ children, category, title, subtitle, her
 
       {/* Hero – with optional image */}
       <header className="pt-24 md:pt-28 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/50 to-midnight" />
+        <div className="absolute inset-0 bg-gradient-to-b from-surface-alt/50 to-surface" />
         <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-teal/3 rounded-full blur-[120px]" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20">
@@ -52,16 +52,16 @@ export default function SubpageLayout({ children, category, title, subtitle, her
             <div className={heroImage ? 'lg:col-span-3' : ''}>
               <motion.span
                 className="text-xs tracking-[0.25em] uppercase text-teal font-medium inline-block mb-4"
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ y: 15 }}
+                animate={{ y: 0 }}
                 transition={{ duration: 0.5 }}
               >
                 {category}
               </motion.span>
               <motion.h1
                 className="text-3xl md:text-4xl lg:text-[2.75rem] font-serif font-semibold leading-tight"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ y: 20 }}
+                animate={{ y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
                 {title}
@@ -69,8 +69,8 @@ export default function SubpageLayout({ children, category, title, subtitle, her
               {subtitle && (
                 <motion.p
                   className="text-base md:text-lg text-text-secondary mt-4 max-w-2xl leading-relaxed"
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ y: 15 }}
+                  animate={{ y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
                   {subtitle}
@@ -88,8 +88,8 @@ export default function SubpageLayout({ children, category, title, subtitle, her
             {heroImage && (
               <motion.div
                 className="lg:col-span-2"
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ x: 30 }}
+                animate={{ x: 0 }}
                 transition={{ duration: 0.7, delay: 0.3 }}
               >
                 <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-2xl">
@@ -100,7 +100,7 @@ export default function SubpageLayout({ children, category, title, subtitle, her
                     loading="lazy"
                     decoding="async"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-midnight/40 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-surface/40 via-transparent to-transparent" />
                   <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl" />
                 </div>
               </motion.div>
@@ -121,8 +121,8 @@ export default function SubpageLayout({ children, category, title, subtitle, her
         {/* CTA */}
         <motion.div
           className="mt-16 glass-card p-8 md:p-10 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >

@@ -14,14 +14,14 @@ export default function PersoenlichkeitstestTeaser() {
   return (
     <section className="relative py-16 md:py-24">
       {/* Background accents */}
-      <div className="absolute inset-0 bg-gradient-to-b from-midnight via-teal/[0.015] to-midnight" />
+      <div className="absolute inset-0 bg-gradient-to-b from-surface via-teal/[0.015] to-surface" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-teal/[0.03] rounded-full blur-[140px] pointer-events-none" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20">
         <motion.div
           className="glass-card border-teal/15 bg-teal/[0.02] p-8 md:p-12 relative overflow-hidden"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 30 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
@@ -32,8 +32,8 @@ export default function PersoenlichkeitstestTeaser() {
             {/* Badge */}
             <motion.div
               className="flex justify-center mb-6"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ scale: 0.95 }}
+              whileInView={{ scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
@@ -46,8 +46,8 @@ export default function PersoenlichkeitstestTeaser() {
             {/* Headline */}
             <motion.h2
               className="text-2xl md:text-3xl lg:text-4xl font-serif font-semibold text-center mb-4"
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 15 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
@@ -56,12 +56,12 @@ export default function PersoenlichkeitstestTeaser() {
 
             <motion.p
               className="text-text-secondary text-center max-w-2xl mx-auto mb-8 text-base md:text-lg leading-relaxed"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 10 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              Basierend auf dem wissenschaftlichen Big Five Modell — dem weltweit am besten
+              Basierend auf dem wissenschaftlichen Big Five Modell, dem weltweit am besten
               erforschten Persönlichkeitsmodell. Entdecken Sie Ihre Stärken und
               Entwicklungsfelder in fünf Kerndimensionen.
             </motion.p>
@@ -69,8 +69,8 @@ export default function PersoenlichkeitstestTeaser() {
             {/* Dimension cards */}
             <motion.div
               className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-8"
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 15 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
@@ -78,8 +78,8 @@ export default function PersoenlichkeitstestTeaser() {
                 <motion.div
                   key={dim.label}
                   className="flex flex-col items-center gap-2 p-3 rounded-xl bg-glass-bg border border-glass-border"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ y: 10 }}
+                  whileInView={{ y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.5 + i * 0.06 }}
                 >
@@ -94,8 +94,8 @@ export default function PersoenlichkeitstestTeaser() {
             {/* Info line */}
             <motion.p
               className="text-center text-sm text-text-secondary/60 mb-6"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{}}
+              whileInView={{}}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
@@ -105,8 +105,8 @@ export default function PersoenlichkeitstestTeaser() {
             {/* CTA */}
             <motion.div
               className="flex flex-col items-center gap-3"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 10 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.7 }}
             >

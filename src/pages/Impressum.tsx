@@ -9,14 +9,14 @@ export default function Impressum() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-midnight">
+    <div className="min-h-screen bg-surface">
       <SEOHead
         title="Impressum | Dennis Tefett Coaching"
         description="Impressum – Angaben gemäß § 5 TMG. Dennis Tefett, Executive Coaching, Gladbeck."
         canonical="/impressum"
       />
 
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-midnight/80 backdrop-blur-xl border-b border-glass-border">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-glass-border">
         <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 group">
             <span className="text-lg font-serif font-semibold text-text-primary group-hover:text-gold transition-colors duration-300">

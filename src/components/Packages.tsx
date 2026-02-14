@@ -61,8 +61,8 @@ export default function Packages() {
       <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20">
         <motion.div
           className="text-center mb-14"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
@@ -82,7 +82,7 @@ export default function Packages() {
               className={`glass-card p-7 relative ${
                 pkg.featured ? 'lg:-mt-4 lg:mb-0 border-gold/30 bg-gold/[0.04]' : ''
               }`}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ y: 30 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
             >
@@ -140,8 +140,8 @@ export default function Packages() {
         {/* Download CTA */}
         <motion.div
           className="mt-12 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >

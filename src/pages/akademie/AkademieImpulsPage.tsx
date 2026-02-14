@@ -31,7 +31,7 @@ const impulsComponents: Record<string, React.LazyExoticComponent<React.Component
 
 function ImpulsLoader() {
   return (
-    <div className="min-h-screen bg-midnight flex items-center justify-center">
+    <div className="min-h-screen bg-surface flex items-center justify-center">
       <div className="w-8 h-8 border-2 border-teal/30 border-t-teal rounded-full animate-spin" />
     </div>
   )

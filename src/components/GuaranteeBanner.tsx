@@ -6,14 +6,14 @@ export default function GuaranteeBanner() {
   return (
     <section className="relative py-16 md:py-20 overflow-hidden">
       {/* Subtle background accent */}
-      <div className="absolute inset-0 bg-gradient-to-b from-midnight via-teal/[0.03] to-midnight" />
+      <div className="absolute inset-0 bg-gradient-to-b from-surface via-teal/[0.03] to-surface" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-teal/[0.04] rounded-full blur-[150px] pointer-events-none" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20">
         <motion.div
           className="glass-card border-teal/20 bg-teal/[0.03] p-8 md:p-12 relative overflow-hidden"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 30 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
@@ -24,8 +24,8 @@ export default function GuaranteeBanner() {
             {/* Badge */}
             <motion.div
               className="flex justify-center mb-6"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ scale: 0.95 }}
+              whileInView={{ scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
@@ -38,8 +38,8 @@ export default function GuaranteeBanner() {
             {/* Headline */}
             <motion.h2
               className="text-2xl md:text-3xl lg:text-4xl font-serif font-semibold text-center mb-4"
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 15 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
@@ -48,8 +48,8 @@ export default function GuaranteeBanner() {
 
             <motion.p
               className="text-text-secondary text-center max-w-2xl mx-auto mb-8 text-base md:text-lg leading-relaxed"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 10 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
@@ -61,8 +61,8 @@ export default function GuaranteeBanner() {
             {/* How it works */}
             <motion.div
               className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8"
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 15 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
@@ -98,8 +98,8 @@ export default function GuaranteeBanner() {
             {/* CTA + AGB Link */}
             <motion.div
               className="flex flex-col sm:flex-row items-center justify-center gap-4"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 10 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >

@@ -94,7 +94,7 @@ export const oceanQuestions: OceanTestQuestion[] = [
       { label: 'Ich bevorzuge klare, erprobte Vorgehensweisen und meide Experimente.', score: 1 },
       { label: 'Gelegentlich probiere ich etwas Neues, kehre aber schnell zum Gewohnten zurück.', score: 2 },
       { label: 'Ich entwickle regelmäßig eigene Ideen und denke gerne um die Ecke.', score: 3 },
-      { label: 'Kreativität ist mein Markenzeichen – ich suche ständig nach originellen Lösungen.', score: 4 },
+      { label: 'Kreativität ist mein Markenzeichen, ich suche ständig nach originellen Lösungen.', score: 4 },
     ],
   },
   {
@@ -139,8 +139,8 @@ export const oceanQuestions: OceanTestQuestion[] = [
     options: [
       { label: 'Ich vergesse oder verschiebe Zusagen regelmäßig.', score: 1 },
       { label: 'Ich bemühe mich, halte aber nicht immer alles ein.', score: 2 },
-      { label: 'Andere können sich auf mich verlassen – ich halte fast immer Wort.', score: 3 },
-      { label: 'Zuverlässigkeit ist einer meiner wichtigsten Werte – ich halte ausnahmslos, was ich verspreche.', score: 4 },
+      { label: 'Andere können sich auf mich verlassen, ich halte fast immer Wort.', score: 3 },
+      { label: 'Zuverlässigkeit ist einer meiner wichtigsten Werte, ich halte ausnahmslos, was ich verspreche.', score: 4 },
     ],
   },
   {
@@ -148,7 +148,7 @@ export const oceanQuestions: OceanTestQuestion[] = [
     dimension: 'gewissenhaftigkeit',
     question: 'Wie gründlich achten Sie auf Details bei Ihrer Arbeit?',
     options: [
-      { label: 'Details sind nicht meine Stärke – ich sehe lieber das große Ganze.', score: 1 },
+      { label: 'Details sind nicht meine Stärke; ich sehe lieber das große Ganze.', score: 1 },
       { label: 'Ich achte auf die wichtigsten Details, übersehe aber manchmal Feinheiten.', score: 2 },
       { label: 'Ich arbeite sorgfältig und prüfe meine Ergebnisse gründlich.', score: 3 },
       { label: 'Ich bin äußerst akkurat und stelle höchste Qualitätsansprüche an jedes Detail.', score: 4 },
@@ -162,7 +162,7 @@ export const oceanQuestions: OceanTestQuestion[] = [
       { label: 'Ich setze mir selten Ziele und lasse mich treiben.', score: 1 },
       { label: 'Ich habe Ziele, verliere sie aber im Alltag schnell aus den Augen.', score: 2 },
       { label: 'Ich verfolge meine Ziele diszipliniert und überprüfe regelmäßig meinen Fortschritt.', score: 3 },
-      { label: 'Ich arbeite mit großer Ausdauer und Selbstdisziplin auf meine Ziele hin – Ablenkungen können mich kaum aufhalten.', score: 4 },
+      { label: 'Ich arbeite mit großer Ausdauer und Selbstdisziplin auf meine Ziele hin; Ablenkungen können mich kaum aufhalten.', score: 4 },
     ],
   },
 
@@ -172,7 +172,7 @@ export const oceanQuestions: OceanTestQuestion[] = [
     dimension: 'extraversion',
     question: 'Wie sehr ziehen Sie Energie aus dem Kontakt mit anderen Menschen?',
     options: [
-      { label: 'Soziale Interaktionen kosten mich Energie – ich brauche viel Zeit für mich.', score: 1 },
+      { label: 'Soziale Interaktionen kosten mich Energie; ich brauche viel Zeit für mich.', score: 1 },
       { label: 'Ich genieße Gesellschaft in kleinen Runden, bin aber schnell erschöpft davon.', score: 2 },
       { label: 'Ich mag den Austausch mit anderen und fühle mich danach oft energiegeladen.', score: 3 },
       { label: 'Ich blühe in Gesellschaft richtig auf und suche aktiv soziale Anlässe.', score: 4 },
@@ -221,7 +221,7 @@ export const oceanQuestions: OceanTestQuestion[] = [
       { label: 'Ich arbeite am liebsten allein und empfinde Teamarbeit als anstrengend.', score: 1 },
       { label: 'Ich arbeite im Team mit, setze aber vor allem meine eigenen Vorstellungen durch.', score: 2 },
       { label: 'Ich schätze Teamarbeit und bin bereit, Kompromisse einzugehen.', score: 3 },
-      { label: 'Ich bin ein Teamplayer – ich stelle den gemeinsamen Erfolg über persönliche Interessen.', score: 4 },
+      { label: 'Ich bin ein Teamplayer, ich stelle den gemeinsamen Erfolg über persönliche Interessen.', score: 4 },
     ],
   },
   {
@@ -232,7 +232,7 @@ export const oceanQuestions: OceanTestQuestion[] = [
       { label: 'Ich finde es schwierig, die Sichtweise anderer nachzuvollziehen.', score: 1 },
       { label: 'Ich versuche es, bin aber oft zu sehr mit meiner eigenen Sicht beschäftigt.', score: 2 },
       { label: 'Ich kann mich gut in andere hineinversetzen und berücksichtige ihre Gefühle.', score: 3 },
-      { label: 'Empathie ist eine meiner größten Stärken – ich spüre intuitiv, wie es anderen geht.', score: 4 },
+      { label: 'Empathie ist eine meiner größten Stärken, ich spüre intuitiv, wie es anderen geht.', score: 4 },
     ],
   },
   {
@@ -267,7 +267,7 @@ export const oceanQuestions: OceanTestQuestion[] = [
       { label: 'Ich fühle mich schnell überwältigt und verliere den Überblick.', score: 1 },
       { label: 'Ich spüre den Druck stark, funktioniere aber irgendwie weiter.', score: 2 },
       { label: 'Ich bleibe meist ruhig und finde einen Weg, mit dem Druck umzugehen.', score: 3 },
-      { label: 'Unter Druck laufe ich zu Hochform auf – Stress bringt meine besten Leistungen hervor.', score: 4 },
+      { label: 'Unter Druck laufe ich zu Hochform auf; Stress bringt meine besten Leistungen hervor.', score: 4 },
     ],
   },
   {
@@ -275,10 +275,10 @@ export const oceanQuestions: OceanTestQuestion[] = [
     dimension: 'stabilitaet',
     question: 'Wie reagieren Sie emotional auf Misserfolge oder Rückschläge?',
     options: [
-      { label: 'Rückschläge treffen mich hart – ich brauche sehr lange, um mich davon zu erholen.', score: 1 },
+      { label: 'Rückschläge treffen mich hart; ich brauche sehr lange, um mich davon zu erholen.', score: 1 },
       { label: 'Ich bin enttäuscht und grüble eine Weile, bevor ich wieder nach vorne schaue.', score: 2 },
       { label: 'Ich verarbeite Rückschläge relativ schnell und ziehe Lehren daraus.', score: 3 },
-      { label: 'Ich nehme Rückschläge gelassen – sie sind für mich wertvolle Lernchancen, nicht mehr.', score: 4 },
+      { label: 'Ich nehme Rückschläge gelassen; sie sind für mich wertvolle Lernchancen, nicht mehr.', score: 4 },
     ],
   },
   {
@@ -297,10 +297,10 @@ export const oceanQuestions: OceanTestQuestion[] = [
     dimension: 'stabilitaet',
     question: 'Wie stabil ist Ihre Stimmung im Alltag?',
     options: [
-      { label: 'Meine Stimmung schwankt stark – ich erlebe häufig emotionale Höhen und Tiefen.', score: 1 },
+      { label: 'Meine Stimmung schwankt stark; ich erlebe häufig emotionale Höhen und Tiefen.', score: 1 },
       { label: 'Ich habe gelegentlich Stimmungsschwankungen, die mein Umfeld bemerkt.', score: 2 },
       { label: 'Meine Stimmung ist insgesamt stabil, auch wenn es mal herausfordernde Tage gibt.', score: 3 },
-      { label: 'Ich bin emotional sehr ausgeglichen – mein Umfeld schätzt meine Beständigkeit.', score: 4 },
+      { label: 'Ich bin emotional sehr ausgeglichen; mein Umfeld schätzt meine Beständigkeit.', score: 4 },
     ],
   },
 ]
@@ -454,7 +454,7 @@ const oceanDimensionFeedback: Record<OceanDimension, { low: string; mid: string;
     high: 'Hervorragende Gewissenhaftigkeit. Sie sind diszipliniert, strukturiert und absolut zuverlässig. Ihre Fähigkeit, Ziele systematisch zu verfolgen und Aufgaben gründlich zu erledigen, ist eine außergewöhnliche Stärke.',
   },
   extraversion: {
-    low: 'Ihre Extraversion ist gering ausgeprägt – Sie sind eher introvertiert und ziehen Energie aus der Stille und dem Alleinsein. Das ist keine Schwäche, aber es kann dazu führen, dass Ihre Ideen und Stärken im sozialen Umfeld weniger sichtbar werden. Gezielte Übungen in Selbstpräsentation könnten hier einen großen Unterschied machen.',
+    low: 'Ihre Extraversion ist gering ausgeprägt; Sie sind eher introvertiert und ziehen Energie aus der Stille und dem Alleinsein. Das ist keine Schwäche, aber es kann dazu führen, dass Ihre Ideen und Stärken im sozialen Umfeld weniger sichtbar werden. Gezielte Übungen in Selbstpräsentation könnten hier einen großen Unterschied machen.',
     mid: 'Ihre Extraversion liegt im mittleren Bereich. Sie können sowohl in Gruppen als auch allein gut arbeiten und treten situationsangemessen auf. Um Ihre Wirkung auf andere noch zu stärken, könnten Sie Ihre Initiative im sozialen Kontext bewusster ausbauen.',
     high: 'Ihre Extraversion ist eine klare Stärke. Sie sind gesellig, durchsetzungsfähig und kommunikationsstark. Ihre Fähigkeit, auf Menschen zuzugehen und andere mitzureißen, ist ein wertvolles Kapital.',
   },

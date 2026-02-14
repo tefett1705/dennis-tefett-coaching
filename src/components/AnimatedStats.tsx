@@ -24,7 +24,7 @@ function useCountUp(end: number, duration: number, isInView: boolean) {
 }
 
 const stats = [
-  { value: 200, suffix: '+', label: 'Coaching-Stunden', description: 'pro Jahr' },
+  { value: 820, suffix: '+', label: 'Coaching-Stunden', description: 'pro Jahr' },
   { value: 95, suffix: '%', label: 'Zielerreichung', description: 'messbar dokumentiert' },
   { value: 8, suffix: '+', label: 'Jahre Erfahrung', description: 'als Unternehmer & Coach' },
   { value: 48, suffix: 'h', label: 'Erste Ergebnisse', description: 'spürbar in Stunden' },
@@ -42,22 +42,22 @@ export default function AnimatedStats() {
             <motion.div
               key={stat.label}
               className="text-center relative"
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              initial={{ y: 30 }}
+              animate={isInView ? { y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
             >
               {/* Glowing dot above */}
               <motion.div
                 className="w-2 h-2 rounded-full bg-teal mx-auto mb-4"
-                initial={{ scale: 0, opacity: 0 }}
-                animate={isInView ? { scale: 1, opacity: 1 } : {}}
+                initial={{ scale: 0 }}
+                animate={isInView ? { scale: 1 } : {}}
                 transition={{ duration: 0.4, delay: 0.3 + i * 0.12, type: 'spring' }}
               />
               <motion.div
                 className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-teal/20 blur-md"
                 initial={{ scale: 0 }}
-                animate={isInView ? { scale: [0, 1.5, 1] } : {}}
-                transition={{ duration: 0.6, delay: 0.3 + i * 0.12 }}
+                animate={isInView ? { scale: 1 } : {}}
+                transition={{ duration: 0.8, delay: 0.3 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
               />
 
               <CountNumber value={stat.value} suffix={stat.suffix} isInView={isInView} />

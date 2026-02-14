@@ -66,9 +66,9 @@ export default function Newsletter() {
   }
 
   const inputClass =
-    'w-full bg-midnight/60 border border-glass-border rounded-lg px-4 py-3 text-sm text-text-primary placeholder:text-text-secondary/30 focus:outline-none focus:border-teal/40 transition-colors'
+    'w-full bg-surface/60 border border-glass-border rounded-lg px-4 py-3 text-sm text-text-primary placeholder:text-text-secondary/30 focus:outline-none focus:border-teal/40 transition-colors'
   const selectClass =
-    'w-full bg-midnight/60 border border-glass-border rounded-lg px-4 py-3 text-sm text-text-primary focus:outline-none focus:border-teal/40 transition-colors appearance-none cursor-pointer'
+    'w-full bg-surface/60 border border-glass-border rounded-lg px-4 py-3 text-sm text-text-primary focus:outline-none focus:border-teal/40 transition-colors appearance-none cursor-pointer'
   const labelClass = 'text-xs text-text-secondary mb-1.5 block font-medium'
 
   return (
@@ -76,8 +76,8 @@ export default function Newsletter() {
       <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20">
         <motion.div
           className="glass-card relative overflow-hidden"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 30 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
@@ -90,8 +90,8 @@ export default function Newsletter() {
             <div className="lg:col-span-2 p-8 md:p-12 lg:p-14">
               <motion.div
                 className="flex items-center gap-2 mb-5"
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ y: 15 }}
+                whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
@@ -103,8 +103,8 @@ export default function Newsletter() {
 
               <motion.h2
                 className="text-2xl md:text-3xl font-serif font-semibold mb-5 leading-snug"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ y: 20 }}
+                whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
@@ -114,8 +114,8 @@ export default function Newsletter() {
 
               <motion.p
                 className="text-text-secondary leading-relaxed mb-6 text-sm md:text-base"
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ y: 15 }}
+                whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
@@ -126,10 +126,6 @@ export default function Newsletter() {
 
               <motion.div
                 className="flex flex-col gap-2.5"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
               >
                 {[
                   'Wissenschaftlich fundierte Handouts',
@@ -147,8 +143,8 @@ export default function Newsletter() {
             {/* Form side */}
             <motion.div
               className="lg:col-span-3 p-8 md:p-12 lg:p-14 lg:border-l border-t lg:border-t-0 border-glass-border bg-white/[0.02] flex items-center"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ x: 30 }}
+              whileInView={{ x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
@@ -238,8 +234,8 @@ export default function Newsletter() {
                   {error && (
                     <motion.div
                       className="flex items-center gap-2 text-sm text-red-400 bg-red-400/10 border border-red-400/20 rounded-lg px-4 py-2.5"
-                      initial={{ opacity: 0, y: -5 }}
-                      animate={{ opacity: 1, y: 0 }}
+                      initial={{ y: -5 }}
+                      animate={{ y: 0 }}
                     >
                       <AlertCircle size={15} className="flex-shrink-0" />
                       {error}
@@ -274,8 +270,8 @@ export default function Newsletter() {
               ) : (
                 <motion.div
                   className="text-center py-6 w-full"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  initial={{ scale: 0.98 }}
+                  animate={{ scale: 1 }}
                   transition={{ duration: 0.4 }}
                 >
                   <motion.div

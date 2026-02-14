@@ -22,7 +22,7 @@ import {
   ShieldCheck,
   Puzzle,
 } from 'lucide-react'
-import heroImg from '../assets/images/Dennis schönen Anzug.webp'
+import heroImg from '../assets/images/dennis-schoenen-anzug.webp'
 
 export default function CoachingMethoden() {
   return (
@@ -63,7 +63,7 @@ export default function CoachingMethoden() {
 
       <Prose>
         <p>
-          Es gibt nicht die eine perfekte Coaching-Methode. Wirksames Coaching kombiniert verschiedene Ansätze, abgestimmt auf Ihre individuelle Situation. Die Kunst liegt in der Auswahl und Anpassung — und genau das macht den Unterschied zwischen einem Standardprogramm und einem echten Entwicklungsprozess.
+          Es gibt nicht die eine perfekte Coaching-Methode. Wirksames Coaching kombiniert verschiedene Ansätze, abgestimmt auf Ihre individuelle Situation. Die Kunst liegt in der Auswahl und Anpassung, und genau das macht den Unterschied zwischen einem Standardprogramm und einem echten Entwicklungsprozess.
         </p>
       </Prose>
 
@@ -144,12 +144,12 @@ export default function CoachingMethoden() {
           {
             icon: Layers,
             title: 'Tiefere Wirkung',
-            text: 'Verschiedene Methoden adressieren kognitive, emotionale und körperliche Ebenen gleichzeitig — so entsteht Veränderung auf allen Ebenen.',
+            text: 'Verschiedene Methoden adressieren kognitive, emotionale und körperliche Ebenen gleichzeitig; so entsteht Veränderung auf allen Ebenen.',
           },
           {
             icon: Compass,
             title: 'Flexibilität in der Sitzung',
-            text: 'Wenn ein Ansatz in der Sitzung an Grenzen stösst, wechsle ich nahtlos zu einer Methode, die besser greift — ohne Zeitverlust.',
+            text: 'Wenn ein Ansatz in der Sitzung an Grenzen stösst, wechsle ich nahtlos zu einer Methode, die besser greift, ohne Zeitverlust.',
           },
           {
             icon: ShieldCheck,
@@ -178,10 +178,10 @@ export default function CoachingMethoden() {
       <HighlightBox title="So läuft eine typische Coaching-Sitzung ab (60–90 Min.)" color="teal">
         <Checklist
           items={[
-            'Check-in & Zielklärung (10 Min.) — Wo stehen Sie heute? Was soll diese Sitzung bewirken?',
-            'Exploration & Musteranalyse (20–30 Min.) — Vertiefung des Kernthemas mit passenden Coaching-Tools',
-            'Gezielte Intervention (20–30 Min.) — Arbeit mit der gewählten Methode an konkreten Situationen',
-            'Transfer & nächste Schritte (10–15 Min.) — Konkrete Aufgaben und Implementierungsintentionen für den Alltag',
+            'Check-in & Zielklärung (10 Min.): Wo stehen Sie heute? Was soll diese Sitzung bewirken?',
+            'Exploration & Musteranalyse (20–30 Min.): Vertiefung des Kernthemas mit passenden Coaching-Tools',
+            'Gezielte Intervention (20–30 Min.): Arbeit mit der gewählten Methode an konkreten Situationen',
+            'Transfer & nächste Schritte (10–15 Min.): Konkrete Aufgaben und Implementierungsintentionen für den Alltag',
           ]}
           color="teal"
         />

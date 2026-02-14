@@ -24,7 +24,7 @@ import {
   ComparisonTable,
   Prose,
 } from '../components/SubpageBlocks'
-import heroImg from '../assets/images/Dennis schick.webp'
+import heroImg from '../assets/images/dennis-schick.webp'
 
 export default function FuehrungskraefteCoaching() {
   return (

@@ -33,12 +33,12 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section id="faq" className="relative py-20 md:py-28 bg-gradient-to-b from-midnight via-navy/30 to-midnight">
+    <section id="faq" className="relative py-20 md:py-28 bg-gradient-to-b from-surface via-surface-alt/30 to-surface">
       <div className="max-w-3xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20">
         <motion.div
           className="text-center mb-14"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
@@ -53,8 +53,8 @@ export default function FAQ() {
             <motion.div
               key={i}
               className="glass-card overflow-hidden"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 20 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
             >

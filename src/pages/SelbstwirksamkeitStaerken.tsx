@@ -22,7 +22,7 @@ import {
   Star,
 
 } from 'lucide-react'
-import heroImg from '../assets/images/Dennis schick.webp'
+import heroImg from '../assets/images/dennis-schick.webp'
 
 export default function SelbstwirksamkeitStaerken() {
   return (
@@ -48,7 +48,7 @@ export default function SelbstwirksamkeitStaerken() {
       {/* --- Was ist Selbstwirksamkeit? --- */}
       <SectionHeader
         tag="Grundlagen"
-        title="Was ist Selbstwirksamkeit — und warum verändert sie alles?"
+        title="Was ist Selbstwirksamkeit, und warum verändert sie alles?"
         text="Selbstwirksamkeit ist die innere Überzeugung, herausfordernde Situationen aus eigener Kraft meistern zu können. Sie ist ein stärkerer Prädiktor für beruflichen Erfolg als Intelligenz oder Fachwissen."
       />
 
@@ -56,14 +56,14 @@ export default function SelbstwirksamkeitStaerken() {
         stats={[
           { value: '#1', label: 'Prädiktor für beruflichen Erfolg' },
           { value: '4', label: 'wissenschaftlich belegte Quellen' },
-          { value: '100 %', label: 'trainierbar — in jedem Alter' },
+          { value: '100 %', label: 'trainierbar, in jedem Alter' },
           { value: '8 Wo.', label: 'bis zu messbaren Veränderungen' },
         ]}
       />
 
       <HighlightBox title="Der entscheidende Unterschied" color="gold">
         <p>
-          Selbstwirksamkeit ist nicht dasselbe wie Selbstvertrauen. Selbstvertrauen ist ein allgemeines Gefühl der eigenen Wertigkeit. Selbstwirksamkeit bezieht sich auf die konkrete Überzeugung, eine bestimmte Aufgabe bewältigen zu können. Man kann hohes Selbstvertrauen, aber niedrige aufgabenspezifische Selbstwirksamkeit haben — und umgekehrt.
+          Selbstwirksamkeit ist nicht dasselbe wie Selbstvertrauen. Selbstvertrauen ist ein allgemeines Gefühl der eigenen Wertigkeit. Selbstwirksamkeit bezieht sich auf die konkrete Überzeugung, eine bestimmte Aufgabe bewältigen zu können. Man kann hohes Selbstvertrauen, aber niedrige aufgabenspezifische Selbstwirksamkeit haben, und umgekehrt.
         </p>
       </HighlightBox>
 
@@ -90,7 +90,7 @@ export default function SelbstwirksamkeitStaerken() {
           {
             icon: MessageCircle,
             title: 'Verbale Ermutigung',
-            text: 'Anerkennung und konstruktives Feedback von glaubwürdigen Personen stärken Ihr Selbstbewusstsein — besonders wirksam in Kombination mit eigenen Erfahrungen.',
+            text: 'Anerkennung und konstruktives Feedback von glaubwürdigen Personen stärken Ihr Selbstbewusstsein, besonders wirksam in Kombination mit eigenen Erfahrungen.',
           },
           {
             icon: HeartPulse,
@@ -189,7 +189,7 @@ export default function SelbstwirksamkeitStaerken() {
       <SectionHeader
         tag="Ihr Coaching-Prozess"
         title="Wie Coaching Ihre Selbstwirksamkeit gezielt aufbaut"
-        text="Ein erfahrener Coach fungiert als Spiegel, Sparringspartner und Katalysator — er macht vorhandene Ressourcen sichtbar und Erfolge bewusst."
+        text="Ein erfahrener Coach fungiert als Spiegel, Sparringspartner und Katalysator: Er macht vorhandene Ressourcen sichtbar und Erfolge bewusst."
       />
 
       <NumberedSteps
@@ -200,7 +200,7 @@ export default function SelbstwirksamkeitStaerken() {
           },
           {
             title: 'Passende Ziele formulieren',
-            text: 'Gemeinsam setzen wir realistische Ziele, die genau in der Zone liegen, in der Wachstum entsteht — herausfordernd genug, um Kompetenzbeweise zu erzeugen.',
+            text: 'Gemeinsam setzen wir realistische Ziele, die genau in der Zone liegen, in der Wachstum entsteht, herausfordernd genug, um Kompetenzbeweise zu erzeugen.',
           },
           {
             title: 'Gezielte Experimente im Alltag',
@@ -220,7 +220,7 @@ export default function SelbstwirksamkeitStaerken() {
             'Morgens 2 Min. Reflexion: Was ist die wichtigste Herausforderung des Tages?',
             'Welche Stärke bringe ich dafür mit?',
             'Welche ähnliche Situation habe ich bereits gemeistert?',
-            'Abends: Drei Erfolge des Tages notieren — auch kleine',
+            'Abends: Drei Erfolge des Tages notieren, auch kleine',
             'Aufrechte Körperhaltung bewusst einnehmen vor wichtigen Momenten',
           ]}
           color="teal"
@@ -229,7 +229,7 @@ export default function SelbstwirksamkeitStaerken() {
 
       <Prose>
         <p>
-          Führungskräfte, die ihre eigene Selbstwirksamkeit pflegen, profitieren doppelt: Sie führen souveräner und stärken gleichzeitig die Selbstwirksamkeit ihrer Mitarbeitenden. Denn Selbstwirksamkeit ist ansteckend — eine Führungskraft, die ihrem Team herausfordernde Aufgaben zutraut, erzeugt genau jene Ermutigung, die auch andere wachsen lässt.
+          Führungskräfte, die ihre eigene Selbstwirksamkeit pflegen, profitieren doppelt: Sie führen souveräner und stärken gleichzeitig die Selbstwirksamkeit ihrer Mitarbeitenden. Denn Selbstwirksamkeit ist ansteckend: Eine Führungskraft, die ihrem Team herausfordernde Aufgaben zutraut, erzeugt genau jene Ermutigung, die auch andere wachsen lässt.
         </p>
       </Prose>
 

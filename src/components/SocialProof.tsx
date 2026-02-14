@@ -37,8 +37,8 @@ export default function SocialProof() {
       <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20">
         <motion.div
           className="text-center mb-14"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
@@ -53,8 +53,8 @@ export default function SocialProof() {
             <motion.div
               key={i}
               className="glass-card p-7 flex flex-col relative group"
-              initial={{ opacity: 0, y: 30 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
+              initial={{ y: 30 }}
+              animate={isVisible ? { y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -6, transition: { duration: 0.3 } }}
             >
@@ -67,9 +67,9 @@ export default function SocialProof() {
                   {[...Array(5)].map((_, s) => (
                     <motion.div
                       key={s}
-                      initial={{ opacity: 0, scale: 0 }}
-                      animate={isVisible ? { opacity: 1, scale: 1 } : {}}
-                      transition={{ duration: 0.3, delay: 0.5 + i * 0.1 + s * 0.05, type: 'spring' }}
+                      initial={{ scale: 0 }}
+                      animate={isVisible ? { scale: 1 } : {}}
+                      transition={{ duration: 0.4, delay: 0.4 + i * 0.1 + s * 0.06, ease: [0.22, 1, 0.36, 1] }}
                     >
                       <Star size={12} className="text-gold fill-gold" />
                     </motion.div>
@@ -83,8 +83,8 @@ export default function SocialProof() {
                 <p className="text-sm text-text-secondary">{t.role}</p>
                 <motion.p
                   className="text-sm text-teal font-medium mt-1"
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={isVisible ? { opacity: 1, x: 0 } : {}}
+                  initial={{ x: -10 }}
+                  animate={isVisible ? { x: 0 } : {}}
                   transition={{ duration: 0.4, delay: 0.6 + i * 0.15 }}
                 >
                   {t.result}
@@ -103,22 +103,18 @@ export default function SocialProof() {
         </div>
 
         {/* Floating chat bubbles with pulse */}
-        <div className="mt-12 flex flex-wrap justify-center gap-3">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto">
           {chatBubbles.map((bubble, i) => (
             <motion.div
               key={i}
-              className="glass-card px-5 py-3 text-sm text-text-secondary max-w-xs relative"
-              initial={{ opacity: 0, y: 20, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              className="glass-card px-5 py-3 text-sm text-text-secondary relative"
+              initial={{ y: 20, scale: 0.98 }}
+              whileInView={{ y: 0, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: bubble.delay, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
             >
-              <motion.span
-                className="inline-block w-2 h-2 rounded-full bg-teal mr-2 align-middle"
-                animate={{ scale: [1, 1.3, 1], opacity: [1, 0.6, 1] }}
-                transition={{ duration: 2, repeat: Infinity, delay: i * 0.4 }}
-              />
+              <span className="inline-block w-2 h-2 rounded-full bg-teal mr-2 align-middle" />
               {bubble.text}
             </motion.div>
           ))}

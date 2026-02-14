@@ -13,10 +13,16 @@ export default defineConfig({
     cssMinify: 'lightningcss',
     rollupOptions: {
       output: {
-        manualChunks: {
-          'vendor-react': ['react', 'react-dom'],
-          'vendor-router': ['react-router-dom'],
-          'vendor-motion': ['framer-motion'],
+        manualChunks(id) {
+          if (id.includes('node_modules/react-dom') || id.includes('node_modules/react/') || id.includes('node_modules/scheduler')) {
+            return 'vendor-react'
+          }
+          if (id.includes('node_modules/react-router')) {
+            return 'vendor-router'
+          }
+          if (id.includes('node_modules/framer-motion')) {
+            return 'vendor-motion'
+          }
         },
       },
     },

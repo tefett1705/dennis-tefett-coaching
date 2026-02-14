@@ -56,8 +56,8 @@ function AudioCard({ snippet, index }: { snippet: AudioSnippet; index: number })
   return (
     <motion.div
       className="glass-card p-6 flex items-center gap-5 group"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ y: 20 }}
+      whileInView={{ y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
@@ -106,12 +106,12 @@ export default function AudioGuide() {
   const { ref } = useScrollReveal<HTMLDivElement>()
 
   return (
-    <section className="relative py-20 md:py-28 bg-gradient-to-b from-midnight via-navy/30 to-midnight">
+    <section className="relative py-20 md:py-28 bg-gradient-to-b from-surface via-surface-alt/30 to-surface">
       <div className="max-w-3xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20" ref={ref}>
         <motion.div
           className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
@@ -132,10 +132,6 @@ export default function AudioGuide() {
 
         <motion.p
           className="text-center text-text-secondary/50 text-xs mt-8"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
         >
           Audio-Snippets werden mit Ihrem Logo und Ihrer Stimme ersetzt
         </motion.p>

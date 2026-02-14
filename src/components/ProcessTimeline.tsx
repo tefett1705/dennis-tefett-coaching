@@ -33,12 +33,12 @@ export default function ProcessTimeline() {
   const { ref, isVisible } = useScrollReveal<HTMLDivElement>()
 
   return (
-    <section id="methode" className="relative py-20 md:py-28 bg-gradient-to-b from-midnight via-navy/50 to-midnight">
+    <section id="methode" className="relative py-20 md:py-28 bg-gradient-to-b from-surface via-surface-alt/50 to-surface">
       <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20">
         <motion.div
           className="text-center mb-14"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
@@ -68,7 +68,7 @@ export default function ProcessTimeline() {
               <motion.div
                 key={step.phase}
                 className="glass-card p-6 md:pt-16 relative"
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ y: 30 }}
                 animate={isVisible ? { opacity: 1, y: 0 } : {}}
                 transition={{
                   duration: 0.5,
@@ -77,7 +77,7 @@ export default function ProcessTimeline() {
                 }}
               >
                 {/* Phase indicator on line */}
-                <div className="hidden md:flex absolute -top-5 left-6 w-10 h-10 rounded-full bg-midnight border-2 border-teal/40 items-center justify-center">
+                <div className="hidden md:flex absolute -top-5 left-6 w-10 h-10 rounded-full bg-surface border-2 border-teal/40 items-center justify-center">
                   <span className="text-xs font-mono text-teal">{step.phase}</span>
                 </div>
                 <div className="md:hidden flex items-center gap-3 mb-3">

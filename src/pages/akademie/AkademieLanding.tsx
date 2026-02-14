@@ -12,9 +12,9 @@ export default function AkademieLanding() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-midnight">
+    <div className="min-h-screen bg-surface">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-midnight/80 backdrop-blur-xl border-b border-glass-border">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-glass-border">
         <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 group">
             <span className="text-lg font-serif font-semibold text-text-primary group-hover:text-gold transition-colors duration-300">
@@ -36,15 +36,15 @@ export default function AkademieLanding() {
 
       {/* Hero */}
       <header className="pt-24 md:pt-28 pb-16 md:pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/50 to-midnight" />
+        <div className="absolute inset-0 bg-gradient-to-b from-surface-alt/50 to-surface" />
         <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-teal/4 rounded-full blur-[150px]" />
         <div className="absolute bottom-1/3 left-1/4 w-[300px] h-[300px] bg-gold/3 rounded-full blur-[100px]" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 text-center">
           <motion.div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-teal/20 bg-teal/5 mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <BookOpen size={14} className="text-teal" />
@@ -53,8 +53,8 @@ export default function AkademieLanding() {
 
           <motion.h1
             className="text-4xl md:text-5xl lg:text-6xl font-serif font-semibold mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             Wissens-<span className="text-gradient-teal">Akademie</span>
@@ -62,8 +62,8 @@ export default function AkademieLanding() {
 
           <motion.p
             className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 15 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             Impulse für Führung, Psychologie und persönliches Wachstum. Wissenschaftlich fundiert. Praxisnah. Kostenfrei zugänglich.
@@ -77,8 +77,8 @@ export default function AkademieLanding() {
           {akademieModules.map((mod, i) => (
             <motion.div
               key={mod.slug}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 25 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
             >
@@ -111,12 +111,12 @@ export default function AkademieLanding() {
       </section>
 
       {/* What is the Akademie? */}
-      <section className="py-20 md:py-28 bg-gradient-to-b from-midnight via-navy/30 to-midnight">
+      <section className="py-20 md:py-28 bg-gradient-to-b from-surface via-surface-alt/30 to-surface">
         <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20">
           <motion.div
             className="text-center mb-14"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
@@ -147,8 +147,8 @@ export default function AkademieLanding() {
               <motion.div
                 key={item.title}
                 className="glass-card p-6 md:p-8"
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ y: 25 }}
+                whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
               >
@@ -167,8 +167,8 @@ export default function AkademieLanding() {
       <section className="max-w-4xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 pb-20 md:pb-28">
         <motion.div
           className="glass-card p-8 md:p-10 border-gold/20 relative overflow-hidden"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >

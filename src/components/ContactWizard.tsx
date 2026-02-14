@@ -91,8 +91,8 @@ export default function ContactWizard() {
       <div className="max-w-2xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20">
         <motion.div
           className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
@@ -126,8 +126,8 @@ export default function ContactWizard() {
               <motion.div
                 key="success"
                 className="flex-1 flex flex-col items-center justify-center text-center py-8"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ scale: 0.95 }}
+                animate={{ scale: 1 }}
                 transition={{ duration: 0.5 }}
               >
                 <CheckCircle size={48} className="text-teal mb-6" />
@@ -139,8 +139,8 @@ export default function ContactWizard() {
             ) : currentStep < steps.length ? (
               <motion.div
                 key={`step-${currentStep}`}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ x: 20 }}
+                animate={{ x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.3 }}
                 className="flex-1"
@@ -177,8 +177,8 @@ export default function ContactWizard() {
             ) : (
               <motion.div
                 key="contact-form"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ x: 20 }}
+                animate={{ x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.3 }}
                 className="flex-1"
@@ -228,8 +228,8 @@ export default function ContactWizard() {
                   {error && (
                     <motion.div
                       className="flex items-center gap-2 text-sm text-red-400 bg-red-400/10 border border-red-400/20 rounded-lg px-4 py-2.5"
-                      initial={{ opacity: 0, y: -5 }}
-                      animate={{ opacity: 1, y: 0 }}
+                      initial={{ y: -5 }}
+                      animate={{ y: 0 }}
                     >
                       <AlertCircle size={15} className="flex-shrink-0" />
                       {error}

@@ -23,7 +23,7 @@ import {
   ComparisonTable,
   Prose,
 } from '../components/SubpageBlocks'
-import heroImg from '../assets/images/Dennis schönen Anzug.webp'
+import heroImg from '../assets/images/dennis-schoenen-anzug.webp'
 
 export default function TeambuildingWorkshop() {
   return (

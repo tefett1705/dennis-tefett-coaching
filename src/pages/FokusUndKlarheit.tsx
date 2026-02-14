@@ -23,7 +23,7 @@ import {
   Timer,
   Crosshair,
 } from 'lucide-react'
-import heroImg from '../assets/images/Coaching Bild Klient überlegt.webp'
+import heroImg from '../assets/images/coaching-bild-klient-ueberlegt.webp'
 
 export default function FokusUndKlarheit() {
   return (
@@ -50,7 +50,7 @@ export default function FokusUndKlarheit() {
       <SectionHeader
         tag="Warum es zählt"
         title="Warum Fokus die wichtigste Führungskompetenz unserer Zeit ist"
-        text="In einer Welt permanenter Erreichbarkeit und endloser Meetings ist Fokus zur knappsten Ressource geworden. Konzentration steigern ist keine Frage der Willenskraft — es ist eine Frage der richtigen Systeme."
+        text="In einer Welt permanenter Erreichbarkeit und endloser Meetings ist Fokus zur knappsten Ressource geworden. Konzentration steigern ist keine Frage der Willenskraft, sondern eine Frage der richtigen Systeme."
       />
 
       <StatHighlights
@@ -64,14 +64,14 @@ export default function FokusUndKlarheit() {
 
       <Prose>
         <p>
-          Multitasking ist ein Mythos. Unser Gehirn kann zu jedem Zeitpunkt nur eine komplexe Aufgabe verarbeiten. Was wir als Multitasking erleben, ist schnelles Hin-und-Her-Schalten — das kognitive Kosten verursacht und die Fehlerrate drastisch erhöht. Wer seine Konzentration gezielt steuert, arbeitet nicht länger, sondern intelligenter.
+          Multitasking ist ein Mythos. Unser Gehirn kann zu jedem Zeitpunkt nur eine komplexe Aufgabe verarbeiten. Was wir als Multitasking erleben, ist schnelles Hin-und-Her-Schalten, das kognitive Kosten verursacht und die Fehlerrate drastisch erhöht. Wer seine Konzentration gezielt steuert, arbeitet nicht länger, sondern intelligenter.
         </p>
       </Prose>
 
       {/* --- Klarheitsblocker --- */}
       <SectionHeader
         tag="Hindernisse erkennen"
-        title="Was Ihren Fokus blockiert — und wie Sie es ändern"
+        title="Was Ihren Fokus blockiert und wie Sie es ändern"
       />
 
       <BenefitGrid
@@ -80,7 +80,7 @@ export default function FokusUndKlarheit() {
           {
             icon: EyeOff,
             title: 'Ständige Unterbrechungen',
-            text: 'Push-Benachrichtigungen, spontane Anfragen und offene Bürotüren kosten nicht nur Sekunden — jede Unterbrechung kostet bis zu 23 Minuten Refokussierungszeit.',
+            text: 'Push-Benachrichtigungen, spontane Anfragen und offene Bürotüren kosten nicht nur Sekunden; jede Unterbrechung kostet bis zu 23 Minuten Refokussierungszeit.',
           },
           {
             icon: ShieldOff,
@@ -129,17 +129,17 @@ export default function FokusUndKlarheit() {
           },
           {
             title: 'Achtsamkeitstraining für die Aufmerksamkeitssteuerung',
-            text: 'Bereits 10 Minuten täglicher Achtsamkeitspraxis stärken nach 8 Wochen messbar den präfrontalen Kortex — zuständig für Fokus, Entscheidungsfindung und emotionale Regulation.',
+            text: 'Bereits 10 Minuten täglicher Achtsamkeitspraxis stärken nach 8 Wochen messbar den präfrontalen Kortex, zuständig für Fokus, Entscheidungsfindung und emotionale Regulation.',
           },
           {
             title: 'Wöchentliches Review für strategische Klarheit',
-            text: 'Nehmen Sie sich wöchentlich 30 Minuten: Was lief gut? Was bleibt liegen und warum? Maximal drei Hauptprioritäten für die kommende Woche definieren — nicht zehn, nicht fünf, drei.',
+            text: 'Nehmen Sie sich wöchentlich 30 Minuten: Was lief gut? Was bleibt liegen und warum? Maximal drei Hauptprioritäten für die kommende Woche definieren. Nicht zehn, nicht fünf, drei.',
           },
         ]}
       />
 
       <QuoteBlock
-        text="Klarheit entsteht nicht durch mehr Information, sondern durch die Fähigkeit, das Wesentliche vom Unwesentlichen zu unterscheiden — und den Mut, sich auf das Wesentliche zu konzentrieren."
+        text="Klarheit entsteht nicht durch mehr Information, sondern durch die Fähigkeit, das Wesentliche vom Unwesentlichen zu unterscheiden, und den Mut, sich auf das Wesentliche zu konzentrieren."
       />
 
       {/* --- Vorteile von Fokus --- */}
@@ -190,7 +190,7 @@ export default function FokusUndKlarheit() {
       <HighlightBox title="Morgenroutine für mentale Klarheit" color="teal">
         <Checklist
           items={[
-            'Keine Bildschirme in den ersten 30 Minuten — stattdessen Stille, Atem, Klarheit',
+            'Keine Bildschirme in den ersten 30 Minuten; stattdessen Stille, Atem, Klarheit',
             'Tagesintention setzen: Was ist die eine Sache, die diesen Tag erfolgreich macht?',
             '15–30 Min. Bewegung: Spaziergang, Yoga oder kurzes Training',
             'Maximal 3 Hauptaufgaben für den Tag festlegen',
@@ -202,7 +202,7 @@ export default function FokusUndKlarheit() {
       <HighlightBox title="Über den Tag verteilt" color="gold">
         <Checklist
           items={[
-            'Push-Benachrichtigungen deaktivieren — Fokus schützen',
+            'Push-Benachrichtigungen deaktivieren, Fokus schützen',
             '90-Minuten-Rhythmus respektieren: konzentriert arbeiten, dann bewusst pausieren',
             'E-Mails nur in definierten Zeitfenstern bearbeiten',
             'Vor jeder neuen Aufgabe fragen: Ist das gerade das Wichtigste?',
@@ -223,12 +223,12 @@ export default function FokusUndKlarheit() {
           {
             icon: Crosshair,
             title: 'Fokus ist trainierbar',
-            text: 'Fokus ist kein Talent — es ist eine Fähigkeit, die sich wie ein Muskel trainieren lässt. Regelmässigkeit schlägt Intensität.',
+            text: 'Fokus ist kein Talent, sondern eine Fähigkeit, die sich wie ein Muskel trainieren lässt. Regelmässigkeit schlägt Intensität.',
           },
           {
             icon: ListChecks,
             title: 'Systeme statt Willenskraft',
-            text: 'Mit dem richtigen System wird Fokus zum natürlichen Zustand — statt zum täglichen Kampf gegen Ablenkungen.',
+            text: 'Mit dem richtigen System wird Fokus zum natürlichen Zustand, statt zum täglichen Kampf gegen Ablenkungen.',
           },
         ]}
       />

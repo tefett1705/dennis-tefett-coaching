@@ -185,13 +185,13 @@ export default function Persoenlichkeitstest() {
 
   /* ── Shared Styles ── */
   const inputClass =
-    'w-full bg-midnight/60 border border-glass-border rounded-lg px-4 py-3 text-sm text-text-primary placeholder:text-text-secondary/30 focus:outline-none focus:border-teal/40 transition-colors'
+    'w-full bg-surface/60 border border-glass-border rounded-lg px-4 py-3 text-sm text-text-primary placeholder:text-text-secondary/30 focus:outline-none focus:border-teal/40 transition-colors'
   const selectClass =
-    'w-full bg-midnight/60 border border-glass-border rounded-lg px-4 py-3 text-sm text-text-primary focus:outline-none focus:border-teal/40 transition-colors appearance-none cursor-pointer'
+    'w-full bg-surface/60 border border-glass-border rounded-lg px-4 py-3 text-sm text-text-primary focus:outline-none focus:border-teal/40 transition-colors appearance-none cursor-pointer'
   const labelClass = 'text-xs text-text-secondary mb-1.5 block font-medium'
 
   return (
-    <div className="min-h-screen bg-midnight">
+    <div className="min-h-screen bg-surface">
       <SEOHead
         title="Persönlichkeitstest | Big Five Analyse | Dennis Tefett Coaching"
         description="Entdecken Sie Ihr Persönlichkeitsprofil basierend auf dem wissenschaftlichen Big Five (OCEAN) Modell. 20 Fragen, 5 Dimensionen, individuelle Auswertung."
@@ -199,7 +199,7 @@ export default function Persoenlichkeitstest() {
       />
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-midnight/80 backdrop-blur-xl border-b border-glass-border">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-glass-border">
         <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 group">
             <span className="text-lg font-serif font-semibold text-text-primary group-hover:text-gold transition-colors duration-300">
@@ -225,22 +225,22 @@ export default function Persoenlichkeitstest() {
           {phase === 'intro' && (
             <motion.div
               key="intro"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={{}}
+              animate={{}}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
             >
               {/* Hero */}
               <div className="relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-navy/50 to-midnight" />
+                <div className="absolute inset-0 bg-gradient-to-b from-surface-alt/50 to-surface" />
                 <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-teal/3 rounded-full blur-[120px]" />
                 <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-gold/3 rounded-full blur-[100px]" />
 
                 <div className="relative z-10 max-w-4xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 text-center py-12 md:py-16">
                   <motion.div
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-teal/25 bg-teal/10 mb-6"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
+                    initial={{ scale: 0.95 }}
+                    animate={{ scale: 1 }}
                     transition={{ duration: 0.5 }}
                   >
                     <Sparkles size={14} className="text-teal" />
@@ -251,8 +251,8 @@ export default function Persoenlichkeitstest() {
 
                   <motion.h1
                     className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold leading-tight mb-4"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ y: 20 }}
+                    animate={{ y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
                   >
                     Entdecken Sie Ihr{' '}
@@ -260,8 +260,8 @@ export default function Persoenlichkeitstest() {
                   </motion.h1>
                   <motion.p
                     className="text-base md:text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed"
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ y: 15 }}
+                    animate={{ y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                   >
                     20 Fragen. 5 Dimensionen. Wissenschaftlich fundiert nach dem OCEAN-Modell.
@@ -274,8 +274,8 @@ export default function Persoenlichkeitstest() {
               <div className="max-w-4xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 mt-8">
                 <motion.p
                   className="text-center text-sm text-text-secondary mb-8"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+                  initial={{}}
+                  animate={{}}
                   transition={{ delay: 0.3 }}
                 >
                   Wir analysieren Ihr Profil in fünf wissenschaftlichen Dimensionen:
@@ -289,8 +289,8 @@ export default function Persoenlichkeitstest() {
                       <motion.div
                         key={dim.key}
                         className="glass-card p-4 text-center"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        initial={{ y: 20 }}
+                        animate={{ y: 0 }}
                         transition={{ duration: 0.4, delay: 0.4 + i * 0.08 }}
                       >
                         <div
@@ -307,8 +307,8 @@ export default function Persoenlichkeitstest() {
                 {/* What you get */}
                 <motion.div
                   className="glass-card p-6 md:p-8 mb-10"
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ y: 15 }}
+                  animate={{ y: 0 }}
                   transition={{ delay: 0.8 }}
                 >
                   <h3 className="text-lg font-serif font-semibold mb-4 text-center">Was Sie erwartet</h3>
@@ -331,8 +331,8 @@ export default function Persoenlichkeitstest() {
                 {/* Start CTA */}
                 <motion.div
                   className="text-center"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ y: 10 }}
+                  animate={{ y: 0 }}
                   transition={{ delay: 1 }}
                 >
                   <button
@@ -355,8 +355,8 @@ export default function Persoenlichkeitstest() {
             <motion.div
               key="quiz"
               className="max-w-2xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={{}}
+              animate={{}}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }}
             >
@@ -390,8 +390,8 @@ export default function Persoenlichkeitstest() {
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={`q-${currentQuestion}`}
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    initial={{ x: 30 }}
+                    animate={{ x: 0 }}
                     exit={{ opacity: 0, x: -30 }}
                     transition={{ duration: 0.3 }}
                     className="flex-1"
@@ -410,8 +410,8 @@ export default function Persoenlichkeitstest() {
                               ? 'border-teal/40 bg-teal/10 text-teal'
                               : 'border-glass-border hover:border-teal/20 text-text-secondary hover:text-text-primary'
                           }`}
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
+                          initial={{ y: 10 }}
+                          animate={{ y: 0 }}
                           transition={{ duration: 0.3, delay: i * 0.06 }}
                           whileHover={{ x: 4 }}
                           whileTap={{ scale: 0.98 }}
@@ -442,15 +442,15 @@ export default function Persoenlichkeitstest() {
             <motion.div
               key="signup"
               className="max-w-lg mx-auto px-8 sm:px-12 md:px-16 lg:px-20"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={{}}
+              animate={{}}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
             >
               <motion.div
                 className="text-center mb-8"
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ y: 15 }}
+                animate={{ y: 0 }}
                 transition={{ delay: 0.1 }}
               >
                 <div className="w-16 h-16 rounded-2xl bg-teal/10 flex items-center justify-center mx-auto mb-5">
@@ -461,15 +461,15 @@ export default function Persoenlichkeitstest() {
                 </h2>
                 <p className="text-text-secondary leading-relaxed text-sm md:text-base">
                   Melden Sie sich für unseren Newsletter an und erhalten Sie
-                  Ihr persönliches Persönlichkeitsprofil — inklusive individueller
+                  Ihr persönliches Persönlichkeitsprofil, inklusive individueller
                   Auswertung und konkreter Entwicklungsimpulse.
                 </p>
               </motion.div>
 
               <motion.div
                 className="glass-card p-6 md:p-8"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ y: 20 }}
+                animate={{ y: 0 }}
                 transition={{ delay: 0.3 }}
               >
                 <form onSubmit={handleSignup} className="space-y-4">
@@ -564,8 +564,8 @@ export default function Persoenlichkeitstest() {
                   {signupError && (
                     <motion.div
                       className="flex items-center gap-2 text-sm text-red-400 bg-red-400/10 border border-red-400/20 rounded-lg px-4 py-2.5"
-                      initial={{ opacity: 0, y: -5 }}
-                      animate={{ opacity: 1, y: 0 }}
+                      initial={{ y: -5 }}
+                      animate={{ y: 0 }}
                     >
                       <AlertCircle size={15} className="flex-shrink-0" />
                       {signupError}
@@ -605,8 +605,8 @@ export default function Persoenlichkeitstest() {
               {/* Benefits */}
               <motion.div
                 className="mt-6 flex flex-col gap-2"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                initial={{}}
+                animate={{}}
                 transition={{ delay: 0.5 }}
               >
                 {[
@@ -628,8 +628,8 @@ export default function Persoenlichkeitstest() {
             <motion.div
               key="calculating"
               className="max-w-lg mx-auto px-8 text-center py-20"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={{}}
+              animate={{}}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
             >
@@ -674,16 +674,16 @@ export default function Persoenlichkeitstest() {
 
               <motion.h2
                 className="text-xl md:text-2xl font-serif font-semibold mb-3"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ y: 10 }}
+                animate={{ y: 0 }}
                 transition={{ delay: 0.3 }}
               >
                 Ihr Persönlichkeitsprofil wird erstellt...
               </motion.h2>
               <motion.p
                 className="text-text-secondary text-sm"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                initial={{}}
+                animate={{}}
                 transition={{ delay: 0.6 }}
               >
                 Wir werten Ihre Antworten über alle fünf Dimensionen aus.
@@ -695,36 +695,36 @@ export default function Persoenlichkeitstest() {
           {phase === 'results' && scores && profile && (
             <motion.div
               key="results"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={{}}
+              animate={{}}
               transition={{ duration: 0.6 }}
             >
               {/* Hero result */}
               <div className="relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-navy/50 to-midnight" />
+                <div className="absolute inset-0 bg-gradient-to-b from-surface-alt/50 to-surface" />
                 <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-teal/5 rounded-full blur-[120px]" />
 
                 <div className="relative z-10 max-w-4xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 text-center py-10 md:py-14">
                   <motion.span
                     className="text-xs tracking-[0.25em] uppercase text-gold font-medium inline-block mb-3"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ y: 10 }}
+                    animate={{ y: 0 }}
                     transition={{ delay: 0.2 }}
                   >
                     Ihr Persönlichkeitsprofil
                   </motion.span>
                   <motion.h1
                     className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold leading-tight mb-3 text-gradient-teal"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ y: 20 }}
+                    animate={{ y: 0 }}
                     transition={{ delay: 0.3 }}
                   >
                     {profile.name}
                   </motion.h1>
                   <motion.p
                     className="text-base md:text-lg text-gold font-medium"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
+                    initial={{}}
+                    animate={{}}
                     transition={{ delay: 0.5 }}
                   >
                     {profile.subtitle}
@@ -736,8 +736,8 @@ export default function Persoenlichkeitstest() {
                 {/* Profile description */}
                 <motion.div
                   className="glass-card p-6 md:p-8 mb-8 text-center"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ y: 20 }}
+                  animate={{ y: 0 }}
                   transition={{ delay: 0.6 }}
                 >
                   <p className="text-text-secondary leading-relaxed text-base">{profile.description}</p>
@@ -746,8 +746,8 @@ export default function Persoenlichkeitstest() {
                 {/* Radar Chart (Pentagon) */}
                 <motion.div
                   className="flex justify-center mb-10"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  initial={{ scale: 0.95 }}
+                  animate={{ scale: 1 }}
                   transition={{ delay: 0.8 }}
                 >
                   <RadarChart scores={scores as unknown as Record<string, number>} axes={oceanAxes} size={340} animated />
@@ -776,8 +776,8 @@ export default function Persoenlichkeitstest() {
                       <motion.div
                         key={dim.key}
                         className="glass-card p-5"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        initial={{ y: 20 }}
+                        animate={{ y: 0 }}
                         transition={{ delay: 1 + i * 0.15 }}
                       >
                         <div className="flex items-center gap-3 mb-3">
@@ -816,8 +816,8 @@ export default function Persoenlichkeitstest() {
                 {/* Strengths & Growth Areas */}
                 <motion.div
                   className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10"
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ y: 15 }}
+                  animate={{ y: 0 }}
                   transition={{ delay: 1.8 }}
                 >
                   <div className="glass-card p-5 border-teal/20 bg-teal/[0.03]">
@@ -853,8 +853,8 @@ export default function Persoenlichkeitstest() {
                 {/* Coaching Focus */}
                 <motion.div
                   className="glass-card p-6 md:p-8 mb-10 border-teal/15"
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ y: 15 }}
+                  animate={{ y: 0 }}
                   transition={{ delay: 2 }}
                 >
                   <h3 className="text-lg font-serif font-semibold mb-3">
@@ -866,8 +866,8 @@ export default function Persoenlichkeitstest() {
                 {/* CTA */}
                 <motion.div
                   className="glass-card p-8 md:p-10 text-center mb-10"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ y: 20 }}
+                  animate={{ y: 0 }}
                   transition={{ delay: 2.2 }}
                 >
                   <h3 className="text-xl md:text-2xl font-serif font-semibold mb-3">
@@ -898,8 +898,8 @@ export default function Persoenlichkeitstest() {
                 {/* 100% Guarantee */}
                 <motion.div
                   className="text-center mb-8"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+                  initial={{}}
+                  animate={{}}
                   transition={{ delay: 2.4 }}
                 >
                   <p className="text-xs text-text-secondary/50">

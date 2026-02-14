@@ -17,6 +17,10 @@ export interface ContactData {
   situation?: string
   goal?: string
   selectedPackage?: string
+  phone?: string
+  company?: string
+  subject?: string
+  preferredContact?: string
 }
 
 export interface ApiResponse {

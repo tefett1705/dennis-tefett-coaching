@@ -1,6 +1,24 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import nodemailer from 'nodemailer'
 
+/* ── Security helpers ── */
+const ALLOWED_ORIGIN = 'https://dennis-tefett.de'
+
+function escapeHtml(str: string): string {
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;')
+}
+
+function sanitizeHeader(str: string): string {
+  return str.replace(/[\r\n\0]/g, '')
+}
+
+function setCors(res: VercelResponse) {
+  res.setHeader('Access-Control-Allow-Origin', ALLOWED_ORIGIN)
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+  res.setHeader('Vary', 'Origin')
+}
+
 /* ── Validation helpers ── */
 function validateEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
@@ -41,13 +59,13 @@ async function sendConfirmationEmail(subscriber: {
 
   await transporter.sendMail({
     from: `"Dennis Tefett Coaching" <${SMTP_USER}>`,
-    to: subscriber.email,
+    to: sanitizeHeader(subscriber.email),
     subject: 'Willkommen beim Newsletter — Dennis Tefett Coaching',
     html: `
       <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px; background: #f8f9fa;">
         <div style="background: #061a2d; border-radius: 16px; padding: 40px 32px; color: #ffffff;">
           <h1 style="font-size: 24px; margin: 0 0 20px; color: #2DD4BF; font-weight: 600;">
-            Willkommen, ${subscriber.gender === 'Frau' ? 'Frau' : subscriber.gender === 'Herr' ? 'Herr' : ''} ${subscriber.lastName}!
+            Willkommen, ${subscriber.gender === 'Frau' ? 'Frau' : subscriber.gender === 'Herr' ? 'Herr' : ''} ${escapeHtml(subscriber.lastName)}!
           </h1>
           <p style="font-size: 15px; line-height: 1.7; color: #a0aec0; margin: 0 0 20px;">
             Vielen Dank für Ihre Anmeldung zum Newsletter. Sie erhalten ab sofort alle zwei Wochen
@@ -72,7 +90,7 @@ async function sendConfirmationEmail(subscriber: {
     `,
   })
 
-  console.log(`[Newsletter] Bestätigungs-E-Mail gesendet an ${subscriber.email}`)
+  console.log('[Newsletter] Bestätigungs-E-Mail gesendet')
 }
 
 /* ── Notification to Dennis ── */
@@ -98,18 +116,18 @@ async function sendNotificationToAdmin(subscriber: {
   await transporter.sendMail({
     from: `"Dennis Tefett Webseite" <${SMTP_USER}>`,
     to: NOTIFY_EMAIL,
-    subject: `Neuer Newsletter-Abonnent: ${subscriber.firstName} ${subscriber.lastName}`,
+    subject: sanitizeHeader(`Neuer Newsletter-Abonnent: ${subscriber.firstName} ${subscriber.lastName}`),
     html: `
       <div style="font-family: 'Segoe UI', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
         <h2 style="color: #061a2d; border-bottom: 2px solid #2DD4BF; padding-bottom: 10px;">
           Neuer Newsletter-Abonnent
         </h2>
-        <p><strong>Anrede:</strong> ${subscriber.gender}</p>
-        <p><strong>Name:</strong> ${subscriber.firstName} ${subscriber.lastName}</p>
-        <p><strong>E-Mail:</strong> <a href="mailto:${subscriber.email}">${subscriber.email}</a></p>
-        <p><strong>Geburtsjahr:</strong> ${subscriber.birthYear}</p>
-        <p><strong>PLZ:</strong> ${subscriber.zip}</p>
-        <p><strong>Quelle:</strong> ${subscriber.source}</p>
+        <p><strong>Anrede:</strong> ${escapeHtml(subscriber.gender)}</p>
+        <p><strong>Name:</strong> ${escapeHtml(subscriber.firstName)} ${escapeHtml(subscriber.lastName)}</p>
+        <p><strong>E-Mail:</strong> <a href="mailto:${escapeHtml(subscriber.email)}">${escapeHtml(subscriber.email)}</a></p>
+        <p><strong>Geburtsjahr:</strong> ${escapeHtml(subscriber.birthYear)}</p>
+        <p><strong>PLZ:</strong> ${escapeHtml(subscriber.zip)}</p>
+        <p><strong>Quelle:</strong> ${escapeHtml(subscriber.source)}</p>
         <p style="font-size: 12px; color: #999; margin-top: 20px;">
           Angemeldet am ${new Date().toLocaleString('de-DE')}
         </p>
@@ -120,10 +138,7 @@ async function sendNotificationToAdmin(subscriber: {
 
 /* ── Serverless Handler ── */
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  // CORS
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+  setCors(res)
 
   if (req.method === 'OPTIONS') {
     return res.status(200).end()
@@ -151,7 +166,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       source: String(source || 'unknown'),
     }
 
-    console.log(`[Newsletter] Neuer Abonnent: ${subscriber.email} (Quelle: ${subscriber.source})`)
+    console.log('[Newsletter] Neuer Abonnent eingegangen')
 
     // Send emails (non-blocking, don't fail if email fails)
     await Promise.allSettled([

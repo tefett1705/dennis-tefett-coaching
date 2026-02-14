@@ -25,12 +25,12 @@ const featuredModules = [
 
 export default function AkademieTeaser() {
   return (
-    <section className="relative py-20 md:py-28 bg-gradient-to-b from-midnight via-navy/50 to-midnight">
+    <section className="relative py-20 md:py-28 bg-gradient-to-b from-surface via-surface-alt/50 to-surface">
       <div className="max-w-4xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20">
         <motion.div
           className="glass-card p-8 md:p-12 relative overflow-hidden"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 30 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
@@ -52,8 +52,8 @@ export default function AkademieTeaser() {
               {featuredModules.map((mod, i) => (
                 <motion.div
                   key={mod.title}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ y: 15 }}
+                  whileInView={{ y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
                 >

@@ -171,8 +171,8 @@ export default function RadarChart({ scores, axes, size = 300, animated = true }
             dominantBaseline="middle"
             className="fill-teal"
             style={{ fontSize: '10px', fontWeight: 600, fontFamily: 'Manrope, sans-serif' }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{}}
+            animate={{}}
             transition={{ duration: 0.5, delay: 1.5 }}
           >
             {score}%

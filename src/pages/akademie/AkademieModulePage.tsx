@@ -29,9 +29,9 @@ export default function AkademieModulePage() {
     : { accent: 'text-gold', bg: 'bg-gold/10', border: 'border-gold/30', hoverBorder: 'hover:border-gold/30' }
 
   return (
-    <div className="min-h-screen bg-midnight">
+    <div className="min-h-screen bg-surface">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-midnight/80 backdrop-blur-xl border-b border-glass-border">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-glass-border">
         <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2 text-sm">
             <Link to="/" className="font-serif font-semibold text-text-primary hover:text-gold transition-colors">
@@ -53,14 +53,14 @@ export default function AkademieModulePage() {
 
       {/* Hero */}
       <header className="pt-24 md:pt-28 pb-12 md:pb-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/50 to-midnight" />
+        <div className="absolute inset-0 bg-gradient-to-b from-surface-alt/50 to-surface" />
         <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-teal/3 rounded-full blur-[120px]" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20">
           <motion.div
             className="flex items-center gap-4 mb-6"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 15 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.5 }}
           >
             <div className={`w-12 h-12 rounded-xl ${colorClasses.bg} flex items-center justify-center`}>
@@ -73,8 +73,8 @@ export default function AkademieModulePage() {
 
           <motion.h1
             className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold leading-tight mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             {mod.title}
@@ -82,8 +82,8 @@ export default function AkademieModulePage() {
 
           <motion.p
             className="text-lg text-text-secondary max-w-2xl leading-relaxed"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 15 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             {mod.description}
@@ -102,8 +102,8 @@ export default function AkademieModulePage() {
       <section className="max-w-5xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 pb-16">
         <motion.h2
           className="text-sm font-medium text-text-secondary/60 uppercase tracking-wider mb-6"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{}}
+          whileInView={{}}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
@@ -114,8 +114,8 @@ export default function AkademieModulePage() {
           {mod.impulse.map((impuls, i) => (
             <motion.div
               key={impuls.slug}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 20 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
             >

@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
 import { useMagneticButton } from '../hooks/useMagneticButton'
-import portraitSuit from '../assets/images/Dennis schönen Anzug.webp'
+import portraitSuit from '../assets/images/dennis-schoenen-anzug.webp'
 
 export default function Hero() {
   const { ref: btnRef, onMouseMove } = useMagneticButton<HTMLButtonElement>()
@@ -22,7 +22,7 @@ export default function Hero() {
   return (
     <section ref={sectionRef} className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background gradient layers */}
-      <div className="absolute inset-0 bg-gradient-to-b from-midnight via-navy to-midnight" />
+      <div className="absolute inset-0 bg-gradient-to-b from-surface via-surface-alt to-surface" />
       <div className="absolute top-0 right-0 w-full h-full opacity-30">
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-teal/5 rounded-full blur-[120px]" />
         <div className="absolute bottom-1/3 left-1/4 w-72 h-72 bg-gold/5 rounded-full blur-[100px]" />
@@ -30,12 +30,12 @@ export default function Hero() {
 
       <div className="relative z-10 w-full max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 pt-24 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-        <div className="max-w-2xl lg:max-w-[600px]">
+        <div className="max-w-2xl lg:max-w-[600px] order-last lg:order-first">
           {/* Eyebrow */}
           <motion.div
             className="flex items-center gap-3 mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.6, delay: 1.0 }}
           >
             <motion.div
@@ -52,8 +52,8 @@ export default function Hero() {
           {/* Main Headline */}
           <motion.h1
             className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif font-semibold leading-[1.1] tracking-tight mb-6"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 30 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.7, delay: 1.15 }}
           >
             Führung beginnt{' '}
@@ -65,8 +65,8 @@ export default function Hero() {
           {/* Subline */}
           <motion.p
             className="text-lg md:text-xl text-text-secondary leading-relaxed mb-10 max-w-xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.6, delay: 1.35 }}
           >
             Neurowissenschaftlich fundiertes Executive Coaching für
@@ -77,8 +77,8 @@ export default function Hero() {
           {/* CTAs */}
           <motion.div
             className="flex flex-col sm:flex-row gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.6, delay: 1.5 }}
           >
             <button
@@ -100,9 +100,6 @@ export default function Hero() {
           {/* Credentials */}
           <motion.div
             className="mt-14 flex flex-wrap gap-x-6 gap-y-2 text-xs tracking-wide text-text-secondary/60"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.8 }}
           >
             <span>Psychologe & Gesundheitsmanager</span>
             <span className="text-glass-border">|</span>
@@ -114,49 +111,61 @@ export default function Hero() {
 
         {/* Portrait Image with parallax */}
         <motion.div
-          className="hidden lg:block relative"
-          initial={{ opacity: 0, scale: 0.9, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
+          className="relative order-first lg:order-last"
+          initial={{ scale: 0.95, y: 20 }}
+          animate={{ scale: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.4, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="relative overflow-hidden rounded-2xl max-w-[420px] ml-auto">
-            <motion.div style={{ y: imageY, scale: imageScale }}>
+          <div className="relative overflow-hidden rounded-2xl max-w-[280px] mx-auto lg:max-w-[420px] lg:ml-auto lg:mx-0">
+            <motion.div className="hidden lg:block" style={{ y: imageY, scale: imageScale }}>
               <img
                 src={portraitSuit}
                 alt="Dennis Tefett - Executive Coach"
                 className="w-full h-auto object-cover aspect-[3/4]"
                 decoding="async"
+                loading="eager"
                 fetchPriority="high"
               />
             </motion.div>
+            {/* Mobile image without parallax */}
+            <div className="lg:hidden">
+              <img
+                src={portraitSuit}
+                alt="Dennis Tefett - Executive Coach"
+                className="w-full h-auto object-cover object-top aspect-[4/5]"
+                decoding="async"
+                loading="eager"
+                fetchPriority="high"
+              />
+            </div>
             {/* Gradient overlays */}
-            <div className="absolute inset-0 bg-gradient-to-t from-midnight/60 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-surface/80 via-surface/20 to-transparent lg:from-surface/60 lg:via-transparent" />
             <motion.div
-              className="absolute inset-0 bg-midnight/0"
+              className="absolute inset-0 bg-surface/0 hidden lg:block"
               style={{ opacity: overlayOpacity }}
             />
             {/* Animated corner accents */}
             <motion.div
-              className="absolute bottom-4 left-4 w-12 h-12 border-b-2 border-l-2 border-teal/30"
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
+              className="absolute bottom-4 left-4 w-8 h-8 lg:w-12 lg:h-12 border-b-2 border-l-2 border-teal/30"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
               transition={{ duration: 0.6, delay: 2.0 }}
             />
             <motion.div
-              className="absolute top-4 right-4 w-12 h-12 border-t-2 border-r-2 border-gold/20"
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
+              className="absolute top-4 right-4 w-8 h-8 lg:w-12 lg:h-12 border-t-2 border-r-2 border-gold/20"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
               transition={{ duration: 0.6, delay: 2.1 }}
             />
           </div>
-          {/* Floating decorative elements */}
+          {/* Floating decorative elements - desktop only */}
           <motion.div
-            className="absolute -bottom-4 -left-4 w-28 h-28 border-2 border-teal/10 rounded-2xl"
+            className="absolute -bottom-4 -left-4 w-28 h-28 border-2 border-teal/10 rounded-2xl hidden lg:block"
             animate={{ y: [0, -8, 0], rotate: [0, 1, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
           />
           <motion.div
-            className="absolute -top-4 -right-4 w-20 h-20 border-2 border-gold/8 rounded-xl"
+            className="absolute -top-4 -right-4 w-20 h-20 border-2 border-gold/8 rounded-xl hidden lg:block"
             animate={{ y: [0, 6, 0], rotate: [0, -1, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
           />
@@ -167,10 +176,8 @@ export default function Hero() {
       {/* Scroll indicator */}
       <motion.button
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-text-secondary/40 hover:text-teal transition-colors cursor-pointer"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 6, 0] }}
+        animate={{ y: [0, 6, 0] }}
         transition={{
-          opacity: { delay: 2.2, duration: 0.5 },
           y: { delay: 2.2, duration: 2, repeat: Infinity },
         }}
         onClick={() => scrollToSection('#vertrauen')}

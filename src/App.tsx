@@ -38,6 +38,9 @@ const AGB = lazy(() => import('./pages/AGB'))
 const Impressum = lazy(() => import('./pages/Impressum'))
 const Selbsttest = lazy(() => import('./pages/Selbsttest'))
 const Persoenlichkeitstest = lazy(() => import('./pages/Persoenlichkeitstest'))
+const Kontakt = lazy(() => import('./pages/Kontakt'))
+const TerminBuchen = lazy(() => import('./pages/TerminBuchen'))
+const TerminVerwaltung = lazy(() => import('./pages/admin/TerminVerwaltung'))
 
 // Akademie pages
 const AkademieLanding = lazy(() => import('./pages/akademie/AkademieLanding'))
@@ -46,7 +49,7 @@ const AkademieImpulsPage = lazy(() => import('./pages/akademie/AkademieImpulsPag
 
 function PageLoader() {
   return (
-    <div className="min-h-screen bg-midnight flex items-center justify-center">
+    <div className="min-h-screen bg-surface flex items-center justify-center">
       <div className="w-8 h-8 border-2 border-teal/30 border-t-teal rounded-full animate-spin" />
     </div>
   )
@@ -110,6 +113,9 @@ function App() {
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/selbsttest" element={<Selbsttest />} />
           <Route path="/persoenlichkeitstest" element={<Persoenlichkeitstest />} />
+          <Route path="/kontakt" element={<Kontakt />} />
+          <Route path="/termin-buchen" element={<TerminBuchen />} />
+          <Route path="/admin/termine" element={<TerminVerwaltung />} />
           {/* Akademie */}
           <Route path="/akademie" element={<AkademieLanding />} />
           <Route path="/akademie/:moduleSlug" element={<AkademieModulePage />} />

@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, ChevronDown, Brain, Type, BookOpen } from 'lucide-react'
+import { ChevronDown, Brain, Type, BookOpen, Sun, Moon, Home, Compass, Gift, Calendar } from 'lucide-react'
 import { useTextSize, type TextSize } from '../context/TextSizeContext'
+import { useTheme } from '../context/ThemeContext'
 
 const textSizes: TextSize[] = ['S', 'M', 'L']
 
@@ -44,13 +45,23 @@ const wissenCategories = [
   },
 ]
 
+const bottomTabs = [
+  { id: 'start', label: 'Start', icon: Home, type: 'scroll' as const, target: '#top' },
+  { id: 'methode', label: 'Methode', icon: Compass, type: 'scroll' as const, target: '#methode' },
+  { id: 'angebot', label: 'Angebot', icon: Gift, type: 'scroll' as const, target: '#angebot' },
+  { id: 'akademie', label: 'Akademie', icon: BookOpen, type: 'link' as const, target: '/akademie' },
+  { id: 'termin', label: 'Termin', icon: Calendar, type: 'link' as const, target: '/termin-buchen' },
+]
+
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileOpen, setIsMobileOpen] = useState(false)
   const [isWissenOpen, setIsWissenOpen] = useState(false)
-  const [isWissenMobileOpen, setIsWissenMobileOpen] = useState(false)
   const wissenCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const { textSize, setTextSize } = useTextSize()
+  const { theme, toggleTheme } = useTheme()
+  const location = useLocation()
+  const navigate = useNavigate()
+  const [activeTab, setActiveTab] = useState('start')
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 40)
@@ -59,18 +70,44 @@ export default function Navigation() {
   }, [])
 
   useEffect(() => {
-    if (isMobileOpen) {
-      document.body.style.overflow = 'hidden'
+    if (location.pathname === '/akademie' || location.pathname.startsWith('/akademie/')) {
+      setActiveTab('akademie')
+    } else if (location.pathname === '/termin-buchen') {
+      setActiveTab('termin')
+    } else if (location.pathname === '/') {
+      if (location.hash === '#methode') setActiveTab('methode')
+      else if (location.hash === '#angebot') setActiveTab('angebot')
+      else setActiveTab('start')
     } else {
-      document.body.style.overflow = ''
+      setActiveTab('')
     }
-    return () => { document.body.style.overflow = '' }
-  }, [isMobileOpen])
+  }, [location.pathname, location.hash])
 
   const scrollTo = (href: string) => {
-    setIsMobileOpen(false)
     const el = document.querySelector(href)
     el?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  const handleTabClick = (tab: typeof bottomTabs[number]) => {
+    setActiveTab(tab.id)
+    if (tab.type === 'scroll') {
+      if (location.pathname !== '/') {
+        navigate('/')
+        setTimeout(() => {
+          if (tab.target === '#top') {
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+          } else {
+            document.querySelector(tab.target)?.scrollIntoView({ behavior: 'smooth' })
+          }
+        }, 100)
+      } else {
+        if (tab.target === '#top') {
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+        } else {
+          document.querySelector(tab.target)?.scrollIntoView({ behavior: 'smooth' })
+        }
+      }
+    }
   }
 
   const handleWissenEnter = () => {
@@ -92,7 +129,7 @@ export default function Navigation() {
       <motion.nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'bg-midnight/80 backdrop-blur-xl border-b border-glass-border shadow-lg shadow-midnight/50'
+            ? 'bg-surface/80 backdrop-blur-xl border-b border-glass-border shadow-lg shadow-surface/50'
             : 'bg-transparent'
         }`}
         initial={{ y: -80 }}
@@ -133,10 +170,10 @@ export default function Navigation() {
               <AnimatePresence>
                 {isWissenOpen && (
                   <motion.div
-                    className="absolute top-full right-0 mt-3 w-[600px] rounded-2xl border border-white/[0.08] bg-[#0a2240]/95 backdrop-blur-2xl shadow-2xl shadow-midnight/60 p-5"
+                    className="absolute top-full right-0 mt-3 w-[600px] rounded-2xl border border-glass-border bg-surface-alt/95 backdrop-blur-2xl shadow-2xl shadow-surface/60 p-5"
                     style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr 1fr', gap: '20px' }}
-                    initial={{ opacity: 0, y: -8 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ y: -8 }}
+                    animate={{ y: 0 }}
                     exit={{ opacity: 0, y: -8 }}
                     transition={{ duration: 0.2 }}
                   >
@@ -161,7 +198,7 @@ export default function Navigation() {
                     ))}
 
                     {/* Akademie highlight */}
-                    <div className="mt-3 pt-3 border-t border-white/[0.06]" style={{ gridColumn: '1 / -1' }}>
+                    <div className="mt-3 pt-3 border-t border-glass-border/50" style={{ gridColumn: '1 / -1' }}>
                       <Link
                         to="/akademie"
                         className="flex items-center gap-3 p-3 rounded-xl bg-teal/8 border border-teal/20 hover:bg-teal/15 transition-all duration-200 group"
@@ -178,7 +215,7 @@ export default function Navigation() {
                     </div>
 
                     {/* Selbsttest + Persönlichkeitstest highlights */}
-                    <div className="pt-3 border-t border-white/[0.06]" style={{ gridColumn: '1 / -1' }}>
+                    <div className="pt-3 border-t border-glass-border/50" style={{ gridColumn: '1 / -1' }}>
                       <div className="grid grid-cols-2 gap-3">
                         <Link
                           to="/selbsttest"
@@ -210,11 +247,11 @@ export default function Navigation() {
                     </div>
 
                     {/* Text Size Toggle */}
-                    <div className="pt-3 border-t border-white/[0.06] flex items-center justify-between" style={{ gridColumn: '1 / -1' }}>
+                    <div className="pt-3 border-t border-glass-border/50 flex items-center justify-between" style={{ gridColumn: '1 / -1' }}>
                       <span className="text-xs text-text-secondary/40">Textgröße</span>
                       <div className="flex items-center gap-1.5">
                         <Type size={13} className="text-text-secondary/50" />
-                        <div className="flex items-center bg-white/[0.04] border border-white/[0.08] rounded-full p-0.5 relative">
+                        <div className="flex items-center bg-glass border border-glass-border rounded-full p-0.5 relative">
                           {textSizes.map((label) => (
                             <button
                               key={label}
@@ -245,6 +282,26 @@ export default function Navigation() {
               </AnimatePresence>
             </div>
 
+            {/* Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full border border-glass-border bg-glass hover:bg-glass-border/30 transition-all duration-300 cursor-pointer"
+              aria-label={theme === 'dark' ? 'Hellen Modus aktivieren' : 'Dunklen Modus aktivieren'}
+            >
+              <motion.div
+                key={theme}
+                initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
+                animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              >
+                {theme === 'dark' ? (
+                  <Sun size={16} className="text-gold" />
+                ) : (
+                  <Moon size={16} className="text-teal" />
+                )}
+              </motion.div>
+            </button>
+
             <Link
               to="/akademie"
               className="btn-magnetic px-4 py-2 bg-teal/8 border border-teal/25 text-teal rounded-full text-sm font-medium hover:bg-teal/15 hover:border-teal/40 transition-all duration-300 flex items-center gap-1.5"
@@ -252,169 +309,95 @@ export default function Navigation() {
               <BookOpen size={12} />
               Akademie
             </Link>
-            <button
-              onClick={() => scrollTo('#kontakt')}
-              className="btn-magnetic px-5 py-2 bg-teal/10 border border-teal/30 text-teal rounded-full text-sm font-medium hover:bg-teal/20 hover:border-teal/50 transition-all duration-300 cursor-pointer"
+            <Link
+              to="/termin-buchen"
+              className="btn-magnetic px-5 py-2 bg-teal/10 border border-teal/30 text-teal rounded-full text-sm font-medium hover:bg-teal/20 hover:border-teal/50 transition-all duration-300"
             >
-              Erstgespräch
-            </button>
+              Termin buchen
+            </Link>
           </div>
 
-          <button
-            onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="md:hidden p-2 text-text-secondary hover:text-teal transition-colors cursor-pointer"
-            aria-label="Menu"
-          >
-            {isMobileOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
         </div>
       </motion.nav>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileOpen && (
-          <motion.div
-            className="fixed inset-0 z-40 bg-midnight/95 backdrop-blur-2xl flex flex-col items-center justify-center gap-6 overflow-y-auto py-20"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            {navLinks.map((link, i) => (
-              <motion.button
-                key={link.href}
-                onClick={() => scrollTo(link.href)}
-                className="text-2xl font-serif text-text-primary hover:text-teal transition-colors cursor-pointer"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.06, duration: 0.4 }}
-              >
-                {link.label}
-              </motion.button>
-            ))}
+      {/* Mobile Bottom Tab Bar */}
+      <motion.nav
+        className="fixed bottom-0 left-0 right-0 z-50 md:hidden"
+        initial={{ y: 100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5, delay: 1.0, ease: [0.22, 1, 0.36, 1] }}
+        style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
+      >
+        <div className="bg-surface/80 backdrop-blur-xl border-t border-glass-border">
+          <div className="flex items-center justify-around h-16 px-2">
+            {bottomTabs.map((tab) => {
+              const isActive = activeTab === tab.id
+              const Icon = tab.icon
 
-            {/* Wissen expandable section */}
-            <motion.div
-              className="flex flex-col items-center"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: navLinks.length * 0.06, duration: 0.4 }}
-            >
-              <button
-                onClick={() => setIsWissenMobileOpen(!isWissenMobileOpen)}
-                className="text-2xl font-serif text-text-primary hover:text-teal transition-colors cursor-pointer flex items-center gap-2"
-              >
-                Wissen
-                <ChevronDown
-                  size={20}
-                  className={`transition-transform duration-200 ${isWissenMobileOpen ? 'rotate-180' : ''}`}
-                />
-              </button>
-
-              <AnimatePresence>
-                {isWissenMobileOpen && (
-                  <motion.div
-                    className="mt-4 flex flex-col items-center gap-4 px-8"
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
+              if (tab.type === 'link') {
+                return (
+                  <Link
+                    key={tab.id}
+                    to={tab.target}
+                    onClick={() => setActiveTab(tab.id)}
+                    className="flex flex-col items-center justify-center gap-1 flex-1 py-2 relative"
                   >
-                    {wissenCategories.map((cat) => (
-                      <div key={cat.label} className="text-center">
-                        <span className="text-xs tracking-[0.15em] uppercase text-text-secondary/40 font-medium block mb-2">
-                          {cat.label}
-                        </span>
-                        {cat.links.map((link) => (
-                          <Link
-                            key={link.href}
-                            to={link.href}
-                            className="block text-base text-text-secondary hover:text-teal transition-colors py-1"
-                            onClick={() => setIsMobileOpen(false)}
-                          >
-                            {link.label}
-                          </Link>
-                        ))}
-                      </div>
-                    ))}
-
-                    {/* Selbsttest + Persönlichkeitstest mobile links */}
-                    <Link
-                      to="/selbsttest"
-                      className="mt-2 flex items-center gap-2 px-5 py-2.5 rounded-full bg-gold/10 border border-gold/25 text-gold font-medium text-base"
-                      onClick={() => setIsMobileOpen(false)}
+                    {isActive && (
+                      <motion.div
+                        className="absolute -top-px left-3 right-3 h-0.5 bg-teal rounded-full"
+                        layoutId="bottomTabIndicator"
+                        transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+                      />
+                    )}
+                    <Icon
+                      size={20}
+                      className={`transition-colors duration-200 ${
+                        isActive ? 'text-teal' : 'text-text-secondary/60'
+                      }`}
+                    />
+                    <span
+                      className={`text-[10px] font-medium tracking-wide transition-colors duration-200 ${
+                        isActive ? 'text-teal' : 'text-text-secondary/50'
+                      }`}
                     >
-                      <Brain size={18} />
-                      Führungsprofil-Analyse
-                    </Link>
-                    <Link
-                      to="/persoenlichkeitstest"
-                      className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-teal/10 border border-teal/25 text-teal font-medium text-base"
-                      onClick={() => setIsMobileOpen(false)}
-                    >
-                      <Brain size={18} />
-                      Persönlichkeitstest
-                    </Link>
+                      {tab.label}
+                    </span>
+                  </Link>
+                )
+              }
 
-                    {/* Mobile Text Size Toggle */}
-                    <div className="mt-3 flex items-center gap-2">
-                      <Type size={14} className="text-text-secondary/50" />
-                      <div className="flex items-center bg-white/[0.04] border border-white/[0.08] rounded-full p-0.5 relative">
-                        {textSizes.map((label) => (
-                          <button
-                            key={label}
-                            onClick={(e) => { e.stopPropagation(); setTextSize(label) }}
-                            className={`relative z-10 px-3 py-1.5 rounded-full cursor-pointer transition-colors duration-200 text-sm font-semibold leading-none ${
-                              textSize === label
-                                ? 'text-midnight'
-                                : 'text-text-secondary/60 hover:text-text-secondary'
-                            }`}
-                          >
-                            {label}
-                          </button>
-                        ))}
-                        <motion.div
-                          className="absolute top-0.5 bottom-0.5 bg-teal rounded-full pointer-events-none"
-                          animate={{
-                            left: textSizes.indexOf(textSize) === 0 ? '2px' : textSizes.indexOf(textSize) === 1 ? '33.33%' : '66.66%',
-                            width: '33.33%',
-                          }}
-                          transition={{ type: 'spring', stiffness: 500, damping: 35 }}
-                          style={{ zIndex: 0 }}
-                        />
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: (navLinks.length + 1) * 0.06, duration: 0.4 }}
-            >
-              <Link
-                to="/akademie"
-                onClick={() => setIsMobileOpen(false)}
-                className="text-xl font-serif text-teal hover:text-teal/80 transition-colors flex items-center gap-2"
-              >
-                <BookOpen size={16} />
-                Wissens-Akademie
-              </Link>
-            </motion.div>
-            <motion.button
-              onClick={() => scrollTo('#kontakt')}
-              className="mt-2 px-8 py-3 bg-teal text-midnight rounded-full font-semibold text-lg cursor-pointer"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: (navLinks.length + 2) * 0.06, duration: 0.4 }}
-            >
-              Erstgespräch buchen
-            </motion.button>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => handleTabClick(tab)}
+                  className="flex flex-col items-center justify-center gap-1 flex-1 py-2 cursor-pointer relative"
+                >
+                  {isActive && (
+                    <motion.div
+                      className="absolute -top-px left-3 right-3 h-0.5 bg-teal rounded-full"
+                      layoutId="bottomTabIndicator"
+                      transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+                    />
+                  )}
+                  <Icon
+                    size={20}
+                    className={`transition-colors duration-200 ${
+                      isActive ? 'text-teal' : 'text-text-secondary/60'
+                    }`}
+                  />
+                  <span
+                    className={`text-[10px] font-medium tracking-wide transition-colors duration-200 ${
+                      isActive ? 'text-teal' : 'text-text-secondary/50'
+                    }`}
+                  >
+                    {tab.label}
+                  </span>
+                </button>
+              )
+            })}
+          </div>
+        </div>
+      </motion.nav>
     </>
   )
 }

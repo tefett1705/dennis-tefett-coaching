@@ -57,6 +57,18 @@ export default function Footer() {
                 {link.label}
               </a>
             ))}
+            <Link
+              to="/kontakt"
+              className="text-sm text-teal font-medium hover:text-teal/80 transition-colors duration-300"
+            >
+              Kontaktformular
+            </Link>
+            <Link
+              to="/termin-buchen"
+              className="text-sm text-teal font-medium hover:text-teal/80 transition-colors duration-300"
+            >
+              Termin buchen
+            </Link>
           </div>
 
           {/* Topics */}
@@ -127,10 +139,6 @@ export default function Footer() {
 
         <motion.div
           className="mt-8 pt-6 border-t border-glass-border flex flex-col md:flex-row items-center justify-between gap-4"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
         >
           <p className="text-xs text-text-secondary/40">
             &copy; {new Date().getFullYear()} Dennis Tefett. Alle Rechte vorbehalten.

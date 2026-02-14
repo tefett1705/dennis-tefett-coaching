@@ -9,14 +9,15 @@ export default function Preloader({ isLoading }: PreloaderProps) {
     <AnimatePresence>
       {isLoading && (
         <motion.div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-midnight"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-surface"
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
           <motion.div
             className="flex flex-col items-center gap-4"
-            animate={{ scale: [0.98, 1.02, 1], opacity: [0.6, 1, 1] }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+            animate={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="text-3xl md:text-4xl font-serif font-semibold tracking-wide">
               <span className="text-text-primary">Dennis</span>

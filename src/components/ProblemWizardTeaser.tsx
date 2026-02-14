@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import { Clock, Compass, Lightbulb } from 'lucide-react'
-import complexityImage from '../assets/images/Coaching Bild Klient überlegt.webp'
+import complexityImage from '../assets/images/coaching-bild-klient-ueberlegt.webp'
 
 const options = [
   {
@@ -50,8 +50,8 @@ export default function ProblemWizardTeaser() {
         <div ref={imageRef} className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-14">
           <motion.div
             className="relative rounded-2xl overflow-hidden"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ scale: 0.95 }}
+            whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
@@ -66,9 +66,9 @@ export default function ProblemWizardTeaser() {
             </motion.div>
             {/* Animated gradient that reveals on scroll */}
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-midnight/60 via-midnight/20 to-transparent"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              className="absolute inset-0 bg-gradient-to-r from-surface/60 via-surface/20 to-transparent"
+              initial={{}}
+              whileInView={{}}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.3 }}
             />
@@ -88,8 +88,8 @@ export default function ProblemWizardTeaser() {
           >
             <motion.span
               className="text-xs tracking-[0.25em] uppercase text-gold font-medium inline-block"
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 15 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
@@ -97,8 +97,8 @@ export default function ProblemWizardTeaser() {
             </motion.span>
             <motion.h2
               className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold mt-4 mb-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 20 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
@@ -106,8 +106,8 @@ export default function ProblemWizardTeaser() {
             </motion.h2>
             <motion.p
               className="text-text-secondary max-w-lg"
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 15 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
@@ -128,8 +128,8 @@ export default function ProblemWizardTeaser() {
                     : 'border-teal/40 bg-teal/8'
                   : ''
               }`}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 25 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -4, transition: { duration: 0.3 } }}

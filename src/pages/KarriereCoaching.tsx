@@ -11,7 +11,7 @@ import {
   HighlightBox,
   Prose,
 } from '../components/SubpageBlocks'
-import heroImg from '../assets/images/Coaching Bild Klient überlegt.webp'
+import heroImg from '../assets/images/coaching-bild-klient-ueberlegt.webp'
 
 export default function KarriereCoaching() {
   return (

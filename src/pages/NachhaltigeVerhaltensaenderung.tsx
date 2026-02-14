@@ -23,7 +23,7 @@ import {
 
   HeartHandshake,
 } from 'lucide-react'
-import heroImg from '../assets/images/Dennis schönen Anzug.webp'
+import heroImg from '../assets/images/dennis-schoenen-anzug.webp'
 
 export default function NachhaltigeVerhaltensaenderung() {
   return (
@@ -31,7 +31,7 @@ export default function NachhaltigeVerhaltensaenderung() {
       heroImage={heroImg}
       category="Persönlichkeitsentwicklung"
       title="Nachhaltige Verhaltensänderung: Vom Wissen zum Handeln"
-      subtitle="Warum gute Vorsätze scheitern — und wie neurowissenschaftlich fundiertes Coaching dauerhafte Veränderung ermöglicht."
+      subtitle="Warum gute Vorsätze scheitern, und wie neurowissenschaftlich fundiertes Coaching dauerhafte Veränderung ermöglicht."
       relatedPages={[
         { label: 'Persönlichkeitsentwicklung erklärt', href: '/persoenlichkeitsentwicklung-erklaert' },
         { label: 'Selbstwirksamkeit stärken', href: '/selbstwirksamkeit-staerken' },
@@ -50,7 +50,7 @@ export default function NachhaltigeVerhaltensaenderung() {
       <SectionHeader
         tag="Die Wissenschaft dahinter"
         title="Warum Verhaltensänderung so schwer fällt"
-        text="Das Scheitern an guten Vorsätzen ist keine Willensschwäche — es ist eine biologische Realität. Ihr Gehirn ist ein Effizienzorgan, das bewährte Muster bevorzugt."
+        text="Das Scheitern an guten Vorsätzen ist keine Willensschwäche, sondern eine biologische Realität. Ihr Gehirn ist ein Effizienzorgan, das bewährte Muster bevorzugt."
       />
 
       <StatHighlights
@@ -68,12 +68,12 @@ export default function NachhaltigeVerhaltensaenderung() {
           {
             icon: Brain,
             title: 'Der Habit Loop',
-            text: 'Jede Gewohnheit folgt dem Muster: Auslöser, Routine, Belohnung. Dieser Kreislauf ist tief im Nervensystem verankert. Er lässt sich nicht löschen — aber umschreiben.',
+            text: 'Jede Gewohnheit folgt dem Muster: Auslöser, Routine, Belohnung. Dieser Kreislauf ist tief im Nervensystem verankert. Er lässt sich nicht löschen, aber umschreiben.',
           },
           {
             icon: RotateCcw,
             title: 'Limbisches System siegt',
-            text: 'Das emotionale Gehirn ist schneller und stärker als der rationale Verstand. In Stresssituationen gewinnt fast immer das alte Muster — deshalb reicht Wissen allein nicht.',
+            text: 'Das emotionale Gehirn ist schneller und stärker als der rationale Verstand. In Stresssituationen gewinnt fast immer das alte Muster; deshalb reicht Wissen allein nicht.',
           },
           {
             icon: Fingerprint,
@@ -85,7 +85,7 @@ export default function NachhaltigeVerhaltensaenderung() {
 
       <HighlightBox title="Rückfälle sind kein Scheitern" color="gold">
         <p>
-          Rückfälle sind ein natürlicher Teil des Veränderungsprozesses. Die Forschung zeigt, dass die meisten Menschen mehrere Anläufe brauchen. Der Unterschied zwischen denen, die erfolgreich sind, und denen, die aufgeben: Erfolgreiche betrachten Rückfälle als Lerngelegenheit — nicht als Beweis ihrer Unfähigkeit.
+          Rückfälle sind ein natürlicher Teil des Veränderungsprozesses. Die Forschung zeigt, dass die meisten Menschen mehrere Anläufe brauchen. Der Unterschied zwischen denen, die erfolgreich sind, und denen, die aufgeben: Erfolgreiche betrachten Rückfälle als Lerngelegenheit, nicht als Beweis ihrer Unfähigkeit.
         </p>
       </HighlightBox>
 
@@ -136,7 +136,7 @@ export default function NachhaltigeVerhaltensaenderung() {
       <SectionHeader
         tag="Ihr Weg zur Veränderung"
         title="Das 4-Phasen-Modell für dauerhafte Verhaltensänderung"
-        text="Dieser strukturierte Ansatz verbindet Neurowissenschaft, Verhaltenspsychologie und systemisches Coaching — damit Veränderung nicht nur beginnt, sondern bleibt."
+        text="Dieser strukturierte Ansatz verbindet Neurowissenschaft, Verhaltenspsychologie und systemisches Coaching, damit Veränderung nicht nur beginnt, sondern bleibt."
       />
 
       <NumberedSteps
@@ -147,7 +147,7 @@ export default function NachhaltigeVerhaltensaenderung() {
           },
           {
             title: 'Vision: Zielbild konkretisieren',
-            text: 'Wer will ich sein? Wie sieht mein Alltag aus, wenn die Veränderung gelungen ist? Wir verankern das Zielbild emotional — denn Veränderung braucht einen inneren Kompass, nicht nur einen Plan.',
+            text: 'Wer will ich sein? Wie sieht mein Alltag aus, wenn die Veränderung gelungen ist? Wir verankern das Zielbild emotional, denn Veränderung braucht einen inneren Kompass, nicht nur einen Plan.',
           },
           {
             title: 'Umsetzung: Micro-Habits & Experimente',
@@ -186,7 +186,7 @@ export default function NachhaltigeVerhaltensaenderung() {
           {
             icon: Waypoints,
             title: 'Umgebungsdesign',
-            text: 'Gestalten Sie Ihre Umgebung so, dass gewünschtes Verhalten leicht und unerwünschtes schwer fällt. Legen Sie das Buch auf den Nachttisch — nicht das Handy.',
+            text: 'Gestalten Sie Ihre Umgebung so, dass gewünschtes Verhalten leicht und unerwünschtes schwer fällt. Legen Sie das Buch auf den Nachttisch, nicht das Handy.',
           },
           {
             icon: HeartHandshake,
@@ -201,7 +201,7 @@ export default function NachhaltigeVerhaltensaenderung() {
           {
             icon: ShieldCheck,
             title: 'Rückfallprophylaxe',
-            text: 'Definieren Sie im Voraus, was Sie tun, wenn ein Rückfall passiert. Nicht ob, sondern wenn — denn Rückfälle sind Teil des Prozesses, kein Zeichen von Versagen.',
+            text: 'Definieren Sie im Voraus, was Sie tun, wenn ein Rückfall passiert. Nicht ob, sondern wenn, denn Rückfälle sind Teil des Prozesses, kein Zeichen von Versagen.',
           },
         ]}
       />
@@ -210,7 +210,7 @@ export default function NachhaltigeVerhaltensaenderung() {
       <SectionHeader
         tag="Sofort anwendbar"
         title="Werkzeuge für den Alltag"
-        text="Diese Techniken nutzen wir im Coaching — und Sie können sie ab sofort selbst anwenden."
+        text="Diese Techniken nutzen wir im Coaching, und Sie können sie ab sofort selbst anwenden."
       />
 
       <HighlightBox title="Die Zwei-Minuten-Regel und Habit Stacking" color="teal">
@@ -230,10 +230,10 @@ export default function NachhaltigeVerhaltensaenderung() {
         <Checklist
           items={[
             'Wie gut habe ich mein neues Verhalten diese Woche umgesetzt? (Skala 1–10)',
-            'Was hat funktioniert — und was möchte ich nächste Woche anders machen?',
+            'Was hat funktioniert, und was möchte ich nächste Woche anders machen?',
             'Welchen Meilenstein habe ich erreicht? (Auch kleine Erfolge feiern)',
             'Gibt es einen Rückfall? Wenn ja: Was kann ich daraus lernen?',
-            'Langfristiger Blick: Wo stand ich vor 4 Wochen — und wo stehe ich heute?',
+            'Langfristiger Blick: Wo stand ich vor 4 Wochen, und wo stehe ich heute?',
           ]}
           color="gold"
         />
@@ -241,7 +241,7 @@ export default function NachhaltigeVerhaltensaenderung() {
 
       <Prose>
         <p>
-          Der Unterschied zwischen Wissen und Handeln ist keine Informationslücke. Es ist eine Umsetzungslücke. Und genau diese Lücke zu schliessen, ist die Kernaufgabe von Coaching. Im Coaching-Prozess dokumentieren wir jeden Fortschritt — auch die kleinen. Denn wenn Sie auf die letzten drei Monate zurückblicken und konkret benennen können, was sich verändert hat, stärkt das Ihre Selbstwirksamkeit und die Motivation weiterzumachen.
+          Der Unterschied zwischen Wissen und Handeln ist keine Informationslücke. Es ist eine Umsetzungslücke. Und genau diese Lücke zu schliessen, ist die Kernaufgabe von Coaching. Im Coaching-Prozess dokumentieren wir jeden Fortschritt, auch die kleinen. Denn wenn Sie auf die letzten drei Monate zurückblicken und konkret benennen können, was sich verändert hat, stärkt das Ihre Selbstwirksamkeit und die Motivation weiterzumachen.
         </p>
       </Prose>
 

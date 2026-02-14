@@ -16,8 +16,8 @@ export function BenefitGrid({ items, columns = 3 }: { items: BenefitCard[]; colu
         <motion.div
           key={item.title}
           className="glass-card p-6 group"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: i * 0.08 }}
           whileHover={{ y: -4, transition: { duration: 0.2 } }}
@@ -46,8 +46,8 @@ export function NumberedSteps({ steps }: { steps: Step[] }) {
         <motion.div
           key={step.title}
           className="flex gap-5 py-6 border-b border-glass-border last:border-b-0"
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ x: -20 }}
+          whileInView={{ x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: i * 0.1 }}
         >
@@ -77,8 +77,8 @@ export function StatHighlights({ stats }: { stats: Stat[] }) {
         <motion.div
           key={stat.label}
           className="glass-card p-5 text-center"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ scale: 0.95 }}
+          whileInView={{ scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: i * 0.08 }}
         >
@@ -99,8 +99,8 @@ export function Checklist({ items, color = 'teal' }: { items: string[]; color?: 
         <motion.div
           key={i}
           className="flex items-start gap-3"
-          initial={{ opacity: 0, x: -10 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ x: -10 }}
+          whileInView={{ x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.3, delay: i * 0.06 }}
         >
@@ -117,8 +117,8 @@ export function QuoteBlock({ text, author }: { text: string; author?: string }) 
   return (
     <motion.div
       className="my-10 relative pl-6 border-l-3 border-teal"
-      initial={{ opacity: 0, x: -15 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={{ x: -15 }}
+      whileInView={{ x: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
@@ -137,8 +137,8 @@ export function HighlightBox({ title, children, color = 'teal' }: { title: strin
   return (
     <motion.div
       className={`my-10 glass-card p-6 md:p-8 ${borderColor} ${bgColor}`}
-      initial={{ opacity: 0, y: 15 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ y: 15 }}
+      whileInView={{ y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
@@ -153,8 +153,8 @@ export function SectionHeader({ tag, title, text }: { tag?: string; title: strin
   return (
     <motion.div
       className="my-12 first:mt-0"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ y: 20 }}
+      whileInView={{ y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
@@ -185,8 +185,8 @@ export function ComparisonTable({ rows, beforeLabel = 'Vorher', afterLabel = 'Na
         <motion.div
           key={row.aspect}
           className="grid grid-cols-3 border-t border-glass-border"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{}}
+          whileInView={{}}
           viewport={{ once: true }}
           transition={{ duration: 0.3, delay: i * 0.06 }}
         >
@@ -204,8 +204,8 @@ export function Prose({ children }: { children: React.ReactNode }) {
   return (
     <motion.div
       className="prose-content"
-      initial={{ opacity: 0, y: 10 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ y: 10 }}
+      whileInView={{ y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4 }}
     >

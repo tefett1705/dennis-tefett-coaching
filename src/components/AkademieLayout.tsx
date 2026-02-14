@@ -34,9 +34,9 @@ export default function AkademieLayout({
     : { accent: 'text-gold', bg: 'bg-gold/10', border: 'border-gold/30', gradient: 'from-gold' }
 
   return (
-    <div className="min-h-screen bg-midnight">
+    <div className="min-h-screen bg-surface">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-midnight/80 backdrop-blur-xl border-b border-glass-border">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-glass-border">
         <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 h-16 flex items-center justify-between">
           {/* Breadcrumbs */}
           <div className="flex items-center gap-2 text-sm min-w-0">
@@ -75,22 +75,22 @@ export default function AkademieLayout({
 
       {/* Hero */}
       <header className="pt-24 md:pt-28 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/50 to-midnight" />
+        <div className="absolute inset-0 bg-gradient-to-b from-surface-alt/50 to-surface" />
         <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-teal/3 rounded-full blur-[120px]" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20">
           <motion.span
             className={`text-xs tracking-[0.25em] uppercase ${colorClasses.accent} font-medium inline-block mb-4`}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 15 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.5 }}
           >
             {impulsTitle ? moduleTitle : 'Wissensmodul'}
           </motion.span>
           <motion.h1
             className="text-3xl md:text-4xl lg:text-[2.75rem] font-serif font-semibold leading-tight"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             {impulsTitle || moduleTitle}
@@ -170,8 +170,8 @@ export default function AkademieLayout({
         {/* CTA */}
         <motion.div
           className="mt-12 glass-card p-8 md:p-10 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >

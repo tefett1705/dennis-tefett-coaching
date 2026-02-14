@@ -1,11 +1,11 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useScrollReveal } from '../hooks/useScrollReveal'
-import portraitImage from '../assets/images/Dennis schick.webp'
-import familyImage from '../assets/images/Dennis und Familie.webp'
+import portraitImage from '../assets/images/dennis-schick.webp'
+import familyImage from '../assets/images/dennis-und-familie.webp'
 
 export default function AboutMe() {
-  const { ref, isVisible } = useScrollReveal<HTMLDivElement>()
+  const { ref } = useScrollReveal<HTMLDivElement>()
   const portraitRef = useRef<HTMLDivElement>(null)
   const familyRef = useRef<HTMLDivElement>(null)
 
@@ -26,12 +26,12 @@ export default function AboutMe() {
   const textFade = useTransform(portraitProgress, [0, 0.35], [0, 1])
 
   return (
-    <section id="ueber-mich" className="relative py-20 md:py-28 bg-gradient-to-b from-midnight via-navy/30 to-midnight">
+    <section id="ueber-mich" className="relative py-20 md:py-28 bg-gradient-to-b from-surface via-surface-alt/30 to-surface">
       <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20" ref={ref}>
         <motion.div
           className="text-center mb-14"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
@@ -46,8 +46,6 @@ export default function AboutMe() {
           {/* Portrait with parallax */}
           <motion.div
             className="relative"
-            initial={{ opacity: 0 }}
-            animate={isVisible ? { opacity: 1 } : {}}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="relative rounded-2xl overflow-hidden">
@@ -62,11 +60,7 @@ export default function AboutMe() {
               </motion.div>
               {/* Animated gradient overlay */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-t from-midnight/50 via-transparent to-transparent"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, delay: 0.3 }}
+                className="absolute inset-0 bg-gradient-to-t from-surface/50 via-transparent to-transparent"
               />
               {/* Animated accent line */}
               <motion.div
@@ -94,8 +88,8 @@ export default function AboutMe() {
           <motion.div style={{ x: textSlideIn, opacity: textFade }}>
             <motion.h3
               className="text-2xl md:text-3xl font-serif font-semibold mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 20 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
@@ -103,24 +97,24 @@ export default function AboutMe() {
             </motion.h3>
             <div className="space-y-4 text-text-secondary leading-relaxed">
               <motion.p
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ y: 15 }}
+                whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
                 Als Psychologe und Gesundheitsmanager verbinde ich wissenschaftliche Tiefe mit unternehmerischer Praxis. Meine Arbeit in den Neurowissenschaften gibt mir Werkzeuge an die Hand, die über klassisches Coaching hinausgehen.
               </motion.p>
               <motion.p
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ y: 15 }}
+                whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
                 Seit 2017 bin ich selbst Unternehmer. Ich kenne den Druck, die einsamen Entscheidungen und die Momente, in denen man sich fragt, ob man auf dem richtigen Weg ist. Genau deshalb arbeite ich anders als die meisten Coaches: ergebnisorientiert, direkt und auf Augenhöhe.
               </motion.p>
               <motion.p
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ y: 15 }}
+                whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
@@ -139,8 +133,8 @@ export default function AboutMe() {
                 <motion.div
                   key={item}
                   className="flex items-center gap-3"
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ x: 20 }}
+                  whileInView={{ x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.5 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
                 >
@@ -162,15 +156,15 @@ export default function AboutMe() {
         <div ref={familyRef} className="mt-24 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Text content */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ x: -40 }}
+            whileInView={{ x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
             <motion.h3
               className="text-2xl md:text-3xl lg:text-4xl font-serif font-semibold mb-6"
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 25 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
@@ -178,8 +172,8 @@ export default function AboutMe() {
             </motion.h3>
             <motion.p
               className="text-text-secondary leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 20 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.35 }}
             >
@@ -197,8 +191,8 @@ export default function AboutMe() {
           {/* Family image - fully visible */}
           <motion.div
             className="relative"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ x: 40 }}
+            whileInView={{ x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
@@ -213,7 +207,7 @@ export default function AboutMe() {
                 />
               </motion.div>
               {/* Very subtle gradient at bottom only */}
-              <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-midnight/30 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-surface/30 to-transparent" />
               {/* Animated gold accent line */}
               <motion.div
                 className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-gold to-transparent"
