@@ -1,5 +1,19 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
+import { kv } from '@vercel/kv'
 import nodemailer from 'nodemailer'
+
+/* ── Types ── */
+interface NewsletterSubscriber {
+  gender: string
+  firstName: string
+  lastName: string
+  email: string
+  birthYear: string
+  zip: string
+  source: string
+  subscribedAt: string
+  status: 'active' | 'unsubscribed'
+}
 
 /* ── Security helpers ── */
 const ALLOWED_ORIGIN = 'https://dennis-tefett.de'
@@ -14,9 +28,16 @@ function sanitizeHeader(str: string): string {
 
 function setCors(res: VercelResponse) {
   res.setHeader('Access-Control-Allow-Origin', ALLOWED_ORIGIN)
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
   res.setHeader('Vary', 'Origin')
+}
+
+/* ── Admin Auth ── */
+function checkAdmin(req: VercelRequest): boolean {
+  const auth = req.headers.authorization
+  if (!auth || !auth.startsWith('Bearer ')) return false
+  return auth.slice(7) === process.env.ADMIN_PASSWORD
 }
 
 /* ── Validation helpers ── */
@@ -136,6 +157,24 @@ async function sendNotificationToAdmin(subscriber: {
   })
 }
 
+/* ── GET /api/newsletter?action=list ── */
+async function listSubscribers(): Promise<NewsletterSubscriber[]> {
+  const keys = await kv.keys('newsletter:*')
+  if (!keys.length) return []
+  const subscribers: NewsletterSubscriber[] = []
+  for (const key of keys) {
+    const sub = await kv.get<NewsletterSubscriber>(key)
+    if (sub) subscribers.push(sub)
+  }
+  return subscribers.sort((a, b) => b.subscribedAt.localeCompare(a.subscribedAt))
+}
+
+/* ── GET /api/newsletter?action=count ── */
+async function countSubscribers(): Promise<number> {
+  const keys = await kv.keys('newsletter:*')
+  return keys.length
+}
+
 /* ── Serverless Handler ── */
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   setCors(res)
@@ -144,11 +183,32 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(200).end()
   }
 
-  if (req.method !== 'POST') {
-    return res.status(405).json({ success: false, message: 'Method not allowed' })
-  }
+  const action = String(req.query.action || '')
 
   try {
+    // GET actions
+    if (req.method === 'GET') {
+      switch (action) {
+        case 'list': {
+          if (!checkAdmin(req)) return res.status(401).json({ success: false, message: 'Nicht autorisiert' })
+          const subscribers = await listSubscribers()
+          return res.status(200).json({ success: true, subscribers })
+        }
+        case 'count': {
+          if (!checkAdmin(req)) return res.status(401).json({ success: false, message: 'Nicht autorisiert' })
+          const count = await countSubscribers()
+          return res.status(200).json({ success: true, count })
+        }
+        default:
+          return res.status(400).json({ success: false, message: 'Ungültige Aktion' })
+      }
+    }
+
+    // POST — subscribe
+    if (req.method !== 'POST') {
+      return res.status(405).json({ success: false, message: 'Method not allowed' })
+    }
+
     const validationError = validateFields(req.body || {})
     if (validationError) {
       return res.status(400).json({ success: false, message: validationError })
@@ -166,7 +226,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       source: String(source || 'unknown'),
     }
 
-    console.log('[Newsletter] Neuer Abonnent eingegangen')
+    // Store subscriber in Vercel KV
+    const kvEntry: NewsletterSubscriber = {
+      ...subscriber,
+      subscribedAt: new Date().toISOString(),
+      status: 'active',
+    }
+    await kv.set(`newsletter:${subscriber.email}`, kvEntry)
+
+    console.log('[Newsletter] Neuer Abonnent gespeichert:', subscriber.email)
 
     // Send emails (non-blocking, don't fail if email fails)
     await Promise.allSettled([

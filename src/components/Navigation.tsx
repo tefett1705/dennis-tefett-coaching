@@ -1,11 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDown, Brain, Type, BookOpen, Sun, Moon, Home, Compass, Gift, Calendar } from 'lucide-react'
-import { useTextSize, type TextSize } from '../context/TextSizeContext'
+import { ChevronDown, Brain, BookOpen, Sun, Moon, Home, Compass, Gift, Calendar } from 'lucide-react'
+import TextSizeToggle from './TextSizeToggle'
 import { useTheme } from '../context/ThemeContext'
-
-const textSizes: TextSize[] = ['S', 'M', 'L']
 
 const navLinks = [
   { label: 'Methode', href: '#methode' },
@@ -57,7 +55,6 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isWissenOpen, setIsWissenOpen] = useState(false)
   const wissenCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
-  const { textSize, setTextSize } = useTextSize()
   const { theme, toggleTheme } = useTheme()
   const location = useLocation()
   const navigate = useNavigate()
@@ -249,33 +246,7 @@ export default function Navigation() {
                     {/* Text Size Toggle */}
                     <div className="pt-3 border-t border-glass-border/50 flex items-center justify-between" style={{ gridColumn: '1 / -1' }}>
                       <span className="text-xs text-text-secondary/40">Textgröße</span>
-                      <div className="flex items-center gap-1.5">
-                        <Type size={13} className="text-text-secondary/50" />
-                        <div className="flex items-center bg-glass border border-glass-border rounded-full p-0.5 relative">
-                          {textSizes.map((label) => (
-                            <button
-                              key={label}
-                              onClick={(e) => { e.stopPropagation(); setTextSize(label) }}
-                              className={`relative z-10 px-2.5 py-1 rounded-full cursor-pointer transition-colors duration-200 text-xs font-semibold leading-none ${
-                                textSize === label
-                                  ? 'text-midnight'
-                                  : 'text-text-secondary/60 hover:text-text-secondary'
-                              }`}
-                            >
-                              {label}
-                            </button>
-                          ))}
-                          <motion.div
-                            className="absolute top-0.5 bottom-0.5 bg-teal rounded-full pointer-events-none"
-                            animate={{
-                              left: textSizes.indexOf(textSize) === 0 ? '2px' : textSizes.indexOf(textSize) === 1 ? '33.33%' : '66.66%',
-                              width: '33.33%',
-                            }}
-                            transition={{ type: 'spring', stiffness: 500, damping: 35 }}
-                            style={{ zIndex: 0 }}
-                          />
-                        </div>
-                      </div>
+                      <TextSizeToggle />
                     </div>
                   </motion.div>
                 )}

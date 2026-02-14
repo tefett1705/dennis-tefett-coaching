@@ -41,6 +41,7 @@ const Persoenlichkeitstest = lazy(() => import('./pages/Persoenlichkeitstest'))
 const Kontakt = lazy(() => import('./pages/Kontakt'))
 const TerminBuchen = lazy(() => import('./pages/TerminBuchen'))
 const TerminVerwaltung = lazy(() => import('./pages/admin/TerminVerwaltung'))
+const NewsletterVerwaltung = lazy(() => import('./pages/admin/NewsletterVerwaltung'))
 
 // Akademie pages
 const AkademieLanding = lazy(() => import('./pages/akademie/AkademieLanding'))
@@ -83,12 +84,19 @@ function HomePage() {
 }
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(() => {
+    return !sessionStorage.getItem('dt-preloaded')
+  })
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 400)
-    return () => clearTimeout(timer)
-  }, [])
+    if (isLoading) {
+      const timer = setTimeout(() => {
+        setIsLoading(false)
+        sessionStorage.setItem('dt-preloaded', '1')
+      }, 200)
+      return () => clearTimeout(timer)
+    }
+  }, [isLoading])
 
   return (
     <>
@@ -116,6 +124,7 @@ function App() {
           <Route path="/kontakt" element={<Kontakt />} />
           <Route path="/termin-buchen" element={<TerminBuchen />} />
           <Route path="/admin/termine" element={<TerminVerwaltung />} />
+          <Route path="/admin/newsletter" element={<NewsletterVerwaltung />} />
           {/* Akademie */}
           <Route path="/akademie" element={<AkademieLanding />} />
           <Route path="/akademie/:moduleSlug" element={<AkademieModulePage />} />
