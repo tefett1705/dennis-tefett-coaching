@@ -3,11 +3,18 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
+  "crons": [
+    {
+      "path": "/api/daily-summary",
+      "schedule": "0 5 * * *"
+    }
+  ],
   "rewrites": [
     { "source": "/api/newsletter", "destination": "/api/newsletter" },
     { "source": "/api/contact", "destination": "/api/contact" },
     { "source": "/api/health", "destination": "/api/health" },
     { "source": "/api/booking", "destination": "/api/booking" },
+    { "source": "/api/daily-summary", "destination": "/api/daily-summary" },
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [

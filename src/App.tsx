@@ -42,6 +42,7 @@ const Kontakt = lazy(() => import('./pages/Kontakt'))
 const TerminBuchen = lazy(() => import('./pages/TerminBuchen'))
 const TerminVerwaltung = lazy(() => import('./pages/admin/TerminVerwaltung'))
 const NewsletterVerwaltung = lazy(() => import('./pages/admin/NewsletterVerwaltung'))
+const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard'))
 
 // Akademie pages
 const AkademieLanding = lazy(() => import('./pages/akademie/AkademieLanding'))
@@ -123,6 +124,7 @@ function App() {
           <Route path="/persoenlichkeitstest" element={<Persoenlichkeitstest />} />
           <Route path="/kontakt" element={<Kontakt />} />
           <Route path="/termin-buchen" element={<TerminBuchen />} />
+          <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/termine" element={<TerminVerwaltung />} />
           <Route path="/admin/newsletter" element={<NewsletterVerwaltung />} />
           {/* Akademie */}

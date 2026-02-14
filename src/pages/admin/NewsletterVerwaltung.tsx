@@ -1,15 +1,18 @@
 import { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Mail, Users, LogIn, LogOut, AlertCircle, Copy, Search, Download } from 'lucide-react'
+import { Mail, Users, LogIn, LogOut, AlertCircle, Copy, Search, Download, Calendar, Gift } from 'lucide-react'
 
 interface Subscriber {
-  id: string
-  name: string
+  gender: string
+  firstName: string
+  lastName: string
   email: string
-  anrede: string
-  plz: string
-  geburtsjahr: string
-  createdAt: string
+  birthYear: string
+  zip: string
+  source: string
+  subscribedAt: string
+  status: string
 }
 
 const API_BASE = import.meta.env.VITE_API_URL || '/api'
@@ -18,6 +21,12 @@ function formatDateDE(dateStr: string): string {
   const d = new Date(dateStr)
   return d.toLocaleDateString('de-DE', { day: 'numeric', month: 'short', year: 'numeric' })
 }
+
+const adminTabs = [
+  { id: 'dashboard', label: 'Dashboard', icon: Gift, href: '/admin' },
+  { id: 'termine', label: 'Termine', icon: Calendar, href: '/admin/termine' },
+  { id: 'newsletter', label: 'Newsletter', icon: Mail, href: '/admin/newsletter' },
+]
 
 export default function NewsletterVerwaltung() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -29,8 +38,9 @@ export default function NewsletterVerwaltung() {
   const [searchQuery, setSearchQuery] = useState('')
   const [totalCount, setTotalCount] = useState(0)
   const [monthCount, setMonthCount] = useState(0)
-  const [copiedId, setCopiedId] = useState<string | null>(null)
+  const [copiedEmail, setCopiedEmail] = useState<string | null>(null)
   const [exportCopied, setExportCopied] = useState(false)
+  const location = useLocation()
 
   useEffect(() => {
     const saved = sessionStorage.getItem('dt-admin-token')
@@ -84,10 +94,7 @@ export default function NewsletterVerwaltung() {
       })
       const data = await res.json()
       if (data.success) {
-        const sorted = (data.subscribers || []).sort(
-          (a: Subscriber, b: Subscriber) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-        )
-        setSubscribers(sorted)
+        setSubscribers(data.subscribers || [])
       }
     } catch {
       console.error('Fehler beim Laden')
@@ -111,10 +118,10 @@ export default function NewsletterVerwaltung() {
     }
   }
 
-  const handleCopyEmail = (id: string, email: string) => {
+  const handleCopyEmail = (email: string) => {
     navigator.clipboard.writeText(email)
-    setCopiedId(id)
-    setTimeout(() => setCopiedId(null), 1500)
+    setCopiedEmail(email)
+    setTimeout(() => setCopiedEmail(null), 1500)
   }
 
   const handleExportEmails = () => {
@@ -127,7 +134,8 @@ export default function NewsletterVerwaltung() {
   const filteredSubscribers = subscribers.filter(s => {
     if (!searchQuery) return true
     const q = searchQuery.toLowerCase()
-    return s.name.toLowerCase().includes(q) || s.email.toLowerCase().includes(q)
+    const fullName = `${s.firstName} ${s.lastName}`.toLowerCase()
+    return fullName.includes(q) || s.email.toLowerCase().includes(q)
   })
 
   // Login screen
@@ -182,9 +190,25 @@ export default function NewsletterVerwaltung() {
       {/* Header */}
       <div className="border-b border-glass-border bg-surface/80 backdrop-blur-xl sticky top-0 z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-8 h-14 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Mail size={20} className="text-teal" />
-            <h1 className="text-lg font-serif font-semibold text-text-primary">Newsletter-Verwaltung</h1>
+          <div className="flex items-center gap-4">
+            {adminTabs.map(tab => {
+              const Icon = tab.icon
+              const isActive = location.pathname === tab.href
+              return (
+                <Link
+                  key={tab.id}
+                  to={tab.href}
+                  className={`flex items-center gap-1.5 text-sm font-medium transition-colors ${
+                    isActive
+                      ? 'text-teal'
+                      : 'text-text-secondary hover:text-text-primary'
+                  }`}
+                >
+                  <Icon size={18} />
+                  {tab.label}
+                </Link>
+              )
+            })}
           </div>
           <button
             onClick={handleLogout}
@@ -247,7 +271,8 @@ export default function NewsletterVerwaltung() {
           </div>
           <button
             onClick={handleExportEmails}
-            className="px-4 py-2 bg-teal text-midnight font-semibold rounded-lg text-sm hover:bg-teal/90 transition-all cursor-pointer flex items-center gap-1.5"
+            disabled={subscribers.length === 0}
+            className="px-4 py-2 bg-teal text-midnight font-semibold rounded-lg text-sm hover:bg-teal/90 transition-all cursor-pointer disabled:opacity-40 flex items-center gap-1.5"
           >
             {exportCopied ? (
               <>
@@ -283,7 +308,7 @@ export default function NewsletterVerwaltung() {
             <AnimatePresence>
               {filteredSubscribers.map((sub) => (
                 <motion.div
-                  key={sub.id}
+                  key={sub.email}
                   className="glass-card p-4 flex flex-col sm:flex-row sm:items-center gap-3"
                   initial={{ y: 5 }}
                   animate={{ y: 0 }}
@@ -296,17 +321,19 @@ export default function NewsletterVerwaltung() {
                       <Mail size={18} className="text-teal" />
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-text-primary">{sub.name}</p>
+                      <p className="text-sm font-medium text-text-primary">
+                        {sub.gender} {sub.firstName} {sub.lastName}
+                      </p>
                       <p className="text-xs text-text-secondary flex items-center gap-1">
                         {sub.email}
                         <button
-                          onClick={() => handleCopyEmail(sub.id, sub.email)}
+                          onClick={() => handleCopyEmail(sub.email)}
                           className="text-text-secondary/40 hover:text-teal transition-colors cursor-pointer"
                           title="E-Mail kopieren"
                         >
                           <Copy size={11} />
                         </button>
-                        {copiedId === sub.id && (
+                        {copiedEmail === sub.email && (
                           <span className="text-teal text-[10px] ml-1">Kopiert!</span>
                         )}
                       </p>
@@ -315,22 +342,22 @@ export default function NewsletterVerwaltung() {
 
                   {/* Details */}
                   <div className="flex flex-wrap items-center gap-x-4 gap-y-1 flex-1 text-xs text-text-secondary">
-                    {sub.anrede && (
+                    {sub.zip && (
+                      <span>PLZ: {sub.zip}</span>
+                    )}
+                    {sub.birthYear && (
+                      <span>Geb.: {sub.birthYear}</span>
+                    )}
+                    {sub.source && sub.source !== 'unknown' && (
                       <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full border bg-glass border-glass-border font-medium">
-                        {sub.anrede}
+                        {sub.source}
                       </span>
-                    )}
-                    {sub.plz && (
-                      <span>PLZ: {sub.plz}</span>
-                    )}
-                    {sub.geburtsjahr && (
-                      <span>Geb.: {sub.geburtsjahr}</span>
                     )}
                   </div>
 
                   {/* Date */}
                   <div className="text-xs text-text-secondary/60 sm:ml-auto whitespace-nowrap">
-                    {formatDateDE(sub.createdAt)}
+                    {sub.subscribedAt ? formatDateDE(sub.subscribedAt) : '—'}
                   </div>
                 </motion.div>
               ))}

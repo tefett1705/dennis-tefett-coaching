@@ -1,6 +1,13 @@
 import { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Calendar, Clock, Trash2, Plus, LogIn, LogOut, CheckCircle, XCircle, AlertCircle, Copy, Video, Phone } from 'lucide-react'
+import { Calendar, Clock, Trash2, Plus, LogIn, LogOut, CheckCircle, XCircle, AlertCircle, Copy, Video, Phone, Mail, Gift } from 'lucide-react'
+
+const adminTabs = [
+  { id: 'dashboard', label: 'Dashboard', icon: Gift, href: '/admin' },
+  { id: 'termine', label: 'Termine', icon: Calendar, href: '/admin/termine' },
+  { id: 'newsletter', label: 'Newsletter', icon: Mail, href: '/admin/newsletter' },
+]
 
 interface TimeSlot {
   id: string
@@ -202,14 +209,32 @@ export default function TerminVerwaltung() {
     )
   }
 
+  const location = useLocation()
+
   return (
     <div className="min-h-screen bg-surface">
       {/* Header */}
       <div className="border-b border-glass-border bg-surface/80 backdrop-blur-xl sticky top-0 z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-8 h-14 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Calendar size={20} className="text-teal" />
-            <h1 className="text-lg font-serif font-semibold text-text-primary">Terminverwaltung</h1>
+          <div className="flex items-center gap-4">
+            {adminTabs.map(tab => {
+              const Icon = tab.icon
+              const isActive = location.pathname === tab.href
+              return (
+                <Link
+                  key={tab.id}
+                  to={tab.href}
+                  className={`flex items-center gap-1.5 text-sm font-medium transition-colors ${
+                    isActive
+                      ? 'text-teal'
+                      : 'text-text-secondary hover:text-text-primary'
+                  }`}
+                >
+                  <Icon size={18} />
+                  {tab.label}
+                </Link>
+              )
+            })}
           </div>
           <button
             onClick={handleLogout}
