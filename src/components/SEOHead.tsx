@@ -5,9 +5,12 @@ interface SEOHeadProps {
   description: string
   canonical?: string
   keywords?: string
+  ogType?: string
 }
 
-export default function SEOHead({ title, description, canonical, keywords }: SEOHeadProps) {
+const BASE_URL = 'https://dennis-tefett.de'
+
+export default function SEOHead({ title, description, canonical, keywords, ogType = 'website' }: SEOHeadProps) {
   useEffect(() => {
     document.title = title
 
@@ -33,24 +36,33 @@ export default function SEOHead({ title, description, canonical, keywords }: SEO
 
     setMeta('description', description)
     if (keywords) setMeta('keywords', keywords)
+
     setOG('og:title', title)
     setOG('og:description', description)
-    setOG('og:type', 'article')
+    setOG('og:type', ogType)
+    setOG('og:site_name', 'Dennis Tefett Coaching')
+    setOG('og:locale', 'de_DE')
 
-    if (canonical) {
-      let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null
-      if (!link) {
-        link = document.createElement('link')
-        link.rel = 'canonical'
-        document.head.appendChild(link)
-      }
-      link.href = canonical
+    // Twitter Card
+    setMeta('twitter:card', 'summary_large_image')
+    setMeta('twitter:title', title)
+    setMeta('twitter:description', description)
+
+    // Canonical + OG URL
+    const canonicalUrl = canonical || `${BASE_URL}${window.location.pathname}`
+    let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null
+    if (!link) {
+      link = document.createElement('link')
+      link.rel = 'canonical'
+      document.head.appendChild(link)
     }
+    link.href = canonicalUrl
+    setOG('og:url', canonicalUrl)
 
     return () => {
-      document.title = 'Dennis Tefett | Executive Coaching'
+      document.title = 'Executive Coaching für Führungskräfte in Gladbeck | Dennis Tefett'
     }
-  }, [title, description, canonical, keywords])
+  }, [title, description, canonical, keywords, ogType])
 
   return null
 }
