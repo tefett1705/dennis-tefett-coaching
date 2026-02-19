@@ -1,6 +1,6 @@
 import { Compass, Target, TrendingUp, Lightbulb, UserCheck, Briefcase, ArrowUpRight, Heart, Shield, Zap } from 'lucide-react'
 import SubpageLayout from '../components/SubpageLayout'
-import SEOHead from '../components/SEOHead'
+import SEOHead, { serviceSchema } from '../components/SEOHead'
 import {
   SectionHeader,
   BenefitGrid,
@@ -29,9 +29,11 @@ export default function KarriereCoaching() {
     >
       <SEOHead
         title="Karriere-Coaching: Berufliche Neuorientierung & Karriereentwicklung | Dennis Tefett"
-        description="Professionelles Karriere-Coaching für berufliche Neuorientierung, klare Karriereziele und souveräne Entscheidungen. Strukturierter Prozess für nachhaltigen beruflichen Erfolg mit Dennis Tefett."
-        keywords="Karriere-Coaching, berufliche Neuorientierung, Karriereentwicklung, beruflicher Erfolg, Karriereberatung, Karriereziele"
-        canonical="https://dennis-tefett.de/karriere-coaching/"
+        description="Professionelles Karriere-Coaching für berufliche Neuorientierung, klare Karriereziele und souveräne Entscheidungen. Strukturierter Prozess für nachhaltigen beruflichen Erfolg in Gladbeck und NRW."
+        keywords="Karriere-Coaching, berufliche Neuorientierung, Karriereentwicklung, beruflicher Erfolg, Karriereberatung, Gladbeck, NRW"
+        canonical="https://dennis-tefett.de/karriere-coaching"
+        schema={serviceSchema('Karriere-Coaching', 'Professionelles Karriere-Coaching für berufliche Neuorientierung, klare Karriereziele und souveräne Entscheidungen.', '/karriere-coaching')}
+        breadcrumbs={[{ name: 'Karriere-Coaching', url: '/karriere-coaching' }]}
       />
 
       {/* --- Warum Karriere-Coaching --- */}

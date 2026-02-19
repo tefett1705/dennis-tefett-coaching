@@ -1,6 +1,6 @@
 import { Shield, Brain, Heart, Activity, Clock, Battery, Leaf, Gauge, Wind, Sunrise } from 'lucide-react'
 import SubpageLayout from '../components/SubpageLayout'
-import SEOHead from '../components/SEOHead'
+import SEOHead, { serviceSchema } from '../components/SEOHead'
 import {
   SectionHeader,
   BenefitGrid,
@@ -31,9 +31,11 @@ export default function StressmanagementCoaching() {
     >
       <SEOHead
         title="Stressmanagement-Coaching: Resilienz & Burnout-Prävention | Dennis Tefett"
-        description="Stressmanagement-Coaching für Führungskräfte: Resilienz aufbauen, Burnout vorbeugen und unter Druck souverän führen. Wissenschaftlich fundierte Methoden zur Stressbewältigung mit Dennis Tefett."
-        keywords="Stressmanagement, Burnout-Prävention, Resilienz, Stressbewältigung, Stressmanagement Coaching, Führungskräfte Stress"
-        canonical="https://dennis-tefett.de/stressmanagement-coaching/"
+        description="Stressmanagement-Coaching für Führungskräfte: Resilienz aufbauen, Burnout vorbeugen und unter Druck souverän führen. Wissenschaftlich fundierte Methoden in Gladbeck und deutschlandweit."
+        keywords="Stressmanagement, Burnout-Prävention, Resilienz, Stressbewältigung, Stressmanagement Coaching, Gladbeck, NRW"
+        canonical="https://dennis-tefett.de/stressmanagement-coaching"
+        schema={serviceSchema('Stressmanagement-Coaching', 'Wissenschaftlich fundiertes Coaching zur Stressbewältigung, Resilienzstärkung und Burnout-Prävention für Führungskräfte.', '/stressmanagement-coaching')}
+        breadcrumbs={[{ name: 'Stressmanagement-Coaching', url: '/stressmanagement-coaching' }]}
       />
 
       {/* --- Stresssignale --- */}

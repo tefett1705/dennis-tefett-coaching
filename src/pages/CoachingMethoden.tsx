@@ -1,5 +1,5 @@
 import SubpageLayout from '../components/SubpageLayout'
-import SEOHead from '../components/SEOHead'
+import SEOHead, { articleSchema as createArticleSchema } from '../components/SEOHead'
 import {
   BenefitGrid,
   NumberedSteps,
@@ -43,6 +43,9 @@ export default function CoachingMethoden() {
         description="Evidenzbasierter Überblick über die wirksamsten Coaching-Methoden: Systemisches Coaching, lösungsorientiertes Coaching, NLP und neurowissenschaftlich fundierte Techniken im Praxischeck."
         keywords="Coaching-Methoden, systemisches Coaching, lösungsorientiertes Coaching, NLP, Coaching Tools, Coaching Techniken"
         canonical="https://dennis-tefett.de/coaching-methoden"
+        ogType="article"
+        schema={createArticleSchema('Coaching-Methoden & Tools: Praxisnaher Überblick', 'Evidenzbasierter Überblick über die wirksamsten Coaching-Methoden: Systemisches Coaching, lösungsorientiertes Coaching, NLP und neurowissenschaftlich fundierte Techniken.', '/coaching-methoden')}
+        breadcrumbs={[{ name: 'Coaching-Methoden', url: '/coaching-methoden' }]}
       />
 
       {/* --- Warum die Methode zählt --- */}

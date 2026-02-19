@@ -1,53 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://dennis-tefett.de/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://dennis-tefett.de/kontakt</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://dennis-tefett.de/termin-buchen</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://dennis-tefett.de/fuehrungskraefte-coaching</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://dennis-tefett.de/life-coaching</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://dennis-tefett.de/karriere-coaching</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://dennis-tefett.de/teamcoaching</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://dennis-tefett.de/stressmanagement-coaching</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://dennis-tefett.de/coaching-methoden</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://dennis-tefett.de/persoenlichkeitsentwicklung-erklaert</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://dennis-tefett.de/strategische-geschaftsplanung</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://dennis-tefett.de/teambuildingworkshop</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://dennis-tefett.de/selbstwirksamkeit-staerken</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://dennis-tefett.de/fokus-und-klarheit</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://dennis-tefett.de/nachhaltige-verhaltensaenderung</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://dennis-tefett.de/selbsttest</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://dennis-tefett.de/persoenlichkeitstest</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://dennis-tefett.de/stress-level-check</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://dennis-tefett.de/akademie</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://dennis-tefett.de/akademie/fuehrung-und-wirkung</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dennis-tefett.de/akademie/innere-staerke-resilienz</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dennis-tefett.de/akademie/persoenlichkeit-wachstum</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dennis-tefett.de/akademie/strategische-klarheit</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dennis-tefett.de/akademie/kommunikation-beziehung</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <!-- Hauptseiten -->
+  <url><loc>https://dennis-tefett.de/</loc><lastmod>2026-02-19</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://dennis-tefett.de/kontakt</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://dennis-tefett.de/termin-buchen</loc><lastmod>2026-02-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+
+  <!-- Coaching-Leistungen -->
+  <url><loc>https://dennis-tefett.de/fuehrungskraefte-coaching</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://dennis-tefett.de/life-coaching</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://dennis-tefett.de/karriere-coaching</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://dennis-tefett.de/teamcoaching</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://dennis-tefett.de/stressmanagement-coaching</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://dennis-tefett.de/teambuildingworkshop</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://dennis-tefett.de/strategische-geschaftsplanung</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Wissensartikel -->
+  <url><loc>https://dennis-tefett.de/coaching-methoden</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://dennis-tefett.de/persoenlichkeitsentwicklung-erklaert</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://dennis-tefett.de/selbstwirksamkeit-staerken</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://dennis-tefett.de/fokus-und-klarheit</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://dennis-tefett.de/nachhaltige-verhaltensaenderung</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Interaktive Tools -->
+  <url><loc>https://dennis-tefett.de/selbsttest</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://dennis-tefett.de/persoenlichkeitstest</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://dennis-tefett.de/stress-level-check</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Wissens-Akademie -->
+  <url><loc>https://dennis-tefett.de/akademie</loc><lastmod>2026-02-19</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/fuehrung-und-wirkung</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/innere-staerke-resilienz</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/persoenlichkeit-wachstum</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/strategische-klarheit</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/kommunikation-beziehung</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
   <!-- Impulse: Führung & Wirkung -->
-  <url><loc>https://dennis-tefett.de/akademie/fuehrung-und-wirkung/fuenf-saeulen-fuehrung</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dennis-tefett.de/akademie/fuehrung-und-wirkung/unbewusste-muster</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dennis-tefett.de/akademie/fuehrung-und-wirkung/authentisch-kommunizieren</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dennis-tefett.de/akademie/fuehrung-und-wirkung/manager-zum-leader</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/fuehrung-und-wirkung/fuenf-saeulen-fuehrung</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/fuehrung-und-wirkung/unbewusste-muster</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/fuehrung-und-wirkung/authentisch-kommunizieren</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/fuehrung-und-wirkung/manager-zum-leader</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/fuehrung-und-wirkung/erste-100-tage</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
   <!-- Impulse: Innere Stärke & Resilienz -->
-  <url><loc>https://dennis-tefett.de/akademie/innere-staerke-resilienz/stress-verstehen</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dennis-tefett.de/akademie/innere-staerke-resilienz/resilienz-framework</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dennis-tefett.de/akademie/innere-staerke-resilienz/emotionale-regulation</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dennis-tefett.de/akademie/innere-staerke-resilienz/grenzen-setzen</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/innere-staerke-resilienz/stress-verstehen</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/innere-staerke-resilienz/resilienz-framework</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/innere-staerke-resilienz/emotionale-regulation</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/innere-staerke-resilienz/grenzen-setzen</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/innere-staerke-resilienz/burnout-warnsignale</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
   <!-- Impulse: Persönlichkeit & Wachstum -->
-  <url><loc>https://dennis-tefett.de/akademie/persoenlichkeit-wachstum/neuroplastizitaet</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dennis-tefett.de/akademie/persoenlichkeit-wachstum/werte-als-kompass</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dennis-tefett.de/akademie/persoenlichkeit-wachstum/gewohnheiten-veraendern</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/persoenlichkeit-wachstum/neuroplastizitaet</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/persoenlichkeit-wachstum/werte-als-kompass</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/persoenlichkeit-wachstum/gewohnheiten-veraendern</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/persoenlichkeit-wachstum/imposter-syndrom</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
   <!-- Impulse: Strategische Klarheit -->
-  <url><loc>https://dennis-tefett.de/akademie/strategische-klarheit/entscheidungsqualitaet</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dennis-tefett.de/akademie/strategische-klarheit/prioritaeten-setzen</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dennis-tefett.de/akademie/strategische-klarheit/vision-entwickeln</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/strategische-klarheit/entscheidungsqualitaet</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/strategische-klarheit/prioritaeten-setzen</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/strategische-klarheit/vision-entwickeln</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
   <!-- Impulse: Kommunikation & Beziehung -->
-  <url><loc>https://dennis-tefett.de/akademie/kommunikation-beziehung/schwierige-gespraeche</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dennis-tefett.de/akademie/kommunikation-beziehung/konflikte-als-chance</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dennis-tefett.de/akademie/kommunikation-beziehung/zuhoeren-als-kompetenz</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dennis-tefett.de/akademie/kommunikation-beziehung/feedback-geben-nehmen</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dennis-tefett.de/datenschutz</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://dennis-tefett.de/agb</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://dennis-tefett.de/impressum</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/kommunikation-beziehung/schwierige-gespraeche</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/kommunikation-beziehung/konflikte-als-chance</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/kommunikation-beziehung/zuhoeren-als-kompetenz</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/kommunikation-beziehung/feedback-geben-nehmen</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Standortseiten -->
+  <url><loc>https://dennis-tefett.de/coaching-essen</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dennis-tefett.de/coaching-gelsenkirchen</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dennis-tefett.de/coaching-bottrop</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dennis-tefett.de/coaching-oberhausen</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dennis-tefett.de/coaching-bochum</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Rechtliches -->
+  <url><loc>https://dennis-tefett.de/datenschutz</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://dennis-tefett.de/agb</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://dennis-tefett.de/impressum</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>

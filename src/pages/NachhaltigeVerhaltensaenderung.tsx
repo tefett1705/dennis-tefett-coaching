@@ -1,5 +1,5 @@
 import SubpageLayout from '../components/SubpageLayout'
-import SEOHead from '../components/SEOHead'
+import SEOHead, { articleSchema as createArticleSchema } from '../components/SEOHead'
 import {
   BenefitGrid,
   NumberedSteps,
@@ -44,6 +44,9 @@ export default function NachhaltigeVerhaltensaenderung() {
         description="Warum gute Vorsätze scheitern und wie neurowissenschaftlich fundiertes Coaching dauerhafte Verhaltensänderung ermöglicht. Gewohnheiten ändern, neue Routinen aufbauen und nachhaltige Veränderung erreichen."
         keywords="Verhaltensänderung, Gewohnheiten ändern, nachhaltige Veränderung, neue Routinen, Verhaltensmuster"
         canonical="https://dennis-tefett.de/nachhaltige-verhaltensaenderung"
+        ogType="article"
+        schema={createArticleSchema('Nachhaltige Verhaltensänderung: Methoden & Wissenschaft', 'Warum gute Vorsätze scheitern und wie neurowissenschaftlich fundiertes Coaching dauerhafte Verhaltensänderung ermöglicht.', '/nachhaltige-verhaltensaenderung')}
+        breadcrumbs={[{ name: 'Nachhaltige Verhaltensänderung', url: '/nachhaltige-verhaltensaenderung' }]}
       />
 
       {/* --- Warum Veränderung so schwer fällt --- */}

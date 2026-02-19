@@ -53,6 +53,9 @@ const AkademieLanding = lazy(() => import('./pages/akademie/AkademieLanding'))
 const AkademieModulePage = lazy(() => import('./pages/akademie/AkademieModulePage'))
 const AkademieImpulsPage = lazy(() => import('./pages/akademie/AkademieImpulsPage'))
 
+// City landing pages
+const CityLanding = lazy(() => import('./pages/CityLanding'))
+
 // 404
 const NotFound = lazy(() => import('./pages/NotFound'))
 
@@ -154,6 +157,12 @@ function App() {
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/termine" element={<TerminVerwaltung />} />
           <Route path="/admin/newsletter" element={<NewsletterVerwaltung />} />
+          {/* Standortseiten */}
+          <Route path="/coaching-essen" element={<CityLanding slug="essen" />} />
+          <Route path="/coaching-gelsenkirchen" element={<CityLanding slug="gelsenkirchen" />} />
+          <Route path="/coaching-bottrop" element={<CityLanding slug="bottrop" />} />
+          <Route path="/coaching-oberhausen" element={<CityLanding slug="oberhausen" />} />
+          <Route path="/coaching-bochum" element={<CityLanding slug="bochum" />} />
           {/* Akademie */}
           <Route path="/akademie" element={<AkademieLanding />} />
           <Route path="/akademie/:moduleSlug" element={<AkademieModulePage />} />

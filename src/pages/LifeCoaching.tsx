@@ -1,6 +1,6 @@
 import { Compass, Heart, Brain, Scale, Users, Flame } from 'lucide-react'
 import SubpageLayout from '../components/SubpageLayout'
-import SEOHead from '../components/SEOHead'
+import SEOHead, { serviceSchema } from '../components/SEOHead'
 import {
   SectionHeader,
   BenefitGrid,
@@ -29,9 +29,11 @@ export default function LifeCoaching() {
     >
       <SEOHead
         title="Life Coaching: Klarheit, Lebensziele & Work-Life-Balance | Dennis Tefett"
-        description="Professionelles Life Coaching für Klarheit, Zielerreichung und bessere Work-Life-Balance. Evidenzbasierte Lebensberatung für nachhaltiges persönliches Wachstum mit Dennis Tefett."
-        keywords="Life Coaching, Lebensberatung, Lebensziele, Work-Life-Balance, persönliches Wachstum, Klarheit finden"
-        canonical="https://dennis-tefett.de/life-coaching/"
+        description="Professionelles Life Coaching für Klarheit, Zielerreichung und bessere Work-Life-Balance. Evidenzbasierte Lebensberatung für nachhaltiges persönliches Wachstum in Gladbeck und deutschlandweit."
+        keywords="Life Coaching, Lebensberatung, Lebensziele, Work-Life-Balance, persönliches Wachstum, Gladbeck, NRW"
+        canonical="https://dennis-tefett.de/life-coaching"
+        schema={serviceSchema('Life Coaching', 'Ganzheitliches Life Coaching für persönliche Veränderung, innere Klarheit und ein erfülltes Leben. Evidenzbasierte Methoden für nachhaltiges Wachstum.', '/life-coaching')}
+        breadcrumbs={[{ name: 'Life Coaching', url: '/life-coaching' }]}
       />
 
       {/* --- Was ist Life Coaching --- */}

@@ -9,6 +9,14 @@
       "schedule": "0 5 * * *"
     }
   ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.dennis-tefett.de" }],
+      "destination": "https://dennis-tefett.de/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/api/newsletter", "destination": "/api/newsletter" },
     { "source": "/api/contact", "destination": "/api/contact" },

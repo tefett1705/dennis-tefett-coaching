@@ -13,7 +13,7 @@ import {
   Users,
 } from 'lucide-react'
 import SubpageLayout from '../components/SubpageLayout'
-import SEOHead from '../components/SEOHead'
+import SEOHead, { serviceSchema } from '../components/SEOHead'
 import {
   BenefitGrid,
   NumberedSteps,
@@ -42,9 +42,11 @@ export default function PersoenlichkeitsentwicklungErklaert() {
     >
       <SEOHead
         title="Persönlichkeitsentwicklung: Coaching für Balance & Erfolg | Dennis Tefett"
-        description="Persönlichkeitsentwicklung durch psychologisch fundiertes Coaching. Selbstvertrauen stärken, emotionale Intelligenz entwickeln, persönliches Wachstum fördern. Coaching in Düsseldorf."
-        keywords="Persönlichkeitsentwicklung, Selbstentwicklung, persönliches Wachstum, Coaching, Selbstvertrauen, Emotionale Intelligenz"
+        description="Persönlichkeitsentwicklung durch psychologisch fundiertes Coaching. Selbstvertrauen stärken, emotionale Intelligenz entwickeln, persönliches Wachstum fördern. Coaching in Gladbeck und deutschlandweit."
+        keywords="Persönlichkeitsentwicklung, Selbstentwicklung, persönliches Wachstum, Coaching, Selbstvertrauen, Gladbeck, NRW"
         canonical="https://dennis-tefett.de/persoenlichkeitsentwicklung-erklaert"
+        schema={serviceSchema('Persönlichkeitsentwicklung Coaching', 'Psychologisch fundiertes Coaching für persönliches Wachstum. Selbstvertrauen stärken, emotionale Intelligenz entwickeln und nachhaltig wachsen.', '/persoenlichkeitsentwicklung-erklaert')}
+        breadcrumbs={[{ name: 'Persönlichkeitsentwicklung', url: '/persoenlichkeitsentwicklung-erklaert' }]}
       />
 
       {/* --- Section 1: What is it --- */}

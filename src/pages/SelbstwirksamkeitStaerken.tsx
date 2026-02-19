@@ -1,5 +1,5 @@
 import SubpageLayout from '../components/SubpageLayout'
-import SEOHead from '../components/SEOHead'
+import SEOHead, { articleSchema as createArticleSchema } from '../components/SEOHead'
 import {
   BenefitGrid,
   NumberedSteps,
@@ -43,6 +43,9 @@ export default function SelbstwirksamkeitStaerken() {
         description="Selbstwirksamkeit stärken mit evidenzbasierten Methoden. Erfahren Sie, wie Sie Selbstvertrauen und innere Stärke systematisch aufbauen und als Führungskraft souverän handeln."
         keywords="Selbstwirksamkeit, Selbstvertrauen, innere Stärke, Selbstbewusstsein, Selbstwirksamkeit stärken"
         canonical="https://dennis-tefett.de/selbstwirksamkeit-staerken"
+        ogType="article"
+        schema={createArticleSchema('Selbstwirksamkeit stärken: Mehr Vertrauen & innere Stärke', 'Selbstwirksamkeit stärken mit evidenzbasierten Methoden. Selbstvertrauen und innere Stärke systematisch aufbauen.', '/selbstwirksamkeit-staerken')}
+        breadcrumbs={[{ name: 'Selbstwirksamkeit stärken', url: '/selbstwirksamkeit-staerken' }]}
       />
 
       {/* --- Was ist Selbstwirksamkeit? --- */}

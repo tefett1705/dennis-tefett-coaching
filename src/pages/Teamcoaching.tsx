@@ -1,6 +1,6 @@
 import { MessageCircle, Shield, Target, Puzzle, BarChart3, Handshake } from 'lucide-react'
 import SubpageLayout from '../components/SubpageLayout'
-import SEOHead from '../components/SEOHead'
+import SEOHead, { serviceSchema } from '../components/SEOHead'
 import {
   SectionHeader,
   BenefitGrid,
@@ -30,9 +30,11 @@ export default function Teamcoaching() {
     >
       <SEOHead
         title="Teamcoaching: Teamentwicklung & Teamperformance steigern | Dennis Tefett"
-        description="Evidenzbasiertes Teamcoaching für bessere Zusammenarbeit, psychologische Sicherheit und messbare Teamperformance. Strukturierte Teamentwicklung und Teamführung mit Dennis Tefett."
-        keywords="Teamcoaching, Teamführung, Teamentwicklung, Teamperformance, Teamdynamik, Zusammenarbeit verbessern"
-        canonical="https://dennis-tefett.de/teamcoaching/"
+        description="Evidenzbasiertes Teamcoaching für bessere Zusammenarbeit, psychologische Sicherheit und messbare Teamperformance. Strukturierte Teamentwicklung in Gladbeck und deutschlandweit."
+        keywords="Teamcoaching, Teamführung, Teamentwicklung, Teamperformance, Teamdynamik, Gladbeck, NRW"
+        canonical="https://dennis-tefett.de/teamcoaching"
+        schema={serviceSchema('Teamcoaching', 'Coaching für Teams zur Verbesserung von Zusammenarbeit, Kommunikation und Teamdynamik. Psychologisch fundierte Teamentwicklung.', '/teamcoaching')}
+        breadcrumbs={[{ name: 'Teamcoaching', url: '/teamcoaching' }]}
       />
 
       {/* --- Warum Teamcoaching --- */}

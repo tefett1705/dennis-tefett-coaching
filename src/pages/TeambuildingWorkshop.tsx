@@ -11,7 +11,7 @@ import {
   Users,
 } from 'lucide-react'
 import SubpageLayout from '../components/SubpageLayout'
-import SEOHead from '../components/SEOHead'
+import SEOHead, { serviceSchema } from '../components/SEOHead'
 import {
   BenefitGrid,
   NumberedSteps,
@@ -41,9 +41,11 @@ export default function TeambuildingWorkshop() {
     >
       <SEOHead
         title="Teambuilding-Workshop: Teamgeist stärken | Dennis Tefett"
-        description="Professionelle Teambuilding-Workshops für nachhaltige Teamentwicklung. Kommunikation verbessern, Teamgeist stärken, Zusammenarbeit optimieren. Workshops in Düsseldorf und bundesweit."
-        keywords="Teambuilding Workshop, Teamentwicklung, Teamzusammenhalt, Teamdynamik, Teamgeist stärken, Kommunikation verbessern"
+        description="Professionelle Teambuilding-Workshops für nachhaltige Teamentwicklung. Kommunikation verbessern, Teamgeist stärken, Zusammenarbeit optimieren. Workshops in Gladbeck, NRW und bundesweit."
+        keywords="Teambuilding Workshop, Teamentwicklung, Teamzusammenhalt, Teamgeist stärken, Gladbeck, NRW"
         canonical="https://dennis-tefett.de/teambuildingworkshop"
+        schema={serviceSchema('Teambuilding-Workshop', 'Professionelle Teambuilding-Workshops für nachhaltige Teamentwicklung, bessere Kommunikation und stärkeren Teamgeist.', '/teambuildingworkshop')}
+        breadcrumbs={[{ name: 'Teambuilding-Workshop', url: '/teambuildingworkshop' }]}
       />
 
       {/* --- Section 1: Workshop overview --- */}

@@ -1,5 +1,5 @@
 import SubpageLayout from '../components/SubpageLayout'
-import SEOHead from '../components/SEOHead'
+import SEOHead, { articleSchema as createArticleSchema } from '../components/SEOHead'
 import {
   BenefitGrid,
   NumberedSteps,
@@ -44,6 +44,9 @@ export default function FokusUndKlarheit() {
         description="Wissenschaftlich fundierte Strategien für mehr Fokus und Klarheit im Führungsalltag. Deep Work, Prioritäten setzen und Entscheidungsfähigkeit stärken für konzentriertes Arbeiten."
         keywords="Fokus, Klarheit, Prioritäten setzen, Entscheidungsfähigkeit, Konzentration, Deep Work"
         canonical="https://dennis-tefett.de/fokus-und-klarheit"
+        ogType="article"
+        schema={createArticleSchema('Fokus und Klarheit: Methoden für mehr Konzentration', 'Wissenschaftlich fundierte Strategien für mehr Fokus und Klarheit im Führungsalltag.', '/fokus-und-klarheit')}
+        breadcrumbs={[{ name: 'Fokus und Klarheit', url: '/fokus-und-klarheit' }]}
       />
 
       {/* --- Warum Fokus zählt --- */}

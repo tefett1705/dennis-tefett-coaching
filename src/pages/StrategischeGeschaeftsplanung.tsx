@@ -13,7 +13,7 @@ import {
   TrendingUp,
 } from 'lucide-react'
 import SubpageLayout from '../components/SubpageLayout'
-import SEOHead from '../components/SEOHead'
+import SEOHead, { serviceSchema } from '../components/SEOHead'
 import {
   BenefitGrid,
   NumberedSteps,
@@ -43,9 +43,11 @@ export default function StrategischeGeschaeftsplanung() {
     >
       <SEOHead
         title="Strategische Geschäftsplanung: Leitfaden für Unternehmen | Dennis Tefett"
-        description="Strategische Geschäftsplanung für nachhaltige Unternehmensentwicklung. Klarheit schaffen, bessere Entscheidungen treffen, Geschäftsstrategie entwickeln. Business-Coaching in Düsseldorf."
-        keywords="Strategische Geschäftsplanung, Unternehmensstrategie, Geschäftsentwicklung, Businessplan, Unternehmensplanung, Geschäftsstrategie"
+        description="Strategische Geschäftsplanung für nachhaltige Unternehmensentwicklung. Klarheit schaffen, bessere Entscheidungen treffen. Business-Coaching in Gladbeck und deutschlandweit."
+        keywords="Strategische Geschäftsplanung, Unternehmensstrategie, Geschäftsentwicklung, Businessplan, Gladbeck, NRW"
         canonical="https://dennis-tefett.de/strategische-geschaftsplanung"
+        schema={serviceSchema('Strategische Geschäftsplanung', 'Coaching für strategische Geschäftsplanung und nachhaltige Unternehmensentwicklung. Klarheit schaffen und bessere Entscheidungen treffen.', '/strategische-geschaftsplanung')}
+        breadcrumbs={[{ name: 'Strategische Geschäftsplanung', url: '/strategische-geschaftsplanung' }]}
       />
 
       {/* --- Section 1: Why strategy matters --- */}

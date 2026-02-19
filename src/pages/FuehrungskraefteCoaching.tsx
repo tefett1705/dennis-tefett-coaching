@@ -12,7 +12,7 @@ import {
   Zap,
 } from 'lucide-react'
 import SubpageLayout from '../components/SubpageLayout'
-import SEOHead from '../components/SEOHead'
+import SEOHead, { serviceSchema } from '../components/SEOHead'
 import {
   BenefitGrid,
   NumberedSteps,
@@ -42,9 +42,11 @@ export default function FuehrungskraefteCoaching() {
     >
       <SEOHead
         title="Führungskräfte-Coaching: Neurowissenschaftlich fundiert | Dennis Tefett"
-        description="Neurowissenschaftlich fundiertes Führungskräfte-Coaching für nachhaltige Ergebnisse. Weniger Arbeitszeit, bessere Teamdynamik, strategische Klarheit. Executive Coaching in Düsseldorf."
-        keywords="Führungskräfte-Coaching, Executive Coaching, Leadership Coaching, Leadership Development, Führungskompetenz"
+        description="Neurowissenschaftlich fundiertes Führungskräfte-Coaching für nachhaltige Ergebnisse. Weniger Arbeitszeit, bessere Teamdynamik, strategische Klarheit. Executive Coaching in Gladbeck und deutschlandweit."
+        keywords="Führungskräfte-Coaching, Executive Coaching, Leadership Coaching, Leadership Development, Führungskompetenz, Gladbeck, NRW"
         canonical="https://dennis-tefett.de/fuehrungskraefte-coaching"
+        schema={serviceSchema('Führungskräfte-Coaching', 'Neurowissenschaftlich fundiertes Executive Coaching für Führungskräfte. Nachhaltige Ergebnisse in Führungskompetenz, strategischem Denken und persönlicher Wirksamkeit.', '/fuehrungskraefte-coaching')}
+        breadcrumbs={[{ name: 'Führungskräfte-Coaching', url: '/fuehrungskraefte-coaching' }]}
       />
 
       {/* --- Section 1: Why leaders need coaching --- */}
