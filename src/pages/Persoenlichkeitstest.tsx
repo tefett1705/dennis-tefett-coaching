@@ -259,7 +259,7 @@ export default function Persoenlichkeitstest() {
                   Wir analysieren Ihr Profil in fünf wissenschaftlichen Dimensionen:
                 </motion.p>
 
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-12">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-12">
                   {oceanDimensions.map((dim, i) => {
                     const Icon = dimensionIcons[dim.key]
                     const color = dimensionColors[dim.key]
@@ -452,7 +452,7 @@ export default function Persoenlichkeitstest() {
               >
                 <form onSubmit={handleSignup} className="space-y-4">
                   {/* Row 1: Anrede + Vorname + Nachname */}
-                  <div className="grid grid-cols-3 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <div>
                       <label className={labelClass}>Anrede</label>
                       <select

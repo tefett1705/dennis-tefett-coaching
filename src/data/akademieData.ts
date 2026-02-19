@@ -56,6 +56,13 @@ export const akademieModules: AkademieModule[] = [
           'Der Wandel vom operativen Manager zur strategischen Führungspersönlichkeit. Was sich verändern muss.',
         readingTime: '9 Min.',
       },
+      {
+        slug: 'erste-100-tage',
+        title: 'Die ersten 100 Tage als neue Führungskraft',
+        description:
+          'Das strategische Fenster, das sich nur einmal öffnet. Die vier Phasen erfolgreicher Führungsübernahme und die häufigsten Fehler.',
+        readingTime: '10 Min.',
+      },
     ],
     relatedCoachingPages: [
       { label: 'Führungskräfte-Coaching', href: '/fuehrungskraefte-coaching' },
@@ -99,6 +106,13 @@ export const akademieModules: AkademieModule[] = [
           'Warum klare Grenzen nicht egoistisch sind und wie Sie sie wertschätzend kommunizieren.',
         readingTime: '6 Min.',
       },
+      {
+        slug: 'burnout-warnsignale',
+        title: 'Burnout erkennen: 7 Warnsignale für Führungskräfte',
+        description:
+          'Die sieben Warnsignale, die Führungskräfte fast immer übersehen. Was im Gehirn bei Burnout passiert und wie Sie rechtzeitig gegensteuern.',
+        readingTime: '10 Min.',
+      },
     ],
     relatedCoachingPages: [
       { label: 'Stressmanagement-Coaching', href: '/stressmanagement-coaching' },
@@ -133,6 +147,13 @@ export const akademieModules: AkademieModule[] = [
         title: 'Gewohnheiten verändern: Was die Wissenschaft sagt',
         description:
           'Warum Gewohnheitsänderung so schwer fällt und welche Strategien tatsächlich funktionieren.',
+        readingTime: '9 Min.',
+      },
+      {
+        slug: 'imposter-syndrom',
+        title: 'Imposter-Syndrom: Wenn Erfolg sich falsch anfühlt',
+        description:
+          '70% aller Führungskräfte erleben das Imposter-Syndrom. Die fünf Typen, die Neurowissenschaft dahinter und der Weg zum authentischen Leader.',
         readingTime: '9 Min.',
       },
     ],

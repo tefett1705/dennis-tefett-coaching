@@ -44,7 +44,7 @@ export default function ProblemWizardTeaser() {
   const textOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1])
 
   return (
-    <section className="relative py-20 md:py-28">
+    <section className="relative py-20 md:py-28 overflow-hidden">
       <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20">
         {/* Image + heading with parallax */}
         <div ref={imageRef} className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-14">

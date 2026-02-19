@@ -11,7 +11,7 @@ const dimensionPreviews = [
 
 export default function SelbsttestTeaser() {
   return (
-    <section className="relative py-20 md:py-28">
+    <section className="relative py-20 md:py-28 overflow-hidden">
       {/* Background accents */}
       <div className="absolute inset-0 bg-gradient-to-b from-surface via-gold/[0.02] to-surface" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gold/[0.03] rounded-full blur-[140px] pointer-events-none" />

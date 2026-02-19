@@ -522,20 +522,71 @@ export default function Selbsttest() {
                   </div>
                 </motion.div>
 
-                {/* Coaching Focus */}
+                {/* Development urgency indicator */}
+                <motion.div
+                  className="glass-card p-6 md:p-8 mb-10 border-gold/20 bg-gold/[0.03]"
+                  initial={{ y: 15 }}
+                  animate={{ y: 0 }}
+                  transition={{ delay: 1.7 }}
+                >
+                  <h3 className="text-lg font-serif font-semibold mb-3 flex items-center gap-2">
+                    <Target size={20} className="text-gold" />
+                    Ihr ungenutztes Potenzial
+                  </h3>
+                  <p className="text-text-secondary leading-relaxed mb-4">
+                    {(() => {
+                      const avg = Math.round(Object.values(scores).reduce((a, b) => a + b, 0) / 4)
+                      const gap = 100 - avg
+                      if (gap > 40) return `Ihre Analyse zeigt ${gap}% ungenutztes Potenzial. Das bedeutet: In Ihren Entwicklungsfeldern liegt erheblicher Spielraum für Wachstum. Die gute Nachricht: Gerade bei diesem Profil zeigen sich die größten Veränderungen in den ersten 6 Wochen eines strukturierten Coachings.`
+                      if (gap > 25) return `Ihre Analyse zeigt ${gap}% ungenutztes Potenzial. Sie haben eine solide Basis, aber in Ihren Wachstumsfeldern steckt noch erhebliches Potenzial. Führungskräfte mit Ihrem Profil profitieren besonders von gezielter Arbeit an 1 bis 2 Kernbereichen.`
+                      return `Ihr Profil zeigt ${gap}% Optimierungspotenzial. Sie operieren bereits auf hohem Niveau. Die Frage ist: Reicht "gut" oder wollen Sie exzellent sein? Im Hochleistungsbereich machen kleine Verbesserungen den größten Unterschied.`
+                    })()}
+                  </p>
+                  <p className="text-sm text-gold/80 font-medium">
+                    Was passiert, wenn Sie an Ihren Wachstumsfeldern nicht arbeiten? Festgefahrene Muster vertiefen sich. Was heute ein Entwicklungsfeld ist, wird morgen zur Karrierebremse.
+                  </p>
+                </motion.div>
+
+                {/* Package recommendation based on scores */}
                 <motion.div
                   className="glass-card p-6 md:p-8 mb-10 border-teal/15"
                   initial={{ y: 15 }}
                   animate={{ y: 0 }}
                   transition={{ delay: 1.8 }}
                 >
-                  <h3 className="text-lg font-serif font-semibold mb-3">Was bedeutet das für Ihr Coaching?</h3>
-                  <p className="text-text-secondary leading-relaxed">{profile.coachingFocus}</p>
+                  <h3 className="text-lg font-serif font-semibold mb-3">Meine Empfehlung für Ihr Profil</h3>
+                  <p className="text-text-secondary leading-relaxed mb-4">{profile.coachingFocus}</p>
+                  <div className="glass-card p-4 mt-4 bg-teal/[0.04] border-teal/15">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm font-semibold text-teal">
+                        {(() => {
+                          const avg = Math.round(Object.values(scores).reduce((a, b) => a + b, 0) / 4)
+                          if (avg < 50) return 'Empfohlen: Signature Programm'
+                          if (avg < 70) return 'Empfohlen: Signature oder Clarity'
+                          return 'Empfohlen: Clarity Analyse'
+                        })()}
+                      </span>
+                      <Link
+                        to="/#angebot"
+                        className="text-xs text-teal hover:text-teal/80 underline underline-offset-2"
+                      >
+                        Pakete ansehen
+                      </Link>
+                    </div>
+                    <p className="text-xs text-text-secondary leading-relaxed">
+                      {(() => {
+                        const avg = Math.round(Object.values(scores).reduce((a, b) => a + b, 0) / 4)
+                        if (avg < 50) return 'Bei Ihrem Profil empfehle ich das 3-monatige Signature Programm: tiefgreifende Diagnostik, regelmäßige 1:1 Sessions und messbare Meilensteine. Die Veränderung ist typischerweise innerhalb von 6 Wochen spürbar.'
+                        if (avg < 70) return 'Sie haben bereits eine gute Basis. Eine Clarity-Analyse verschafft Ihnen Klarheit über Ihre Prioritäten. Wenn Sie tiefgreifender arbeiten möchten, ist das Signature Programm die richtige Wahl.'
+                        return 'Sie operieren auf hohem Niveau. Die Clarity-Analyse zeigt Ihnen präzise, wo die letzten Prozent Optimierungspotenzial liegen. Für fortlaufende Exzellenz empfehle ich das Partnership Modell.'
+                      })()}
+                    </p>
+                  </div>
                 </motion.div>
 
                 {/* CTA */}
                 <motion.div
-                  className="glass-card p-8 md:p-10 text-center mb-10"
+                  className="glass-card p-8 md:p-10 text-center mb-10 glass-card-gold"
                   initial={{ y: 20 }}
                   animate={{ y: 0 }}
                   transition={{ delay: 2 }}
@@ -543,13 +594,16 @@ export default function Selbsttest() {
                   <h3 className="text-xl md:text-2xl font-serif font-semibold mb-3">
                     Lassen Sie uns Ihr Profil besprechen
                   </h3>
-                  <p className="text-text-secondary mb-6 max-w-md mx-auto">
+                  <p className="text-text-secondary mb-2 max-w-md mx-auto">
                     In einem vertraulichen Erstgespräch analysieren wir Ihre Ergebnisse und entwickeln eine individuelle Strategie.
+                  </p>
+                  <p className="text-xs text-gold/60 mb-6">
+                    Kostenlos. 30 Minuten. Vertraulich. Keine Verpflichtung.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3 justify-center">
                     <Link
                       to="/#kontakt"
-                      className="px-6 py-3 bg-teal text-midnight font-semibold rounded-full text-sm hover:bg-teal/90 transition-all duration-300 inline-flex items-center gap-2 justify-center"
+                      className="px-6 py-3 bg-gold text-midnight font-semibold rounded-full text-sm hover:bg-gold/90 transition-all duration-300 inline-flex items-center gap-2 justify-center shadow-lg shadow-gold/20"
                     >
                       <Calendar size={16} />
                       Erstgespräch vereinbaren

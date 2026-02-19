@@ -6,6 +6,7 @@
   --color-slate-deep: #0B2E4A;
   --color-teal: #2DD4BF;
   --color-teal-dim: #1a8a7a;
+  --color-neon-teal: #00FFD1;
   --color-gold: #C9A227;
   --color-gold-dim: #a68520;
   --color-text-primary: #F4F7FB;
@@ -141,6 +142,7 @@ select:focus-visible {
 }
 
 .glass-card {
+  position: relative;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border-color);
   backdrop-filter: blur(20px);
@@ -149,9 +151,45 @@ select:focus-visible {
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Neon-Türkis accent bar at bottom of every glass-card */
+.glass-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-neon-teal), var(--color-teal) 60%, #5EEAD4);
+  border-radius: 0 0 1rem 1rem;
+  opacity: 0.5;
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 10;
+  pointer-events: none;
+}
+
 .glass-card:hover {
   background: var(--glass-bg-hover);
   border-color: var(--glass-border-hover);
+}
+
+.glass-card:hover::after {
+  opacity: 1;
+  height: 3px;
+  box-shadow: 0 0 12px rgba(0, 255, 209, 0.35), 0 0 30px rgba(45, 212, 191, 0.15);
+}
+
+/* Gold accent variant for featured/premium cards */
+.glass-card-gold::after {
+  background: linear-gradient(90deg, var(--color-gold), #E8C547 60%, var(--color-gold));
+}
+
+.glass-card-gold:hover::after {
+  box-shadow: 0 0 12px rgba(201, 162, 39, 0.35), 0 0 30px rgba(201, 162, 39, 0.15);
+}
+
+/* Suppress neon bar on specific elements */
+.glass-card-no-bar::after {
+  display: none;
 }
 
 /* Light mode specific card enhancements */

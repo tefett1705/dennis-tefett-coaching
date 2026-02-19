@@ -11,15 +11,18 @@ const impulsComponents: Record<string, React.LazyExoticComponent<React.Component
   'unbewusste-muster': lazy(() => import('./impulse/UnbewussteMuster')),
   'authentisch-kommunizieren': lazy(() => import('./impulse/AuthentischKommunizieren')),
   'manager-zum-leader': lazy(() => import('./impulse/ManagerZumLeader')),
+  'erste-100-tage': lazy(() => import('./impulse/Erste100Tage')),
   // Modul 2: Innere Stärke & Resilienz
   'stress-verstehen': lazy(() => import('./impulse/StressVerstehen')),
   'resilienz-framework': lazy(() => import('./impulse/ResilienzFramework')),
   'emotionale-regulation': lazy(() => import('./impulse/EmotionaleRegulation')),
   'grenzen-setzen': lazy(() => import('./impulse/GrenzenSetzen')),
+  'burnout-warnsignale': lazy(() => import('./impulse/BurnoutWarnsignale')),
   // Modul 3: Persönlichkeit & Wachstum
   'neuroplastizitaet': lazy(() => import('./impulse/Neuroplastizitaet')),
   'werte-als-kompass': lazy(() => import('./impulse/WerteAlsKompass')),
   'gewohnheiten-veraendern': lazy(() => import('./impulse/GewohnheitenVeraendern')),
+  'imposter-syndrom': lazy(() => import('./impulse/ImposterSyndrom')),
   // Modul 4: Strategische Klarheit
   'entscheidungsqualitaet': lazy(() => import('./impulse/Entscheidungsqualitaet')),
   'prioritaeten-setzen': lazy(() => import('./impulse/PrioritaetenSetzen')),

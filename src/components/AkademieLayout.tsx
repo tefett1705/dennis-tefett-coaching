@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowLeft, ArrowRight, Calendar, BookOpen } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Calendar, BookOpen, Brain, Sparkles } from 'lucide-react'
 import { impulsChecks } from '../data/impulsCheckData'
 import ImpulsCheck from './ImpulsCheck'
 
@@ -136,9 +136,39 @@ export default function AkademieLayout({
           </div>
         )}
 
+        {/* Funnel: Self-test CTA */}
+        <motion.div
+          className="mt-12 glass-card p-6 md:p-8 glass-card-gold"
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="flex flex-col md:flex-row items-center gap-6">
+            <div className="w-14 h-14 rounded-xl bg-gold/15 flex items-center justify-center flex-shrink-0">
+              <Brain size={28} className="text-gold" />
+            </div>
+            <div className="text-center md:text-left flex-1">
+              <h3 className="text-lg font-serif font-semibold mb-1">
+                Wo stehen Sie als Führungskraft?
+              </h3>
+              <p className="text-sm text-text-secondary leading-relaxed">
+                Unser kostenloser Selbsttest analysiert Ihr Führungsprofil in 3 Minuten. 12 Fragen, sofortige Auswertung, konkrete Entwicklungsfelder.
+              </p>
+            </div>
+            <Link
+              to="/selbsttest"
+              className="px-6 py-3 bg-gold text-midnight font-semibold rounded-full text-sm hover:bg-gold/90 transition-all duration-300 inline-flex items-center gap-2 justify-center flex-shrink-0 shadow-lg shadow-gold/15"
+            >
+              <Sparkles size={16} />
+              Jetzt testen
+            </Link>
+          </div>
+        </motion.div>
+
         {/* CTA */}
         <motion.div
-          className="mt-12 glass-card p-8 md:p-10 text-center"
+          className="mt-6 glass-card p-8 md:p-10 text-center"
           initial={{ y: 20 }}
           whileInView={{ y: 0 }}
           viewport={{ once: true }}

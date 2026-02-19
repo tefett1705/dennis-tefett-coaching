@@ -185,7 +185,7 @@ export default function StressLevelCheck() {
                   Wir analysieren Ihre Belastung in fünf Bereichen:
                 </motion.p>
 
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-12">
                   {categories.map((cat, i) => {
                     const Icon = categoryIcons[cat.key]
                     const isGold = i % 2 === 1

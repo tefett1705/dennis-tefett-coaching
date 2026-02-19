@@ -175,8 +175,8 @@ interface ComparisonRow {
 
 export function ComparisonTable({ rows, beforeLabel = 'Vorher', afterLabel = 'Nachher' }: { rows: ComparisonRow[]; beforeLabel?: string; afterLabel?: string }) {
   return (
-    <div className="my-10 overflow-hidden rounded-xl border border-glass-border">
-      <div className="grid grid-cols-3 bg-glass-bg text-xs uppercase tracking-wider font-medium">
+    <div className="my-10 overflow-x-auto rounded-xl border border-glass-border">
+      <div className="grid grid-cols-3 bg-glass-bg text-xs uppercase tracking-wider font-medium min-w-[480px]">
         <div className="p-4 text-text-secondary/60" />
         <div className="p-4 text-text-secondary/60 text-center">{beforeLabel}</div>
         <div className="p-4 text-teal text-center">{afterLabel}</div>
@@ -184,7 +184,7 @@ export function ComparisonTable({ rows, beforeLabel = 'Vorher', afterLabel = 'Na
       {rows.map((row, i) => (
         <motion.div
           key={row.aspect}
-          className="grid grid-cols-3 border-t border-glass-border"
+          className="grid grid-cols-3 border-t border-glass-border min-w-[480px]"
           initial={{}}
           whileInView={{}}
           viewport={{ once: true }}

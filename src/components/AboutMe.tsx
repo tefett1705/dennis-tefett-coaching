@@ -26,7 +26,7 @@ export default function AboutMe() {
   const textFade = useTransform(portraitProgress, [0, 0.35], [0, 1])
 
   return (
-    <section id="ueber-mich" className="relative py-20 md:py-28 bg-gradient-to-b from-surface via-surface-alt/30 to-surface">
+    <section id="ueber-mich" className="relative py-20 md:py-28 bg-gradient-to-b from-surface via-surface-alt/30 to-surface overflow-hidden">
       <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20" ref={ref}>
         <motion.div
           className="text-center mb-14"

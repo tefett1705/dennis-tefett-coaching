@@ -1,88 +1,126 @@
-import { useEffect, useRef, useState } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion } from 'framer-motion'
+import { TrendingUp, Users, Brain, Zap, Target, Heart } from 'lucide-react'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 
-function useCountUp(end: number, duration: number, isInView: boolean) {
-  const [count, setCount] = useState(0)
-  const hasAnimated = useRef(false)
-
-  useEffect(() => {
-    if (!isInView || hasAnimated.current) return
-    hasAnimated.current = true
-    const startTime = performance.now()
-    const animate = (now: number) => {
-      const elapsed = now - startTime
-      const progress = Math.min(elapsed / (duration * 1000), 1)
-      // Ease out cubic
-      const eased = 1 - Math.pow(1 - progress, 3)
-      setCount(Math.round(eased * end))
-      if (progress < 1) requestAnimationFrame(animate)
-    }
-    requestAnimationFrame(animate)
-  }, [isInView, end, duration])
-
-  return count
-}
-
-const stats = [
-  { value: 820, suffix: '+', label: 'Coaching-Stunden', description: 'pro Jahr' },
-  { value: 95, suffix: '%', label: 'Zielerreichung', description: 'messbar dokumentiert' },
-  { value: 8, suffix: '+', label: 'Jahre Erfahrung', description: 'als Unternehmer & Coach' },
-  { value: 48, suffix: 'h', label: 'Erste Ergebnisse', description: 'spürbar in Stunden' },
+const outcomes = [
+  {
+    icon: TrendingUp,
+    title: 'Strategische Klarheit',
+    before: 'Ständig im Reaktionsmodus, Entscheidungen aus dem Bauch',
+    after: 'Klare Prioritäten, strategisch fundierte Entscheidungen mit System',
+    color: 'teal',
+  },
+  {
+    icon: Users,
+    title: 'Wirksame Führung',
+    before: 'Team braucht ständige Anleitung, hohe Fluktuation',
+    after: 'Eigenverantwortliches Team, messbar reduzierte Fluktuation',
+    color: 'teal',
+  },
+  {
+    icon: Brain,
+    title: 'Mentale Stärke',
+    before: 'Chronischer Stress, Schlafprobleme, innere Unruhe',
+    after: 'Emotionale Regulation, Resilienz unter Druck, innere Ruhe',
+    color: 'gold',
+  },
+  {
+    icon: Zap,
+    title: 'Höhere Produktivität',
+    before: '60+ Stunden pro Woche, ständig erreichbar',
+    after: 'Fokussierte 45 Stunden mit deutlich höherem Output',
+    color: 'teal',
+  },
+  {
+    icon: Target,
+    title: 'Karrieredurchbruch',
+    before: 'Festgefahren, nächster Schritt unklar',
+    after: 'Beförderung, Positionswechsel oder erfolgreiche Neuorientierung',
+    color: 'gold',
+  },
+  {
+    icon: Heart,
+    title: 'Lebensqualität',
+    before: 'Beruf dominiert alles, Beziehungen leiden',
+    after: 'Bewusste Balance, erfüllte Beziehungen neben Karriere',
+    color: 'teal',
+  },
 ]
 
 export default function AnimatedStats() {
-  const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const { ref, isVisible } = useScrollReveal<HTMLDivElement>()
 
   return (
-    <section className="relative py-16 md:py-20">
+    <section className="relative py-20 md:py-28 bg-gradient-to-b from-surface via-surface-alt/30 to-surface overflow-hidden">
+      {/* Ambient glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-teal/3 rounded-full blur-[150px] pointer-events-none" />
+
       <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20">
-        <div ref={ref} className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-          {stats.map((stat, i) => (
+        <motion.div
+          className="text-center mb-14"
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="text-xs tracking-[0.25em] uppercase text-teal font-medium">Transformation</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold mt-4">
+            Was exzellentes Coaching bewirkt
+          </h2>
+          <p className="text-text-secondary mt-4 max-w-xl mx-auto">
+            Kein Wunschdenken. Dokumentierte Veränderungen, die meine Klienten in 3 bis 6 Monaten erreichen.
+          </p>
+        </motion.div>
+
+        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {outcomes.map((item, i) => (
             <motion.div
-              key={stat.label}
-              className="text-center relative"
+              key={item.title}
+              className="glass-card p-6 group"
               initial={{ y: 30 }}
-              animate={isInView ? { y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+              animate={isVisible ? { y: 0 } : {}}
+              transition={{
+                duration: 0.5,
+                delay: i * 0.08,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              whileHover={{ y: -4, transition: { duration: 0.3 } }}
             >
-              {/* Glowing dot above */}
-              <motion.div
-                className="w-2 h-2 rounded-full bg-teal mx-auto mb-4"
-                initial={{ scale: 0 }}
-                animate={isInView ? { scale: 1 } : {}}
-                transition={{ duration: 0.4, delay: 0.3 + i * 0.12, type: 'spring' }}
-              />
-              <motion.div
-                className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-teal/20 blur-md"
-                initial={{ scale: 0 }}
-                animate={isInView ? { scale: 1 } : {}}
-                transition={{ duration: 0.8, delay: 0.3 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-              />
+              {/* Icon + Title */}
+              <div className="flex items-center gap-3 mb-5">
+                <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors duration-300 ${
+                  item.color === 'gold'
+                    ? 'bg-gold/10 group-hover:bg-gold/20'
+                    : 'bg-teal/10 group-hover:bg-teal/20'
+                }`}>
+                  <item.icon size={20} className={item.color === 'gold' ? 'text-gold' : 'text-teal'} />
+                </div>
+                <h3 className="text-lg font-semibold">{item.title}</h3>
+              </div>
 
-              <CountNumber value={stat.value} suffix={stat.suffix} isInView={isInView} />
-              <p className="text-sm font-semibold text-text-primary mt-2">{stat.label}</p>
-              <p className="text-xs text-text-secondary mt-1">{stat.description}</p>
-
-              {/* Separator line (not on last item) */}
-              {i < stats.length - 1 && (
-                <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-px h-12 bg-gradient-to-b from-transparent via-glass-border to-transparent" />
-              )}
+              {/* Before → After */}
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <span className="text-xs font-mono text-red-400/70 bg-red-400/10 px-2 py-0.5 rounded mt-0.5 flex-shrink-0">
+                    Vorher
+                  </span>
+                  <p className="text-sm text-text-secondary/70 leading-relaxed">{item.before}</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className={`text-xs font-mono px-2 py-0.5 rounded mt-0.5 flex-shrink-0 ${
+                    item.color === 'gold'
+                      ? 'text-gold bg-gold/10'
+                      : 'text-teal bg-teal/10'
+                  }`}>
+                    Nachher
+                  </span>
+                  <p className="text-sm text-text-primary leading-relaxed font-medium">{item.after}</p>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
       </div>
     </section>
-  )
-}
-
-function CountNumber({ value, suffix, isInView }: { value: number; suffix: string; isInView: boolean }) {
-  const count = useCountUp(value, 2, isInView)
-
-  return (
-    <div className="text-4xl md:text-5xl font-serif font-bold text-teal tabular-nums">
-      {count}
-      <span className="text-gold text-2xl md:text-3xl">{suffix}</span>
-    </div>
   )
 }

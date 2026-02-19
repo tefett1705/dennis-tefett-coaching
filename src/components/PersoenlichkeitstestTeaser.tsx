@@ -12,7 +12,7 @@ const dimensionPreviews = [
 
 export default function PersoenlichkeitstestTeaser() {
   return (
-    <section className="relative py-16 md:py-24">
+    <section className="relative py-16 md:py-24 overflow-hidden">
       {/* Background accents */}
       <div className="absolute inset-0 bg-gradient-to-b from-surface via-teal/[0.015] to-surface" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-teal/[0.03] rounded-full blur-[140px] pointer-events-none" />
@@ -68,7 +68,7 @@ export default function PersoenlichkeitstestTeaser() {
 
             {/* Dimension cards */}
             <motion.div
-              className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-8"
+              className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-8"
               initial={{ y: 15 }}
               whileInView={{ y: 0 }}
               viewport={{ once: true }}
