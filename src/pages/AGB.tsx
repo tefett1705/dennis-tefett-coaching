@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowLeft } from 'lucide-react'
 import SEOHead from '../components/SEOHead'
 
 export default function AGB() {
@@ -9,29 +8,12 @@ export default function AGB() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="min-h-screen bg-surface pb-20 md:pb-0">
       <SEOHead
         title="Allgemeine Geschäftsbedingungen | Dennis Tefett Coaching"
         description="Allgemeine Geschäftsbedingungen (AGB) für Coaching- und Beratungsleistungen von Dennis Tefett. Rechtssichere Vertragsgestaltung mit Zufriedenheitsgarantie."
         canonical="/agb"
       />
-
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-glass-border">
-        <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 group">
-            <span className="text-lg font-serif font-semibold text-text-primary group-hover:text-gold transition-colors duration-300">
-              Dennis Tefett
-            </span>
-          </Link>
-          <Link
-            to="/"
-            className="flex items-center gap-2 text-text-secondary hover:text-teal transition-colors text-sm"
-          >
-            <ArrowLeft size={16} />
-            Zurück zur Hauptseite
-          </Link>
-        </div>
-      </nav>
 
       <main className="max-w-4xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 pt-28 pb-20">
         <h1 className="text-3xl md:text-4xl font-serif font-semibold mb-3">Allgemeine Geschäftsbedingungen</h1>

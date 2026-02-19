@@ -1,8 +1,7 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowLeft, ArrowRight, Calendar } from 'lucide-react'
-import TextSizeToggle from './TextSizeToggle'
+import { ArrowRight, Calendar } from 'lucide-react'
 
 interface SubpageLayoutProps {
   children: React.ReactNode
@@ -19,28 +18,7 @@ export default function SubpageLayout({ children, category, title, subtitle, her
   }, [])
 
   return (
-    <div className="min-h-screen bg-surface">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-glass-border">
-        <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 group">
-            <span className="text-lg font-serif font-semibold text-text-primary group-hover:text-gold transition-colors duration-300">
-              Dennis Tefett
-            </span>
-          </Link>
-          <div className="flex items-center gap-4">
-            <TextSizeToggle />
-            <Link
-              to="/"
-              className="flex items-center gap-2 text-text-secondary hover:text-teal transition-colors text-sm"
-            >
-              <ArrowLeft size={16} />
-              Zurück zur Hauptseite
-            </Link>
-          </div>
-        </div>
-      </nav>
-
+    <div className="min-h-screen bg-surface pb-20 md:pb-0">
       {/* Hero – with optional image */}
       <header className="pt-24 md:pt-28 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-surface-alt/50 to-surface" />
@@ -49,7 +27,7 @@ export default function SubpageLayout({ children, category, title, subtitle, her
         <div className="relative z-10 max-w-5xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20">
           <div className={`grid grid-cols-1 ${heroImage ? 'lg:grid-cols-5' : ''} gap-8 lg:gap-12 items-center`}>
             {/* Text side */}
-            <div className={heroImage ? 'lg:col-span-3' : ''}>
+            <div className={`text-center lg:text-left ${heroImage ? 'lg:col-span-3' : ''}`}>
               <motion.span
                 className="text-xs tracking-[0.25em] uppercase text-teal font-medium inline-block mb-4"
                 initial={{ y: 15 }}
@@ -68,7 +46,7 @@ export default function SubpageLayout({ children, category, title, subtitle, her
               </motion.h1>
               {subtitle && (
                 <motion.p
-                  className="text-base md:text-lg text-text-secondary mt-4 max-w-2xl leading-relaxed"
+                  className="text-base md:text-lg text-text-secondary mt-4 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
                   initial={{ y: 15 }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
@@ -171,7 +149,7 @@ export default function SubpageLayout({ children, category, title, subtitle, her
 
       {/* Footer */}
       <footer className="border-t border-glass-border py-8">
-        <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
           <p className="text-xs text-text-secondary/40">
             &copy; {new Date().getFullYear()} Dennis Tefett. Alle Rechte vorbehalten.
           </p>

@@ -22,6 +22,7 @@ export default function StressmanagementCoaching() {
       title="Stressmanagement-Coaching: Souverän führen unter Druck"
       subtitle="Bauen Sie systematisch Resilienz auf, beugen Sie Burnout vor und entwickeln Sie wirksame Strategien zur Stressbewältigung, die in Ihren Führungsalltag passen."
       relatedPages={[
+        { label: 'Stress-Level-Check', href: '/stress-level-check' },
         { label: 'Führungskräfte-Coaching', href: '/fuehrungskraefte-coaching' },
         { label: 'Fokus und Klarheit', href: '/fokus-und-klarheit' },
         { label: 'Selbstwirksamkeit stärken', href: '/selbstwirksamkeit-staerken' },

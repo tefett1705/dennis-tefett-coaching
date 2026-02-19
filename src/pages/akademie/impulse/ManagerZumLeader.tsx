@@ -20,6 +20,7 @@ export default function ManagerZumLeader() {
     <AkademieLayout
       moduleTitle="Führung & Wirkung"
       moduleSlug="fuehrung-und-wirkung"
+      impulsSlug="manager-zum-leader"
       color="teal"
       impulsTitle="Vom Manager zum Leader"
       prevImpuls={{

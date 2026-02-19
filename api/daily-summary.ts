@@ -3,6 +3,14 @@ import { kv } from '@vercel/kv'
 import nodemailer from 'nodemailer'
 
 /* ── Types ── */
+interface DayAnalytics {
+  date: string
+  visitors: string[]
+  pageViews: number
+  pages: Record<string, number>
+  referrers: Record<string, number>
+}
+
 interface TimeSlot {
   id: string
   date: string
@@ -64,8 +72,21 @@ async function getAllSubscribers(): Promise<NewsletterSubscriber[]> {
   return subs.sort((a, b) => b.subscribedAt.localeCompare(a.subscribedAt))
 }
 
+async function getAnalytics(days: number): Promise<DayAnalytics[]> {
+  const results: DayAnalytics[] = []
+  const today = new Date()
+  for (let i = 0; i < days; i++) {
+    const d = new Date(today)
+    d.setDate(d.getDate() - i)
+    const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+    const data = await kv.get<DayAnalytics>(`analytics:${dateStr}`)
+    results.push(data || { date: dateStr, visitors: [], pageViews: 0, pages: {}, referrers: {} })
+  }
+  return results
+}
+
 /* ── Build email ── */
-function buildSummaryEmail(slots: TimeSlot[], subscribers: NewsletterSubscriber[]): { subject: string; html: string } {
+function buildSummaryEmail(slots: TimeSlot[], subscribers: NewsletterSubscriber[], analyticsDays: DayAnalytics[]): { subject: string; html: string } {
   const today = new Date()
   const todayStr = today.toLocaleDateString('de-DE', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })
 
@@ -204,6 +225,72 @@ function buildSummaryEmail(slots: TimeSlot[], subscribers: NewsletterSubscriber[
           ` : ''}
         </div>
 
+        <!-- Analytics -->
+        ${(() => {
+          const yesterdayAnalytics = analyticsDays[0]
+          const totalVisitors7d = analyticsDays.reduce((sum, d) => sum + d.visitors.length, 0)
+          const totalViews7d = analyticsDays.reduce((sum, d) => sum + d.pageViews, 0)
+          const maxVisitors = Math.max(...analyticsDays.map(d => d.visitors.length), 1)
+          // Top 3 pages from yesterday
+          const topPages = Object.entries(yesterdayAnalytics?.pages || {})
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 3)
+          return `
+            <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; margin-top: 8px;">
+              <h2 style="font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; color: #2DD4BF; margin: 0 0 12px; font-weight: 600;">
+                Besucher
+              </h2>
+              <table style="width: 100%; border-spacing: 8px;">
+                <tr>
+                  <td style="background: rgba(255,255,255,0.04); border-radius: 10px; padding: 14px 16px; text-align: center; width: 33%;">
+                    <p style="margin: 0; font-size: 28px; font-weight: 700; color: #2DD4BF;">${yesterdayAnalytics?.visitors.length || 0}</p>
+                    <p style="margin: 4px 0 0; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: #718096;">Gestern</p>
+                  </td>
+                  <td style="background: rgba(255,255,255,0.04); border-radius: 10px; padding: 14px 16px; text-align: center; width: 33%;">
+                    <p style="margin: 0; font-size: 28px; font-weight: 700; color: #2DD4BF;">${totalVisitors7d}</p>
+                    <p style="margin: 4px 0 0; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: #718096;">7-Tage Besucher</p>
+                  </td>
+                  <td style="background: rgba(255,255,255,0.04); border-radius: 10px; padding: 14px 16px; text-align: center; width: 33%;">
+                    <p style="margin: 0; font-size: 28px; font-weight: 700; color: #2DD4BF;">${totalViews7d}</p>
+                    <p style="margin: 4px 0 0; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: #718096;">7-Tage Aufrufe</p>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- 7-Day Bar Chart -->
+              <div style="margin-top: 12px; background: rgba(255,255,255,0.04); border-radius: 10px; padding: 12px 16px;">
+                <p style="margin: 0 0 8px; font-size: 11px; color: #718096; text-transform: uppercase; letter-spacing: 0.08em;">7-Tage-Verlauf</p>
+                <table style="width: 100%; border-spacing: 2px;">
+                  <tr>
+                    ${analyticsDays.slice().reverse().map(d => {
+                      const pct = Math.max(4, Math.round((d.visitors.length / maxVisitors) * 100))
+                      const dayLabel = new Date(d.date + 'T00:00:00').toLocaleDateString('de-DE', { weekday: 'short' })
+                      return `
+                        <td style="text-align: center; vertical-align: bottom; padding: 0 2px;">
+                          <div style="background: rgba(45,212,191,0.4); border-radius: 4px 4px 0 0; height: ${pct * 0.4}px; min-height: 2px;"></div>
+                          <p style="margin: 4px 0 0; font-size: 9px; color: #4a5568;">${dayLabel}</p>
+                          <p style="margin: 1px 0 0; font-size: 9px; color: #718096;">${d.visitors.length}</p>
+                        </td>
+                      `
+                    }).join('')}
+                  </tr>
+                </table>
+              </div>
+
+              ${topPages.length > 0 ? `
+                <div style="margin-top: 12px;">
+                  <p style="margin: 0 0 6px; font-size: 11px; color: #718096; text-transform: uppercase; letter-spacing: 0.08em;">Top-Seiten gestern</p>
+                  ${topPages.map(([path, views]) => `
+                    <p style="margin: 2px 0; font-size: 13px; color: #a0aec0;">
+                      ${path === '/' ? 'Startseite' : path} — <span style="color: #2DD4BF;">${views} Aufrufe</span>
+                    </p>
+                  `).join('')}
+                </div>
+              ` : ''}
+            </div>
+          `
+        })()}
+
         <!-- Footer with Admin Link -->
         <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; margin-top: 20px; text-align: center;">
           <a href="https://dennis-tefett.de/admin" style="display: inline-block; padding: 10px 24px; background: rgba(45,212,191,0.15); border: 1px solid rgba(45,212,191,0.3); color: #2DD4BF; font-weight: 600; border-radius: 8px; text-decoration: none; font-size: 13px;">
@@ -233,12 +320,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const [slots, subscribers] = await Promise.all([
+    const [slots, subscribers, analyticsDays] = await Promise.all([
       getAllSlots(),
       getAllSubscribers(),
+      getAnalytics(7),
     ])
 
-    const { subject, html } = buildSummaryEmail(slots, subscribers)
+    const { subject, html } = buildSummaryEmail(slots, subscribers, analyticsDays)
 
     // Send email
     const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, NOTIFY_EMAIL } = process.env

@@ -1,8 +1,9 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowLeft, ArrowRight, ChevronRight, Calendar, BookOpen } from 'lucide-react'
-import TextSizeToggle from './TextSizeToggle'
+import { ArrowLeft, ArrowRight, Calendar, BookOpen } from 'lucide-react'
+import { impulsChecks } from '../data/impulsCheckData'
+import ImpulsCheck from './ImpulsCheck'
 
 interface AkademieLayoutProps {
   children: React.ReactNode
@@ -10,6 +11,7 @@ interface AkademieLayoutProps {
   moduleSlug: string
   color: 'teal' | 'gold'
   impulsTitle?: string
+  impulsSlug?: string
   prevImpuls?: { title: string; href: string }
   nextImpuls?: { title: string; href: string }
   relatedCoachingPages?: { label: string; href: string }[]
@@ -18,9 +20,9 @@ interface AkademieLayoutProps {
 export default function AkademieLayout({
   children,
   moduleTitle,
-  moduleSlug,
   color,
   impulsTitle,
+  impulsSlug,
   prevImpuls,
   nextImpuls,
   relatedCoachingPages,
@@ -34,45 +36,7 @@ export default function AkademieLayout({
     : { accent: 'text-gold', bg: 'bg-gold/10', border: 'border-gold/30', gradient: 'from-gold' }
 
   return (
-    <div className="min-h-screen bg-surface">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-glass-border">
-        <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 h-16 flex items-center justify-between">
-          {/* Breadcrumbs */}
-          <div className="flex items-center gap-2 text-sm min-w-0">
-            <Link to="/" className="font-serif font-semibold text-text-primary hover:text-gold transition-colors flex-shrink-0">
-              Dennis Tefett
-            </Link>
-            <ChevronRight size={14} className="text-text-secondary/30 flex-shrink-0" />
-            <Link to="/akademie" className="text-text-secondary hover:text-teal transition-colors flex-shrink-0">
-              Akademie
-            </Link>
-            {impulsTitle && (
-              <>
-                <ChevronRight size={14} className="text-text-secondary/30 flex-shrink-0 hidden sm:block" />
-                <Link
-                  to={`/akademie/${moduleSlug}`}
-                  className="text-text-secondary hover:text-teal transition-colors truncate hidden sm:block"
-                >
-                  {moduleTitle}
-                </Link>
-              </>
-            )}
-          </div>
-
-          <div className="flex items-center gap-4">
-            <TextSizeToggle />
-            <Link
-              to={impulsTitle ? `/akademie/${moduleSlug}` : '/akademie'}
-              className="flex items-center gap-2 text-text-secondary hover:text-teal transition-colors text-sm"
-            >
-              <ArrowLeft size={16} />
-              <span className="hidden sm:inline">Zurück</span>
-            </Link>
-          </div>
-        </div>
-      </nav>
-
+    <div className="min-h-screen bg-surface pb-20 md:pb-0">
       {/* Hero */}
       <header className="pt-24 md:pt-28 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-surface-alt/50 to-surface" />
@@ -109,6 +73,11 @@ export default function AkademieLayout({
       {/* Content */}
       <main className="max-w-5xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 pb-20">
         <div>{children}</div>
+
+        {/* Impuls Self-Check */}
+        {impulsSlug && impulsChecks[impulsSlug] && (
+          <ImpulsCheck config={impulsChecks[impulsSlug]} color={color} />
+        )}
 
         {/* Prev / Next navigation */}
         {(prevImpuls || nextImpuls) && (

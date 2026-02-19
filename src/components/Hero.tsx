@@ -30,10 +30,10 @@ export default function Hero() {
 
       <div className="relative z-10 w-full max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 pt-24 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-        <div className="max-w-2xl lg:max-w-[600px] order-last lg:order-first">
+        <div className="max-w-2xl lg:max-w-[600px] order-last lg:order-first text-center lg:text-left">
           {/* Eyebrow */}
           <motion.div
-            className="flex items-center gap-3 mb-6"
+            className="flex items-center gap-3 mb-6 justify-center lg:justify-start"
             initial={{ y: 20 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.6, delay: 1.0 }}
@@ -64,7 +64,7 @@ export default function Hero() {
 
           {/* Subline */}
           <motion.p
-            className="text-lg md:text-xl text-text-secondary leading-relaxed mb-10 max-w-xl"
+            className="text-lg md:text-xl text-text-secondary leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0"
             initial={{ y: 20 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.6, delay: 1.35 }}
@@ -76,7 +76,7 @@ export default function Hero() {
 
           {/* CTAs */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-col sm:flex-row gap-4 items-center lg:items-start"
             initial={{ y: 20 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.6, delay: 1.5 }}
@@ -99,7 +99,7 @@ export default function Hero() {
 
           {/* Credentials */}
           <motion.div
-            className="mt-14 flex flex-wrap gap-x-6 gap-y-2 text-xs tracking-wide text-text-secondary/60"
+            className="mt-14 flex flex-wrap gap-x-6 gap-y-2 text-xs tracking-wide text-text-secondary/70 justify-center lg:justify-start"
           >
             <span>Psychologe & Gesundheitsmanager</span>
             <span className="text-glass-border">|</span>

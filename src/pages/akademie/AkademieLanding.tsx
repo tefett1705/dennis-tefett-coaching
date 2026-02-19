@@ -1,39 +1,22 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowLeft, ArrowRight, BookOpen, Brain, Lightbulb, Globe, Sparkles } from 'lucide-react'
-import TextSizeToggle from '../../components/TextSizeToggle'
+import { ArrowRight, BookOpen, Brain, Lightbulb, Globe, Sparkles } from 'lucide-react'
 import { akademieModules } from '../../data/akademieData'
+import SEOHead from '../../components/SEOHead'
 
 export default function AkademieLanding() {
   useEffect(() => {
     window.scrollTo(0, 0)
-    document.title = 'Wissens-Akademie | Impulse für Führung & Persönlichkeit | Dennis Tefett'
   }, [])
 
   return (
-    <div className="min-h-screen bg-surface">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-glass-border">
-        <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 group">
-            <span className="text-lg font-serif font-semibold text-text-primary group-hover:text-gold transition-colors duration-300">
-              Dennis Tefett
-            </span>
-          </Link>
-          <div className="flex items-center gap-4">
-            <TextSizeToggle />
-            <Link
-              to="/"
-              className="flex items-center gap-2 text-text-secondary hover:text-teal transition-colors text-sm"
-            >
-              <ArrowLeft size={16} />
-              <span className="hidden sm:inline">Zurück zur Hauptseite</span>
-            </Link>
-          </div>
-        </div>
-      </nav>
-
+    <div className="min-h-screen bg-surface pb-20 md:pb-0">
+      <SEOHead
+        title="Wissens-Akademie | Impulse für Führung & Persönlichkeit | Dennis Tefett"
+        description="Kostenlose Wissens-Akademie mit 5 Modulen und 18 Impulsen zu Führung, Resilienz, Persönlichkeitsentwicklung, Strategie und Kommunikation. Psychologisch fundiert von Dennis Tefett."
+        keywords="Wissens-Akademie, Führung, Resilienz, Persönlichkeitsentwicklung, Coaching Wissen, kostenlos, Dennis Tefett"
+      />
       {/* Hero */}
       <header className="pt-24 md:pt-28 pb-16 md:pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-surface-alt/50 to-surface" />

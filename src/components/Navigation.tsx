@@ -134,11 +134,11 @@ export default function Navigation() {
         transition={{ duration: 0.6, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 h-16 md:h-18 flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2 group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <button className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Zurück zum Seitenanfang">
             <span className="text-lg md:text-xl font-serif font-semibold tracking-wide text-text-primary group-hover:text-gold transition-colors duration-300">
               Dennis Tefett
             </span>
-          </a>
+          </button>
 
           <div className="hidden md:flex items-center gap-5">
             {navLinks.map((link) => (
@@ -241,6 +241,23 @@ export default function Navigation() {
                           </div>
                         </Link>
                       </div>
+                    </div>
+
+                    {/* Stress-Level-Check highlight */}
+                    <div className="pt-3 border-t border-glass-border/50" style={{ gridColumn: '1 / -1' }}>
+                      <Link
+                        to="/stress-level-check"
+                        className="flex items-center gap-3 p-3 rounded-xl bg-gold/8 border border-gold/20 hover:bg-gold/15 transition-all duration-200 group"
+                        onClick={() => setIsWissenOpen(false)}
+                      >
+                        <div className="w-9 h-9 rounded-lg bg-gold/15 flex items-center justify-center flex-shrink-0">
+                          <Brain size={18} className="text-gold" />
+                        </div>
+                        <div>
+                          <span className="text-sm font-medium text-gold group-hover:text-gold/90">Stress-Level-Check</span>
+                          <span className="text-xs text-text-secondary/50 block">Ampelsystem · 5 Minuten</span>
+                        </div>
+                      </Link>
                     </div>
 
                     {/* Text Size Toggle */}

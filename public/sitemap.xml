@@ -17,12 +17,36 @@
   <url><loc>https://dennis-tefett.de/nachhaltige-verhaltensaenderung</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://dennis-tefett.de/selbsttest</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://dennis-tefett.de/persoenlichkeitstest</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dennis-tefett.de/stress-level-check</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://dennis-tefett.de/akademie</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://dennis-tefett.de/akademie/fuehrung-und-wirkung</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dennis-tefett.de/akademie/innere-staerke-resilienz</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dennis-tefett.de/akademie/persoenlichkeit-wachstum</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dennis-tefett.de/akademie/strategische-klarheit</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dennis-tefett.de/akademie/kommunikation-beziehung</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <!-- Impulse: Führung & Wirkung -->
+  <url><loc>https://dennis-tefett.de/akademie/fuehrung-und-wirkung/fuenf-saeulen-fuehrung</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/fuehrung-und-wirkung/unbewusste-muster</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/fuehrung-und-wirkung/authentisch-kommunizieren</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/fuehrung-und-wirkung/manager-zum-leader</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <!-- Impulse: Innere Stärke & Resilienz -->
+  <url><loc>https://dennis-tefett.de/akademie/innere-staerke-resilienz/stress-verstehen</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/innere-staerke-resilienz/resilienz-framework</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/innere-staerke-resilienz/emotionale-regulation</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/innere-staerke-resilienz/grenzen-setzen</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <!-- Impulse: Persönlichkeit & Wachstum -->
+  <url><loc>https://dennis-tefett.de/akademie/persoenlichkeit-wachstum/neuroplastizitaet</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/persoenlichkeit-wachstum/werte-als-kompass</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/persoenlichkeit-wachstum/gewohnheiten-veraendern</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <!-- Impulse: Strategische Klarheit -->
+  <url><loc>https://dennis-tefett.de/akademie/strategische-klarheit/entscheidungsqualitaet</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/strategische-klarheit/prioritaeten-setzen</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/strategische-klarheit/vision-entwickeln</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <!-- Impulse: Kommunikation & Beziehung -->
+  <url><loc>https://dennis-tefett.de/akademie/kommunikation-beziehung/schwierige-gespraeche</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/kommunikation-beziehung/konflikte-als-chance</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/kommunikation-beziehung/zuhoeren-als-kompetenz</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dennis-tefett.de/akademie/kommunikation-beziehung/feedback-geben-nehmen</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dennis-tefett.de/datenschutz</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://dennis-tefett.de/agb</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://dennis-tefett.de/impressum</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>

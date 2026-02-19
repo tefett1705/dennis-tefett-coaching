@@ -1,9 +1,10 @@
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowLeft, ArrowRight, BookOpen, Clock } from 'lucide-react'
-import TextSizeToggle from '../../components/TextSizeToggle'
 import { getModuleBySlug, akademieModules } from '../../data/akademieData'
+import SEOHead from '../../components/SEOHead'
+import JsonLd from '../../components/JsonLd'
 
 export default function AkademieModulePage() {
   const { moduleSlug } = useParams<{ moduleSlug: string }>()
@@ -11,9 +12,6 @@ export default function AkademieModulePage() {
 
   useEffect(() => {
     window.scrollTo(0, 0)
-    if (mod) {
-      document.title = `${mod.title} | Wissens-Akademie | Dennis Tefett`
-    }
   }, [mod])
 
   if (!mod) {
@@ -28,29 +26,24 @@ export default function AkademieModulePage() {
     ? { accent: 'text-teal', bg: 'bg-teal/10', border: 'border-teal/30', hoverBorder: 'hover:border-teal/30' }
     : { accent: 'text-gold', bg: 'bg-gold/10', border: 'border-gold/30', hoverBorder: 'hover:border-gold/30' }
 
-  return (
-    <div className="min-h-screen bg-surface">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-glass-border">
-        <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-sm">
-            <Link to="/" className="font-serif font-semibold text-text-primary hover:text-gold transition-colors">
-              Dennis Tefett
-            </Link>
-          </div>
-          <div className="flex items-center gap-4">
-            <TextSizeToggle />
-            <Link
-              to="/akademie"
-              className="flex items-center gap-2 text-text-secondary hover:text-teal transition-colors text-sm"
-            >
-              <ArrowLeft size={16} />
-              <span className="hidden sm:inline">Zur Akademie</span>
-            </Link>
-          </div>
-        </div>
-      </nav>
+  const breadcrumbSchema = useMemo(() => ({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Startseite', item: 'https://dennis-tefett.de' },
+      { '@type': 'ListItem', position: 2, name: 'Wissens-Akademie', item: 'https://dennis-tefett.de/akademie' },
+      { '@type': 'ListItem', position: 3, name: mod.title, item: `https://dennis-tefett.de/akademie/${mod.slug}` },
+    ],
+  }), [mod])
 
+  return (
+    <div className="min-h-screen bg-surface pb-20 md:pb-0">
+      <SEOHead
+        title={`${mod.title} | Wissens-Akademie | Dennis Tefett`}
+        description={mod.description}
+        keywords={`${mod.title}, Coaching Wissen, Führungskräfte, Persönlichkeitsentwicklung, Dennis Tefett`}
+      />
+      <JsonLd data={breadcrumbSchema} />
       {/* Hero */}
       <header className="pt-24 md:pt-28 pb-12 md:pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-surface-alt/50 to-surface" />

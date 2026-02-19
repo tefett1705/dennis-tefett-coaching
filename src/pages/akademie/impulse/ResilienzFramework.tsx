@@ -20,6 +20,7 @@ export default function ResilienzFramework() {
     <AkademieLayout
       moduleTitle="Innere Stärke & Resilienz"
       moduleSlug="innere-staerke-resilienz"
+      impulsSlug="resilienz-framework"
       color="teal"
       impulsTitle="Ihr persönliches Resilienz-Framework"
       prevImpuls={{

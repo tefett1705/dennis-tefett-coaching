@@ -25,17 +25,17 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-10">
           {/* Brand */}
-          <div>
+          <div className="text-center md:text-left">
             <button onClick={scrollToTop} className="cursor-pointer">
               <span className="text-xl font-serif font-semibold text-text-primary">Dennis Tefett</span>
             </button>
-            <p className="text-sm text-text-secondary mt-3 leading-relaxed max-w-xs">
+            <p className="text-sm text-text-secondary mt-3 leading-relaxed max-w-xs mx-auto md:mx-0">
               Neurowissenschaftlich fundiertes Executive Coaching. Psychologische Exzellenz für Führungskräfte.
             </p>
           </div>
 
           {/* Navigation */}
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 items-center md:items-start">
             <span className="text-xs tracking-[0.2em] uppercase text-text-secondary/50 font-medium">Navigation</span>
             {[
               { label: 'Methode', href: '#methode' },
@@ -72,7 +72,7 @@ export default function Footer() {
           </div>
 
           {/* Topics */}
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 items-center md:items-start">
             <span className="text-xs tracking-[0.2em] uppercase text-text-secondary/50 font-medium">Themen</span>
             <Link
               to="/akademie"
@@ -92,6 +92,12 @@ export default function Footer() {
             >
               Persönlichkeitstest
             </Link>
+            <Link
+              to="/stress-level-check"
+              className="text-sm text-gold font-medium hover:text-gold/80 transition-colors duration-300"
+            >
+              Stress-Level-Check
+            </Link>
             {topicLinks.slice(0, 6).map((link) => (
               <Link
                 key={link.href}
@@ -104,7 +110,7 @@ export default function Footer() {
           </div>
 
           {/* Contact + More Topics */}
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 items-center md:items-start text-center md:text-left">
             <span className="text-xs tracking-[0.2em] uppercase text-text-secondary/50 font-medium">Kontakt</span>
             <p className="text-sm text-text-secondary">Dennis Tefett</p>
             <p className="text-sm text-text-secondary">Marie-Curie-Weg 26a</p>
@@ -117,7 +123,7 @@ export default function Footer() {
 
         {/* Additional topic links row for SEO */}
         <div className="mt-8 pt-6 border-t border-glass-border">
-          <div className="flex flex-wrap gap-x-4 gap-y-2">
+          <div className="flex flex-wrap gap-x-4 gap-y-2 justify-center md:justify-start">
             {[
               { label: 'Führung & Wirkung', href: '/akademie/fuehrung-und-wirkung' },
               { label: 'Innere Stärke & Resilienz', href: '/akademie/innere-staerke-resilienz' },
@@ -129,7 +135,7 @@ export default function Footer() {
               <Link
                 key={link.href}
                 to={link.href}
-                className="text-xs text-text-secondary/40 hover:text-teal transition-colors duration-300"
+                className="text-xs text-text-secondary/60 hover:text-teal transition-colors duration-300"
               >
                 {link.label}
               </Link>
@@ -140,10 +146,10 @@ export default function Footer() {
         <motion.div
           className="mt-8 pt-6 border-t border-glass-border flex flex-col md:flex-row items-center justify-between gap-4"
         >
-          <p className="text-xs text-text-secondary/40">
+          <p className="text-xs text-text-secondary/60">
             &copy; {new Date().getFullYear()} Dennis Tefett. Alle Rechte vorbehalten.
           </p>
-          <div className="flex items-center gap-4 text-xs text-text-secondary/40">
+          <div className="flex items-center gap-4 text-xs text-text-secondary/60">
             <TextSizeToggle />
             <span className="w-px h-3.5 bg-glass-border" />
             <Link to="/datenschutz" className="hover:text-text-secondary transition-colors">Datenschutz</Link>

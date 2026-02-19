@@ -83,7 +83,7 @@ export default function ProblemWizardTeaser() {
           </motion.div>
 
           <motion.div
-            className="text-left"
+            className="text-center lg:text-left"
             style={{ x: textX, opacity: textOpacity }}
           >
             <motion.span
@@ -105,7 +105,7 @@ export default function ProblemWizardTeaser() {
               Was ist gerade Ihre größte Hürde?
             </motion.h2>
             <motion.p
-              className="text-text-secondary max-w-lg"
+              className="text-text-secondary max-w-lg mx-auto lg:mx-0"
               initial={{ y: 15 }}
               whileInView={{ y: 0 }}
               viewport={{ once: true }}
@@ -121,7 +121,7 @@ export default function ProblemWizardTeaser() {
             <motion.button
               key={opt.id}
               onClick={() => setSelected(selected === opt.id ? null : opt.id)}
-              className={`glass-card p-6 text-left cursor-pointer transition-all duration-400 ${
+              className={`glass-card p-6 text-center md:text-left cursor-pointer transition-all duration-400 ${
                 selected === opt.id
                   ? opt.color === 'gold'
                     ? 'border-gold/40 bg-gold/8'
@@ -135,7 +135,7 @@ export default function ProblemWizardTeaser() {
               whileHover={{ y: -4, transition: { duration: 0.3 } }}
               whileTap={{ scale: 0.98 }}
             >
-              <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-4 ${
+              <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-4 mx-auto md:mx-0 ${
                 opt.color === 'gold' ? 'bg-gold/10' : 'bg-teal/10'
               }`}>
                 <opt.icon size={20} className={opt.color === 'gold' ? 'text-gold' : 'text-teal'} />

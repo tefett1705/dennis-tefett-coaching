@@ -12,6 +12,7 @@ export default function GewohnheitenVeraendern() {
     <AkademieLayout
       moduleTitle="Persönlichkeit & Wachstum"
       moduleSlug="persoenlichkeit-wachstum"
+      impulsSlug="gewohnheiten-veraendern"
       color="gold"
       impulsTitle="Gewohnheiten verändern: Was die Wissenschaft sagt"
       prevImpuls={{ title: 'Werte als Kompass: Ihr persönliches Fundament', href: '/akademie/persoenlichkeit-wachstum/werte-als-kompass' }}

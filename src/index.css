@@ -124,6 +124,21 @@ body {
   }
 }
 
+/* Accessible focus ring for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Override for inputs that have their own focus styling */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+  border-color: var(--color-teal) !important;
+  box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.2);
+}
 
 .glass-card {
   background: var(--glass-bg);

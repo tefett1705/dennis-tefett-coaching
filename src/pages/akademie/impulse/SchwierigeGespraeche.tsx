@@ -12,6 +12,7 @@ export default function SchwierigeGespraeche() {
     <AkademieLayout
       moduleTitle="Kommunikation & Beziehung"
       moduleSlug="kommunikation-beziehung"
+      impulsSlug="schwierige-gespraeche"
       color="teal"
       impulsTitle="Schwierige Gespräche souverän führen"
       prevImpuls={undefined}

@@ -20,6 +20,7 @@ export default function AuthentischKommunizieren() {
     <AkademieLayout
       moduleTitle="Führung & Wirkung"
       moduleSlug="fuehrung-und-wirkung"
+      impulsSlug="authentisch-kommunizieren"
       color="teal"
       impulsTitle="Authentisch kommunizieren als Führungskraft"
       prevImpuls={{

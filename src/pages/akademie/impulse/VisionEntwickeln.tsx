@@ -12,6 +12,7 @@ export default function VisionEntwickeln() {
     <AkademieLayout
       moduleTitle="Strategische Klarheit"
       moduleSlug="strategische-klarheit"
+      impulsSlug="vision-entwickeln"
       color="gold"
       impulsTitle="Vision entwickeln und kommunizieren"
       prevImpuls={{ title: 'Prioritäten setzen: Die Kunst des Weglassens', href: '/akademie/strategische-klarheit/prioritaeten-setzen' }}

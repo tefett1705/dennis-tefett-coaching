@@ -151,7 +151,7 @@ export default function Newsletter() {
               {!submitted ? (
                 <form onSubmit={handleSubmit} className="w-full space-y-4">
                   {/* Row 1: Anrede + Vorname + Nachname */}
-                  <div className="grid grid-cols-3 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <div>
                       <label className={labelClass}>Anrede</label>
                       <select
@@ -259,7 +259,7 @@ export default function Newsletter() {
                   </button>
 
                   {/* DSGVO */}
-                  <p className="text-[11px] text-text-secondary/40 text-center leading-relaxed">
+                  <p className="text-[11px] text-text-secondary/60 text-center leading-relaxed">
                     Mit der Anmeldung stimmen Sie unserer{' '}
                     <Link to="/datenschutz" className="underline underline-offset-2 hover:text-text-secondary/60">
                       Datenschutzerklärung

@@ -83,7 +83,7 @@ export default function GuaranteeBanner() {
                   text: 'Kein Fortschritt? Kostenfreie Wiederholung oder volles Geld zurück.',
                 },
               ].map((item) => (
-                <div key={item.title} className="flex items-start gap-3 p-4 rounded-xl bg-glass-bg border border-glass-border">
+                <div key={item.title} className="flex flex-col items-center md:flex-row md:items-start gap-3 p-4 rounded-xl bg-glass-bg border border-glass-border text-center md:text-left">
                   <div className="w-9 h-9 rounded-lg bg-teal/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <item.icon size={18} className="text-teal" />
                   </div>

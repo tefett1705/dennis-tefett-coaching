@@ -12,6 +12,7 @@ export default function Neuroplastizitaet() {
     <AkademieLayout
       moduleTitle="Persönlichkeit & Wachstum"
       moduleSlug="persoenlichkeit-wachstum"
+      impulsSlug="neuroplastizitaet"
       color="gold"
       impulsTitle="Neuroplastizität: Warum Veränderung in jedem Alter möglich ist"
       prevImpuls={undefined}

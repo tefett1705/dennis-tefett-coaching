@@ -55,7 +55,7 @@ function AudioCard({ snippet, index }: { snippet: AudioSnippet; index: number })
 
   return (
     <motion.div
-      className="glass-card p-6 flex items-center gap-5 group"
+      className="glass-card p-6 flex flex-col sm:flex-row items-center gap-5 group text-center sm:text-left"
       initial={{ y: 20 }}
       whileInView={{ y: 0 }}
       viewport={{ once: true }}

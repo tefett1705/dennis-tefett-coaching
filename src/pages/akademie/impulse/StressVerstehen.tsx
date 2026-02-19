@@ -20,6 +20,7 @@ export default function StressVerstehen() {
     <AkademieLayout
       moduleTitle="Innere Stärke & Resilienz"
       moduleSlug="innere-staerke-resilienz"
+      impulsSlug="stress-verstehen"
       color="teal"
       impulsTitle="Stress verstehen: Was im Gehirn passiert"
       prevImpuls={undefined}

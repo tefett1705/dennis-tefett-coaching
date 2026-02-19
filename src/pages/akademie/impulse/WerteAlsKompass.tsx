@@ -12,6 +12,7 @@ export default function WerteAlsKompass() {
     <AkademieLayout
       moduleTitle="Persönlichkeit & Wachstum"
       moduleSlug="persoenlichkeit-wachstum"
+      impulsSlug="werte-als-kompass"
       color="gold"
       impulsTitle="Werte als Kompass: Ihr persönliches Fundament"
       prevImpuls={{ title: 'Neuroplastizität: Warum Veränderung in jedem Alter möglich ist', href: '/akademie/persoenlichkeit-wachstum/neuroplastizitaet' }}

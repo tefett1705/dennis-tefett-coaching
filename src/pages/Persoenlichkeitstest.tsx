@@ -18,7 +18,6 @@ import {
   AlertCircle,
 } from 'lucide-react'
 import SEOHead from '../components/SEOHead'
-import TextSizeToggle from '../components/TextSizeToggle'
 import RadarChart, { generateAngles } from '../components/RadarChart'
 import type { RadarAxis } from '../components/RadarChart'
 import { submitNewsletter } from '../utils/api'
@@ -191,33 +190,12 @@ export default function Persoenlichkeitstest() {
   const labelClass = 'text-xs text-text-secondary mb-1.5 block font-medium'
 
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="min-h-screen bg-surface pb-20 md:pb-0">
       <SEOHead
         title="Persönlichkeitstest | Big Five Analyse | Dennis Tefett Coaching"
         description="Entdecken Sie Ihr Persönlichkeitsprofil basierend auf dem wissenschaftlichen Big Five (OCEAN) Modell. 20 Fragen, 5 Dimensionen, individuelle Auswertung."
         canonical="/persoenlichkeitstest"
       />
-
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-glass-border">
-        <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 group">
-            <span className="text-lg font-serif font-semibold text-text-primary group-hover:text-gold transition-colors duration-300">
-              Dennis Tefett
-            </span>
-          </Link>
-          <div className="flex items-center gap-4">
-            <TextSizeToggle />
-            <Link
-              to="/"
-              className="flex items-center gap-2 text-text-secondary hover:text-teal transition-colors text-sm"
-            >
-              <ArrowLeft size={16} />
-              Zurück zur Hauptseite
-            </Link>
-          </div>
-        </div>
-      </nav>
 
       <main className="pt-24 md:pt-28 pb-20">
         <AnimatePresence mode="wait">

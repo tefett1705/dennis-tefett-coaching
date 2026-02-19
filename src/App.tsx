@@ -1,7 +1,8 @@
 import { useState, useEffect, lazy, Suspense } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Preloader from './components/Preloader'
 import Navigation from './components/Navigation'
+import ErrorBoundary from './components/ErrorBoundary'
 import Hero from './components/Hero'
 import TrustBento from './components/TrustBento'
 import ProblemWizardTeaser from './components/ProblemWizardTeaser'
@@ -18,7 +19,9 @@ import Newsletter from './components/Newsletter'
 import GuaranteeBanner from './components/GuaranteeBanner'
 import SelbsttestTeaser from './components/SelbsttestTeaser'
 import PersoenlichkeitstestTeaser from './components/PersoenlichkeitstestTeaser'
+import StressLevelTeaser from './components/StressLevelTeaser'
 import Footer from './components/Footer'
+import SEOHead from './components/SEOHead'
 
 // Lazy-loaded subpages
 const FuehrungskraefteCoaching = lazy(() => import('./pages/FuehrungskraefteCoaching'))
@@ -39,6 +42,7 @@ const Impressum = lazy(() => import('./pages/Impressum'))
 const Selbsttest = lazy(() => import('./pages/Selbsttest'))
 const Persoenlichkeitstest = lazy(() => import('./pages/Persoenlichkeitstest'))
 const Kontakt = lazy(() => import('./pages/Kontakt'))
+const StressLevelCheck = lazy(() => import('./pages/StressLevelCheck'))
 const TerminBuchen = lazy(() => import('./pages/TerminBuchen'))
 const TerminVerwaltung = lazy(() => import('./pages/admin/TerminVerwaltung'))
 const NewsletterVerwaltung = lazy(() => import('./pages/admin/NewsletterVerwaltung'))
@@ -48,6 +52,9 @@ const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard'))
 const AkademieLanding = lazy(() => import('./pages/akademie/AkademieLanding'))
 const AkademieModulePage = lazy(() => import('./pages/akademie/AkademieModulePage'))
 const AkademieImpulsPage = lazy(() => import('./pages/akademie/AkademieImpulsPage'))
+
+// 404
+const NotFound = lazy(() => import('./pages/NotFound'))
 
 function PageLoader() {
   return (
@@ -60,7 +67,11 @@ function PageLoader() {
 function HomePage() {
   return (
     <div>
-      <Navigation />
+      <SEOHead
+        title="Executive Coaching für Führungskräfte in Gladbeck | Dennis Tefett"
+        description="Neurowissenschaftlich fundiertes Executive Coaching für Führungskräfte. Psychologe & Gesundheitsmanager Dennis Tefett bietet messbare Ergebnisse in Führung, Resilienz und Persönlichkeitsentwicklung."
+        keywords="Executive Coaching, Führungskräfte Coaching, Neurowissenschaft, Persönlichkeitsentwicklung, Gladbeck, Dennis Tefett"
+      />
       <main>
         <Hero />
         <TrustBento />
@@ -70,6 +81,7 @@ function HomePage() {
         <SocialProof />
         <SelbsttestTeaser />
         <PersoenlichkeitstestTeaser />
+        <StressLevelTeaser />
         <AboutMe />
         <Newsletter />
         <AudioGuide />
@@ -88,6 +100,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(() => {
     return !sessionStorage.getItem('dt-preloaded')
   })
+  const location = useLocation()
 
   useEffect(() => {
     if (isLoading) {
@@ -99,9 +112,22 @@ function App() {
     }
   }, [isLoading])
 
+  // Analytics tracking
+  useEffect(() => {
+    if (location.pathname.startsWith('/admin')) return
+    try {
+      const data = JSON.stringify({ path: location.pathname, referrer: document.referrer })
+      navigator.sendBeacon('/api/analytics', data)
+    } catch { /* ignore */ }
+  }, [location.pathname])
+
+  const isAdmin = location.pathname.startsWith('/admin')
+
   return (
     <>
       <Preloader isLoading={isLoading} />
+      {!isAdmin && <Navigation />}
+      <ErrorBoundary>
       <Suspense fallback={<PageLoader />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -123,6 +149,7 @@ function App() {
           <Route path="/selbsttest" element={<Selbsttest />} />
           <Route path="/persoenlichkeitstest" element={<Persoenlichkeitstest />} />
           <Route path="/kontakt" element={<Kontakt />} />
+          <Route path="/stress-level-check" element={<StressLevelCheck />} />
           <Route path="/termin-buchen" element={<TerminBuchen />} />
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/termine" element={<TerminVerwaltung />} />
@@ -131,8 +158,10 @@ function App() {
           <Route path="/akademie" element={<AkademieLanding />} />
           <Route path="/akademie/:moduleSlug" element={<AkademieModulePage />} />
           <Route path="/akademie/:moduleSlug/:impulsSlug" element={<AkademieImpulsPage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
+      </ErrorBoundary>
     </>
   )
 }

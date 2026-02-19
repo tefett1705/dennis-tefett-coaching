@@ -38,7 +38,7 @@ export default function AkademieTeaser() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-teal/5 rounded-full blur-[80px] pointer-events-none" />
 
           <div className="relative z-10">
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex flex-col sm:flex-row items-center gap-3 mb-6 text-center sm:text-left">
               <div className="w-10 h-10 rounded-lg bg-teal/10 flex items-center justify-center">
                 <BookOpen size={20} className="text-teal" />
               </div>
@@ -71,7 +71,7 @@ export default function AkademieTeaser() {
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center gap-4 justify-center sm:justify-start">
               <Link
                 to="/akademie"
                 className="px-6 py-3 bg-teal/10 border border-teal/30 text-teal rounded-full text-sm font-medium hover:bg-teal/20 transition-all duration-300 inline-flex items-center gap-2"

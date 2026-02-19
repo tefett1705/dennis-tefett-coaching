@@ -113,7 +113,7 @@ export default function SelbsttestTeaser() {
                 Profil-Analyse starten
                 <ArrowRight size={16} />
               </Link>
-              <span className="text-xs text-text-secondary/40">
+              <span className="text-xs text-text-secondary/60">
                 Kostenlos und anonym. Keine Anmeldung erforderlich.
               </span>
             </motion.div>

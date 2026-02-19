@@ -12,6 +12,7 @@ export default function FeedbackGebenNehmen() {
     <AkademieLayout
       moduleTitle="Kommunikation & Beziehung"
       moduleSlug="kommunikation-beziehung"
+      impulsSlug="feedback-geben-nehmen"
       color="teal"
       impulsTitle="Feedback geben und nehmen"
       prevImpuls={{ title: 'Zuhören als Führungskompetenz', href: '/akademie/kommunikation-beziehung/zuhoeren-als-kompetenz' }}

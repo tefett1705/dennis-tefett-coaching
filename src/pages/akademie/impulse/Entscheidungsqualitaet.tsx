@@ -12,6 +12,7 @@ export default function Entscheidungsqualitaet() {
     <AkademieLayout
       moduleTitle="Strategische Klarheit"
       moduleSlug="strategische-klarheit"
+      impulsSlug="entscheidungsqualitaet"
       color="gold"
       impulsTitle="Entscheidungsqualität verbessern"
       prevImpuls={undefined}

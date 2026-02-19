@@ -12,6 +12,7 @@ export default function EmotionaleRegulation() {
     <AkademieLayout
       moduleTitle="Innere Stärke & Resilienz"
       moduleSlug="innere-staerke-resilienz"
+      impulsSlug="emotionale-regulation"
       color="teal"
       impulsTitle="Emotionale Regulation für den Führungsalltag"
       prevImpuls={{ title: 'Ihr persönliches Resilienz-Framework', href: '/akademie/innere-staerke-resilienz/resilienz-framework' }}

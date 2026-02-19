@@ -76,7 +76,7 @@ export default function TrustBento() {
           {trustItems.map((item, i) => (
             <motion.div
               key={item.title}
-              className={`glass-card p-6 md:p-8 group ${item.span}`}
+              className={`glass-card p-6 md:p-8 group text-center md:text-left ${item.span}`}
               initial={{ y: 30 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{
@@ -85,7 +85,7 @@ export default function TrustBento() {
                 ease: [0.22, 1, 0.36, 1],
               }}
             >
-              <div className="w-10 h-10 rounded-lg bg-teal/10 flex items-center justify-center mb-4 group-hover:bg-teal/20 transition-colors duration-300">
+              <div className="w-10 h-10 rounded-lg bg-teal/10 flex items-center justify-center mb-4 group-hover:bg-teal/20 transition-colors duration-300 mx-auto md:mx-0">
                 <item.icon size={20} className="text-teal" />
               </div>
               <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
@@ -120,7 +120,7 @@ export default function TrustBento() {
 
             {/* Text overlay - positioned below image on mobile, overlaid on desktop */}
             <motion.div
-              className="absolute bottom-0 left-0 p-5 sm:p-8 md:p-12 lg:p-16 max-w-lg"
+              className="absolute bottom-0 left-0 right-0 md:right-auto p-5 sm:p-8 md:p-12 lg:p-16 max-w-lg text-center md:text-left"
               style={{ y: textY }}
             >
               <motion.span

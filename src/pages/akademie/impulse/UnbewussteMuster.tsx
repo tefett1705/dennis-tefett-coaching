@@ -20,6 +20,7 @@ export default function UnbewussteMuster() {
     <AkademieLayout
       moduleTitle="Führung & Wirkung"
       moduleSlug="fuehrung-und-wirkung"
+      impulsSlug="unbewusste-muster"
       color="teal"
       impulsTitle="Unbewusste Führungsmuster erkennen"
       prevImpuls={{

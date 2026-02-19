@@ -261,7 +261,7 @@ export default function ContactWizard() {
                   </div>
                 </form>
 
-                <p className="text-xs text-text-secondary/40 mt-4 text-center">
+                <p className="text-xs text-text-secondary/60 mt-4 text-center">
                   Ihre Daten werden vertraulich behandelt und nicht an Dritte weitergegeben.
                 </p>
               </motion.div>

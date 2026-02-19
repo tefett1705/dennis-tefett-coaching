@@ -12,6 +12,7 @@ export default function GrenzenSetzen() {
     <AkademieLayout
       moduleTitle="Innere Stärke & Resilienz"
       moduleSlug="innere-staerke-resilienz"
+      impulsSlug="grenzen-setzen"
       color="teal"
       impulsTitle="Grenzen setzen ohne schlechtes Gewissen"
       prevImpuls={{ title: 'Emotionale Regulation für den Führungsalltag', href: '/akademie/innere-staerke-resilienz/emotionale-regulation' }}

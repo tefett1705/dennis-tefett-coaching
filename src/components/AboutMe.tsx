@@ -85,7 +85,7 @@ export default function AboutMe() {
           </motion.div>
 
           {/* Text content with scroll-linked slide-in */}
-          <motion.div style={{ x: textSlideIn, opacity: textFade }}>
+          <motion.div className="text-center lg:text-left" style={{ x: textSlideIn, opacity: textFade }}>
             <motion.h3
               className="text-2xl md:text-3xl font-serif font-semibold mb-6"
               initial={{ y: 20 }}
@@ -123,7 +123,7 @@ export default function AboutMe() {
             </div>
 
             {/* Credentials list */}
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
               {[
                 'Psychologe',
                 'Gesundheitsmanager',
@@ -156,6 +156,7 @@ export default function AboutMe() {
         <div ref={familyRef} className="mt-24 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Text content */}
           <motion.div
+            className="text-center lg:text-left"
             initial={{ x: -40 }}
             whileInView={{ x: 0 }}
             viewport={{ once: true }}

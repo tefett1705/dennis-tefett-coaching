@@ -12,6 +12,7 @@ export default function KonflikteAlsChance() {
     <AkademieLayout
       moduleTitle="Kommunikation & Beziehung"
       moduleSlug="kommunikation-beziehung"
+      impulsSlug="konflikte-als-chance"
       color="teal"
       impulsTitle="Konflikte als Chance: Konstruktive Konfliktlösung"
       prevImpuls={{ title: 'Schwierige Gespräche souverän führen', href: '/akademie/kommunikation-beziehung/schwierige-gespraeche' }}

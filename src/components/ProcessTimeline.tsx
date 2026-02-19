@@ -67,7 +67,7 @@ export default function ProcessTimeline() {
             {steps.map((step, i) => (
               <motion.div
                 key={step.phase}
-                className="glass-card p-6 md:pt-16 relative"
+                className="glass-card p-6 md:pt-16 relative text-center md:text-left"
                 initial={{ y: 30 }}
                 animate={isVisible ? { opacity: 1, y: 0 } : {}}
                 transition={{
@@ -80,10 +80,10 @@ export default function ProcessTimeline() {
                 <div className="hidden md:flex absolute -top-5 left-6 w-10 h-10 rounded-full bg-surface border-2 border-teal/40 items-center justify-center">
                   <span className="text-xs font-mono text-teal">{step.phase}</span>
                 </div>
-                <div className="md:hidden flex items-center gap-3 mb-3">
+                <div className="md:hidden flex items-center gap-3 mb-3 justify-center">
                   <span className="text-xs font-mono text-teal bg-teal/10 px-2 py-1 rounded">{step.phase}</span>
                 </div>
-                <div className="w-10 h-10 rounded-lg bg-teal/10 flex items-center justify-center mb-4">
+                <div className="w-10 h-10 rounded-lg bg-teal/10 flex items-center justify-center mb-4 mx-auto md:mx-0">
                   <step.icon size={20} className="text-teal" />
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{step.title}</h3>

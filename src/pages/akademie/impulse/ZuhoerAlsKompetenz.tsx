@@ -12,6 +12,7 @@ export default function ZuhoerAlsKompetenz() {
     <AkademieLayout
       moduleTitle="Kommunikation & Beziehung"
       moduleSlug="kommunikation-beziehung"
+      impulsSlug="zuhoeren-als-kompetenz"
       color="teal"
       impulsTitle="Zuhören als Führungskompetenz"
       prevImpuls={{ title: 'Konflikte als Chance: Konstruktive Konfliktlösung', href: '/akademie/kommunikation-beziehung/konflikte-als-chance' }}

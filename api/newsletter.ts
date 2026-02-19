@@ -170,9 +170,17 @@ async function listSubscribers(): Promise<NewsletterSubscriber[]> {
 }
 
 /* ── GET /api/newsletter?action=count ── */
-async function countSubscribers(): Promise<number> {
+async function countSubscribers(): Promise<{ total: number; thisMonth: number }> {
   const keys = await kv.keys('newsletter:*')
-  return keys.length
+  const total = keys.length
+  let thisMonth = 0
+  const now = new Date()
+  const monthStart = new Date(now.getFullYear(), now.getMonth(), 1).toISOString()
+  for (const key of keys) {
+    const sub = await kv.get<NewsletterSubscriber>(key)
+    if (sub && sub.subscribedAt >= monthStart) thisMonth++
+  }
+  return { total, thisMonth }
 }
 
 /* ── Serverless Handler ── */
@@ -196,8 +204,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         }
         case 'count': {
           if (!checkAdmin(req)) return res.status(401).json({ success: false, message: 'Nicht autorisiert' })
-          const count = await countSubscribers()
-          return res.status(200).json({ success: true, count })
+          const { total, thisMonth } = await countSubscribers()
+          return res.status(200).json({ success: true, total, thisMonth })
         }
         default:
           return res.status(400).json({ success: false, message: 'Ungültige Aktion' })

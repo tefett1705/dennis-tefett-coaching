@@ -20,6 +20,7 @@ export default function FuenfSaeulenFuehrung() {
     <AkademieLayout
       moduleTitle="Führung & Wirkung"
       moduleSlug="fuehrung-und-wirkung"
+      impulsSlug="fuenf-saeulen-fuehrung"
       color="teal"
       impulsTitle="Die 5 Säulen wirksamer Führung"
       prevImpuls={undefined}

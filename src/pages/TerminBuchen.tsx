@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Calendar, Clock, CheckCircle, AlertCircle, ChevronLeft, ChevronRight, Send, Video, Phone } from 'lucide-react'
 import SubpageLayout from '../components/SubpageLayout'
+import SEOHead from '../components/SEOHead'
 
 interface TimeSlot {
   id: string
@@ -146,6 +147,11 @@ export default function TerminBuchen() {
       title="Termin vereinbaren"
       subtitle="Wählen Sie einen verfügbaren Termin und buchen Sie Ihr Coaching-Gespräch direkt online."
     >
+      <SEOHead
+        title="Termin buchen | Coaching-Gespräch vereinbaren | Dennis Tefett"
+        description="Buchen Sie direkt online Ihr Coaching-Gespräch mit Dennis Tefett. Verfügbare Termine für Executive Coaching, Life Coaching und Erstgespräche."
+        keywords="Termin buchen, Coaching Termin, Erstgespräch, Online Buchung, Dennis Tefett"
+      />
       <div className="max-w-4xl mx-auto">
         {status === 'success' ? (
           <motion.div

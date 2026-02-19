@@ -12,6 +12,7 @@ export default function PrioritaetenSetzen() {
     <AkademieLayout
       moduleTitle="Strategische Klarheit"
       moduleSlug="strategische-klarheit"
+      impulsSlug="prioritaeten-setzen"
       color="gold"
       impulsTitle="Prioritäten setzen: Die Kunst des Weglassens"
       prevImpuls={{ title: 'Entscheidungsqualität verbessern', href: '/akademie/strategische-klarheit/entscheidungsqualitaet' }}

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Send, CheckCircle, AlertCircle, Mail, MapPin, Clock } from 'lucide-react'
 import SubpageLayout from '../components/SubpageLayout'
+import SEOHead from '../components/SEOHead'
 import { submitContact } from '../utils/api'
 
 const subjects = [
@@ -78,6 +79,11 @@ export default function Kontakt() {
       title="Lassen Sie uns sprechen"
       subtitle="Ich freue mich auf Ihre Nachricht. Egal ob Sie ein konkretes Anliegen haben oder einfach erstmal unverbindlich ins Gespräch kommen möchten."
     >
+      <SEOHead
+        title="Kontakt | Executive Coaching Anfrage | Dennis Tefett"
+        description="Kontaktieren Sie Dennis Tefett für ein unverbindliches Erstgespräch zum Executive Coaching. Individuelle Beratung für Führungskräfte in Gladbeck und deutschlandweit."
+        keywords="Kontakt, Coaching Anfrage, Erstgespräch, Dennis Tefett, Executive Coaching"
+      />
       <div className="max-w-4xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           {/* Contact Info Sidebar */}

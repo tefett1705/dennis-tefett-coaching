@@ -1,6 +1,8 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useMemo } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
 import { getImpulsBySlug, getModuleBySlug } from '../../data/akademieData'
+import SEOHead from '../../components/SEOHead'
+import JsonLd from '../../components/JsonLd'
 
 // Lazy-load all impulse pages
 const impulsComponents: Record<string, React.LazyExoticComponent<React.ComponentType>> = {
@@ -57,9 +59,58 @@ export default function AkademieImpulsPage() {
     return <Navigate to={`/akademie/${moduleSlug}`} replace />
   }
 
+  const pageUrl = `https://dennis-tefett.de/akademie/${moduleSlug}/${impulsSlug}`
+
+  const articleSchema = useMemo(() => ({
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: result.impuls.title,
+    description: result.impuls.description,
+    author: {
+      '@type': 'Person',
+      name: 'Dennis Tefett',
+      url: 'https://dennis-tefett.de',
+      jobTitle: 'Executive Coach & Psychologe',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Dennis Tefett Coaching',
+      url: 'https://dennis-tefett.de',
+    },
+    mainEntityOfPage: pageUrl,
+    isPartOf: {
+      '@type': 'WebPage',
+      name: `${mod.title} | Wissens-Akademie`,
+      url: `https://dennis-tefett.de/akademie/${moduleSlug}`,
+    },
+    inLanguage: 'de-DE',
+    timeRequired: `PT${result.impuls.readingTime.replace(/\D/g, '')}M`,
+  }), [result, mod, moduleSlug, impulsSlug, pageUrl])
+
+  const breadcrumbSchema = useMemo(() => ({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Startseite', item: 'https://dennis-tefett.de' },
+      { '@type': 'ListItem', position: 2, name: 'Wissens-Akademie', item: 'https://dennis-tefett.de/akademie' },
+      { '@type': 'ListItem', position: 3, name: mod.title, item: `https://dennis-tefett.de/akademie/${moduleSlug}` },
+      { '@type': 'ListItem', position: 4, name: result.impuls.title, item: pageUrl },
+    ],
+  }), [mod, moduleSlug, result, pageUrl])
+
   return (
-    <Suspense fallback={<ImpulsLoader />}>
-      <Component />
-    </Suspense>
+    <>
+      <SEOHead
+        title={`${result.impuls.title} | ${mod.title} | Dennis Tefett`}
+        description={result.impuls.description}
+        keywords={`${mod.title}, ${result.impuls.title}, Coaching, Führungskräfte, Dennis Tefett`}
+        ogType="article"
+      />
+      <JsonLd data={articleSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      <Suspense fallback={<ImpulsLoader />}>
+        <Component />
+      </Suspense>
+    </>
   )
 }

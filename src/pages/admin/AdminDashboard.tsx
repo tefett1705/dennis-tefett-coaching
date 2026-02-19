@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Calendar, Mail, Users, LogIn, LogOut, AlertCircle, Clock, CheckCircle, Gift, RefreshCw } from 'lucide-react'
+import { Calendar, Mail, Users, LogIn, LogOut, AlertCircle, Clock, CheckCircle, Gift, RefreshCw, Eye, BarChart3, Globe } from 'lucide-react'
 
 interface TimeSlot {
   id: string
@@ -24,6 +24,22 @@ interface Subscriber {
   lastName: string
   email: string
   subscribedAt: string
+}
+
+interface AnalyticsDay {
+  date: string
+  visitors: number
+  pageViews: number
+}
+
+interface AnalyticsData {
+  days: AnalyticsDay[]
+  totals: {
+    visitors: number
+    pageViews: number
+    topPages: { path: string; views: number }[]
+    topReferrers: { source: string; count: number }[]
+  }
 }
 
 const API_BASE = import.meta.env.VITE_API_URL || '/api'
@@ -58,6 +74,8 @@ export default function AdminDashboard() {
   const [subscribers, setSubscribers] = useState<Subscriber[]>([])
   const [loading, setLoading] = useState(false)
   const [lastRefresh, setLastRefresh] = useState<Date | null>(null)
+  const [analytics, setAnalytics] = useState<AnalyticsData | null>(null)
+  const [analyticsRange, setAnalyticsRange] = useState<string>('7')
   const location = useLocation()
 
   useEffect(() => {
@@ -101,6 +119,17 @@ export default function AdminDashboard() {
     sessionStorage.removeItem('dt-admin-token')
   }
 
+  const fetchAnalytics = async (range: string) => {
+    const token = adminToken || sessionStorage.getItem('dt-admin-token')
+    try {
+      const res = await fetch(`${API_BASE}/analytics?action=stats&days=${range}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      const data = await res.json()
+      if (data.success) setAnalytics(data)
+    } catch { /* analytics optional */ }
+  }
+
   const fetchAll = async () => {
     setLoading(true)
     const token = adminToken || sessionStorage.getItem('dt-admin-token')
@@ -117,12 +146,18 @@ export default function AdminDashboard() {
       const subsData = await subsRes.json()
       if (slotsData.success) setSlots(slotsData.slots || [])
       if (subsData.success) setSubscribers(subsData.subscribers || [])
+      await fetchAnalytics(analyticsRange)
       setLastRefresh(new Date())
     } catch {
       console.error('Fehler beim Laden')
     } finally {
       setLoading(false)
     }
+  }
+
+  const handleRangeChange = (range: string) => {
+    setAnalyticsRange(range)
+    fetchAnalytics(range)
   }
 
   // Computed values
@@ -446,6 +481,193 @@ export default function AdminDashboard() {
                   ))}
                 </tbody>
               </table>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Analytics Section */}
+        {analytics && (
+          <motion.div
+            className="space-y-4"
+            initial={{ y: 10 }}
+            animate={{ y: 0 }}
+            transition={{ delay: 0.25 }}
+          >
+            <div className="flex items-center justify-between flex-wrap gap-2">
+              <h2 className="text-sm font-semibold text-text-primary flex items-center gap-2">
+                <BarChart3 size={16} className="text-teal" />
+                Besucher-Statistiken
+              </h2>
+              <div className="flex items-center gap-1">
+                {[
+                  { value: '7', label: '7T' },
+                  { value: '14', label: '14T' },
+                  { value: '30', label: '30T' },
+                  { value: 'all', label: 'Gesamt' },
+                ].map(opt => (
+                  <button
+                    key={opt.value}
+                    onClick={() => handleRangeChange(opt.value)}
+                    className={`px-2.5 py-1 text-xs rounded-md font-medium transition-all cursor-pointer ${
+                      analyticsRange === opt.value
+                        ? 'bg-teal/15 text-teal border border-teal/30'
+                        : 'text-text-secondary hover:text-text-primary border border-transparent'
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Analytics Stats */}
+            <div className="grid grid-cols-3 gap-3">
+              {(() => {
+                const rangeLabel = analyticsRange === 'all' ? 'Gesamt' : `${analyticsRange} Tage`
+                return [
+                  { label: 'Heute', value: analytics.days[analytics.days.length - 1]?.visitors || 0, icon: Eye },
+                  { label: `${rangeLabel} Besucher`, value: analytics.totals.visitors, icon: Users },
+                  { label: `${rangeLabel} Aufrufe`, value: analytics.totals.pageViews, icon: BarChart3 },
+                ]
+              })().map((stat) => {
+                const Icon = stat.icon
+                return (
+                  <div key={stat.label} className="glass-card p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Icon size={14} className="text-teal" />
+                      <span className="text-xs text-text-secondary">{stat.label}</span>
+                    </div>
+                    <p className="text-2xl font-semibold text-teal">{stat.value}</p>
+                  </div>
+                )
+              })}
+            </div>
+
+            {/* Sparkline Chart */}
+            {analytics.days.length > 1 && (() => {
+              const values = analytics.days.map(d => d.visitors)
+              const max = Math.max(...values, 1)
+              const w = 100
+              const h = 64
+              const padding = 4
+              const points = values.map((v, i) =>
+                `${padding + (i / (values.length - 1)) * (w - padding * 2)},${h - padding - (v / max) * (h - padding * 2)}`
+              ).join(' ')
+              const areaPoints = points + ` ${w - padding},${h - padding} ${padding},${h - padding}`
+              return (
+                <div className="glass-card p-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs text-text-secondary">Besucherverlauf</span>
+                    <div className="flex items-center gap-3 text-[10px] text-text-secondary/50">
+                      {analytics.days.length > 0 && (
+                        <>
+                          <span>{new Date(analytics.days[0].date + 'T00:00:00').toLocaleDateString('de-DE', { day: 'numeric', month: 'short' })}</span>
+                          <span>—</span>
+                          <span>{new Date(analytics.days[analytics.days.length - 1].date + 'T00:00:00').toLocaleDateString('de-DE', { day: 'numeric', month: 'short' })}</span>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                  <svg viewBox={`0 0 ${w} ${h}`} className="w-full" style={{ height: 64 }}>
+                    <defs>
+                      <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="#2DD4BF" stopOpacity="0.3" />
+                        <stop offset="100%" stopColor="#2DD4BF" stopOpacity="0" />
+                      </linearGradient>
+                    </defs>
+                    <polygon points={areaPoints} fill="url(#sparkGrad)" />
+                    <polyline points={points} fill="none" stroke="#2DD4BF" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round" />
+                    {values.length <= 14 && values.map((v, i) => (
+                      <circle
+                        key={i}
+                        cx={padding + (i / (values.length - 1)) * (w - padding * 2)}
+                        cy={h - padding - (v / max) * (h - padding * 2)}
+                        r="2"
+                        fill="#2DD4BF"
+                      />
+                    ))}
+                  </svg>
+                  {analytics.days.length <= 14 && (
+                    <div className="flex justify-between mt-1">
+                      {analytics.days.map((d, i) => (
+                        <span key={i} className="text-[9px] text-text-secondary/30">
+                          {analytics.days.length <= 7
+                            ? new Date(d.date + 'T00:00:00').toLocaleDateString('de-DE', { weekday: 'short' })
+                            : new Date(d.date + 'T00:00:00').toLocaleDateString('de-DE', { day: 'numeric', month: 'numeric' })
+                          }
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )
+            })()}
+
+            {/* Top Pages + Referrers */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              {/* Top Pages */}
+              <div className="glass-card p-5">
+                <h3 className="text-sm font-semibold text-text-primary flex items-center gap-2 mb-3">
+                  <Eye size={14} className="text-teal" />
+                  Top-Seiten
+                </h3>
+                {analytics.totals.topPages.length === 0 ? (
+                  <p className="text-sm text-text-secondary/50 py-2 text-center">Noch keine Daten</p>
+                ) : (
+                  <div className="space-y-2">
+                    {analytics.totals.topPages.slice(0, 5).map((page, i) => {
+                      const maxViews = analytics.totals.topPages[0]?.views || 1
+                      const pct = Math.round((page.views / maxViews) * 100)
+                      return (
+                        <div key={page.path} className="flex items-center gap-3">
+                          <span className="text-xs text-text-secondary/40 w-4 text-right">{i + 1}</span>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between mb-1">
+                              <span className="text-sm text-text-primary truncate">{page.path === '/' ? 'Startseite' : page.path}</span>
+                              <span className="text-xs text-text-secondary ml-2">{page.views}</span>
+                            </div>
+                            <div className="h-1 bg-glass rounded-full overflow-hidden">
+                              <div className="h-full bg-teal/50 rounded-full" style={{ width: `${pct}%` }} />
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                )}
+              </div>
+
+              {/* Top Referrers */}
+              <div className="glass-card p-5">
+                <h3 className="text-sm font-semibold text-text-primary flex items-center gap-2 mb-3">
+                  <Globe size={14} className="text-teal" />
+                  Herkunft
+                </h3>
+                {analytics.totals.topReferrers.length === 0 ? (
+                  <p className="text-sm text-text-secondary/50 py-2 text-center">Noch keine Daten</p>
+                ) : (
+                  <div className="space-y-2">
+                    {analytics.totals.topReferrers.slice(0, 5).map((ref, i) => {
+                      const maxCount = analytics.totals.topReferrers[0]?.count || 1
+                      const pct = Math.round((ref.count / maxCount) * 100)
+                      return (
+                        <div key={ref.source} className="flex items-center gap-3">
+                          <span className="text-xs text-text-secondary/40 w-4 text-right">{i + 1}</span>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between mb-1">
+                              <span className="text-sm text-text-primary truncate">{ref.source}</span>
+                              <span className="text-xs text-text-secondary ml-2">{ref.count}</span>
+                            </div>
+                            <div className="h-1 bg-glass rounded-full overflow-hidden">
+                              <div className="h-full bg-gold/50 rounded-full" style={{ width: `${pct}%` }} />
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                )}
+              </div>
             </div>
           </motion.div>
         )}
