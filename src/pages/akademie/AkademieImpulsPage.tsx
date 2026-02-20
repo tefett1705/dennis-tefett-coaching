@@ -23,6 +23,7 @@ const impulsComponents: Record<string, React.LazyExoticComponent<React.Component
   'werte-als-kompass': lazy(() => import('./impulse/WerteAlsKompass')),
   'gewohnheiten-veraendern': lazy(() => import('./impulse/GewohnheitenVeraendern')),
   'imposter-syndrom': lazy(() => import('./impulse/ImposterSyndrom')),
+  'glaubenssaetze-verstehen': lazy(() => import('./impulse/GlaubenssaetzeVerstehen')),
   // Modul 4: Strategische Klarheit
   'entscheidungsqualitaet': lazy(() => import('./impulse/Entscheidungsqualitaet')),
   'prioritaeten-setzen': lazy(() => import('./impulse/PrioritaetenSetzen')),

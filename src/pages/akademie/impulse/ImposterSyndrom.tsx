@@ -27,7 +27,10 @@ export default function ImposterSyndrom() {
         title: 'Gewohnheiten verändern: Was die Wissenschaft sagt',
         href: '/akademie/persoenlichkeit-wachstum/gewohnheiten-veraendern',
       }}
-      nextImpuls={undefined}
+      nextImpuls={{
+        title: 'Glaubenssätze: Wie innere Überzeugungen Ihr Leben formen',
+        href: '/akademie/persoenlichkeit-wachstum/glaubenssaetze-verstehen',
+      }}
       relatedCoachingPages={[
         { label: 'Persönlichkeitsentwicklung', href: '/persoenlichkeitsentwicklung-erklaert' },
         { label: 'Führungskräfte-Coaching', href: '/fuehrungskraefte-coaching' },

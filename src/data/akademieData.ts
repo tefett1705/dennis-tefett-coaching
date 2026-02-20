@@ -157,6 +157,13 @@ export const akademieModules: AkademieModule[] = [
           '70% aller Führungskräfte erleben das Imposter-Syndrom. Die fünf Typen, die Neurowissenschaft dahinter und der Weg zum authentischen Leader.',
         readingTime: '9 Min.',
       },
+      {
+        slug: 'glaubenssaetze-verstehen',
+        title: 'Glaubenssätze: Wie innere Überzeugungen Ihr Leben formen',
+        description:
+          'Wie Glaubenssätze im Gehirn entstehen, warum sie sich wie Fakten anfühlen und wie die Brücken-Technik neuronale Muster nachhaltig verändert. Mit Audio-Impuls.',
+        readingTime: '10 Min.',
+      },
     ],
     relatedCoachingPages: [
       { label: 'Persönlichkeitsentwicklung', href: '/persoenlichkeitsentwicklung-erklaert' },

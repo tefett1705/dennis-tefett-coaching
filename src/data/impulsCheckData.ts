@@ -270,6 +270,29 @@ export const impulsChecks: Record<string, ImpulsCheckConfig> = {
       high: 'Sie verstehen die Mechanismen der Gewohnheitsänderung gut. Nutzen Sie dieses Wissen für Ihre nächste Entwicklungsstufe.',
     },
   },
+  'glaubenssaetze-verstehen': {
+    title: 'Glaubenssatz-Bewusstseins-Check',
+    intro: 'Wie bewusst sind Sie sich Ihrer inneren Überzeugungen?',
+    questions: [
+      {
+        question: 'Können Sie einen Ihrer häufigsten inneren Sätze in Stressmomenten wörtlich benennen?',
+        options: ['Nein, das habe ich noch nie beobachtet', 'Ich ahne etwas, aber es ist vage', 'Ja, ich kenne meinen inneren Monolog gut'],
+      },
+      {
+        question: 'Wie erklären Sie sich Ihre Erfolge?',
+        options: ['Meistens durch Glück oder äußere Umstände', 'Teils eigene Leistung, teils Umstände', 'Ich erkenne meinen eigenen Anteil klar an'],
+      },
+      {
+        question: 'Haben Sie schon einmal einen limitierenden Gedanken bewusst hinterfragt und durch eine neue Überzeugung ersetzt?',
+        options: ['Nein, das habe ich noch nie versucht', 'Ich habe es versucht, aber es fiel mir schwer', 'Ja, und ich habe die Veränderung gespürt'],
+      },
+    ],
+    summary: {
+      low: 'Glaubenssätze wirken am stärksten, wenn sie unbewusst bleiben. Das Erkennen ist der erste und wichtigste Schritt.',
+      mid: 'Sie haben bereits ein Gespür für Ihre inneren Überzeugungen. Gezielte Arbeit kann diese Muster nachhaltig verändern.',
+      high: 'Ihr Bewusstsein für innere Überzeugungen ist hoch. Sie sind bereit für tiefere Transformationsarbeit.',
+    },
+  },
   'entscheidungsqualitaet': {
     title: 'Entscheidungs-Qualitäts-Check',
     intro: 'Wie gut ist Ihre Entscheidungsqualität?',

@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown, Brain, BookOpen, Sun, Moon, Home, Compass, Gift, Calendar, Heart, Layers, Activity } from 'lucide-react'
 import TextSizeToggle from './TextSizeToggle'
 import { useTheme } from '../context/ThemeContext'
+import { akademieModules } from '../data/akademieData'
 
 const navLinks = [
   { label: 'Methode', href: '#methode' },
@@ -206,7 +207,7 @@ export default function Navigation() {
                         </div>
                         <div>
                           <span className="text-sm font-medium text-teal group-hover:text-teal/90">Wissens-Akademie</span>
-                          <span className="text-xs text-text-secondary/50 block">5 Module · 18 Impulse · Kostenfrei</span>
+                          <span className="text-xs text-text-secondary/50 block">{akademieModules.length} Module · {akademieModules.reduce((sum, m) => sum + m.impulse.length, 0)} Impulse · Kostenfrei</span>
                         </div>
                       </Link>
                     </div>
