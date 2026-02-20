@@ -14,7 +14,7 @@ export default function AkademieLanding() {
     <div className="min-h-screen bg-surface pb-20 md:pb-0">
       <SEOHead
         title="Wissens-Akademie | Impulse für Führung & Persönlichkeit | Dennis Tefett"
-        description="Kostenlose Wissens-Akademie mit 5 Modulen und 18 Impulsen zu Führung, Resilienz, Persönlichkeitsentwicklung, Strategie und Kommunikation. Psychologisch fundiert von Dennis Tefett."
+        description="Kostenlose Wissens-Akademie mit 5 Modulen und 22 Impulsen zu Führung, Resilienz, Persönlichkeitsentwicklung, Strategie und Kommunikation. Psychologisch fundiert von Dennis Tefett."
         keywords="Wissens-Akademie, Führung, Resilienz, Persönlichkeitsentwicklung, Coaching Wissen, kostenlos, Dennis Tefett"
       />
       {/* Hero */}
