@@ -53,6 +53,7 @@ html[data-theme="light"] {
   --glass-border-hover: rgba(6, 26, 45, 0.14);
   --selection-bg: rgba(45, 212, 191, 0.25);
 
+  --color-teal: #1a8a7a;
   --color-text-primary: #0C1824;
   --color-text-secondary: #3D4F5F;
   --color-glass-bg: rgba(255, 255, 255, 0.72);

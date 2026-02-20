@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDown, Brain, BookOpen, Sun, Moon, Home, Compass, Gift, Calendar } from 'lucide-react'
+import { ChevronDown, Brain, BookOpen, Sun, Moon, Home, Compass, Gift, Calendar, Heart, Layers, Activity } from 'lucide-react'
 import TextSizeToggle from './TextSizeToggle'
 import { useTheme } from '../context/ThemeContext'
 
@@ -211,7 +211,7 @@ export default function Navigation() {
                       </Link>
                     </div>
 
-                    {/* Selbsttest + Persönlichkeitstest highlights */}
+                    {/* Selbsttests */}
                     <div className="pt-3 border-t border-glass-border/50" style={{ gridColumn: '1 / -1' }}>
                       <div className="grid grid-cols-2 gap-3">
                         <Link
@@ -233,31 +233,40 @@ export default function Navigation() {
                           onClick={() => setIsWissenOpen(false)}
                         >
                           <div className="w-9 h-9 rounded-lg bg-teal/15 flex items-center justify-center flex-shrink-0">
-                            <Brain size={18} className="text-teal" />
+                            <Layers size={18} className="text-teal" />
                           </div>
                           <div>
                             <span className="text-sm font-medium text-teal group-hover:text-teal/90">Persönlichkeitstest</span>
                             <span className="text-xs text-text-secondary/50 block">Big Five · 5 Minuten</span>
                           </div>
                         </Link>
+                        <Link
+                          to="/glaubenssatz-test"
+                          className="flex items-center gap-3 p-3 rounded-xl bg-teal/8 border border-teal/20 hover:bg-teal/15 transition-all duration-200 group"
+                          onClick={() => setIsWissenOpen(false)}
+                        >
+                          <div className="w-9 h-9 rounded-lg bg-teal/15 flex items-center justify-center flex-shrink-0">
+                            <Heart size={18} className="text-teal" />
+                          </div>
+                          <div>
+                            <span className="text-sm font-medium text-teal group-hover:text-teal/90">Glaubenssatz-Analyse</span>
+                            <span className="text-xs text-text-secondary/50 block">6 Bereiche · 5 Minuten</span>
+                          </div>
+                        </Link>
+                        <Link
+                          to="/stress-level-check"
+                          className="flex items-center gap-3 p-3 rounded-xl bg-gold/8 border border-gold/20 hover:bg-gold/15 transition-all duration-200 group"
+                          onClick={() => setIsWissenOpen(false)}
+                        >
+                          <div className="w-9 h-9 rounded-lg bg-gold/15 flex items-center justify-center flex-shrink-0">
+                            <Activity size={18} className="text-gold" />
+                          </div>
+                          <div>
+                            <span className="text-sm font-medium text-gold group-hover:text-gold/90">Stress-Level-Check</span>
+                            <span className="text-xs text-text-secondary/50 block">Ampelsystem · 5 Minuten</span>
+                          </div>
+                        </Link>
                       </div>
-                    </div>
-
-                    {/* Stress-Level-Check highlight */}
-                    <div className="pt-3 border-t border-glass-border/50" style={{ gridColumn: '1 / -1' }}>
-                      <Link
-                        to="/stress-level-check"
-                        className="flex items-center gap-3 p-3 rounded-xl bg-gold/8 border border-gold/20 hover:bg-gold/15 transition-all duration-200 group"
-                        onClick={() => setIsWissenOpen(false)}
-                      >
-                        <div className="w-9 h-9 rounded-lg bg-gold/15 flex items-center justify-center flex-shrink-0">
-                          <Brain size={18} className="text-gold" />
-                        </div>
-                        <div>
-                          <span className="text-sm font-medium text-gold group-hover:text-gold/90">Stress-Level-Check</span>
-                          <span className="text-xs text-text-secondary/50 block">Ampelsystem · 5 Minuten</span>
-                        </div>
-                      </Link>
                     </div>
 
                     {/* Text Size Toggle */}

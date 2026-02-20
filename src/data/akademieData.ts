@@ -117,6 +117,7 @@ export const akademieModules: AkademieModule[] = [
     relatedCoachingPages: [
       { label: 'Stressmanagement-Coaching', href: '/stressmanagement-coaching' },
       { label: 'Selbstwirksamkeit stärken', href: '/selbstwirksamkeit-staerken' },
+      { label: 'Glaubenssatz-Analyse', href: '/glaubenssatz-test' },
     ],
   },
   {
@@ -160,6 +161,7 @@ export const akademieModules: AkademieModule[] = [
     relatedCoachingPages: [
       { label: 'Persönlichkeitsentwicklung', href: '/persoenlichkeitsentwicklung-erklaert' },
       { label: 'Nachhaltige Verhaltensänderung', href: '/nachhaltige-verhaltensaenderung' },
+      { label: 'Glaubenssatz-Analyse', href: '/glaubenssatz-test' },
     ],
   },
   {

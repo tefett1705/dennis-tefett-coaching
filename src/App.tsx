@@ -20,6 +20,7 @@ import GuaranteeBanner from './components/GuaranteeBanner'
 import SelbsttestTeaser from './components/SelbsttestTeaser'
 import PersoenlichkeitstestTeaser from './components/PersoenlichkeitstestTeaser'
 import StressLevelTeaser from './components/StressLevelTeaser'
+import GlaubenssatzTeaser from './components/GlaubenssatzTeaser'
 import Footer from './components/Footer'
 import SEOHead from './components/SEOHead'
 
@@ -43,6 +44,7 @@ const Selbsttest = lazy(() => import('./pages/Selbsttest'))
 const Persoenlichkeitstest = lazy(() => import('./pages/Persoenlichkeitstest'))
 const Kontakt = lazy(() => import('./pages/Kontakt'))
 const StressLevelCheck = lazy(() => import('./pages/StressLevelCheck'))
+const GlaubenssatzTest = lazy(() => import('./pages/GlaubenssatzTest'))
 const TerminBuchen = lazy(() => import('./pages/TerminBuchen'))
 const TerminVerwaltung = lazy(() => import('./pages/admin/TerminVerwaltung'))
 const NewsletterVerwaltung = lazy(() => import('./pages/admin/NewsletterVerwaltung'))
@@ -85,6 +87,7 @@ function HomePage() {
         <SelbsttestTeaser />
         <PersoenlichkeitstestTeaser />
         <StressLevelTeaser />
+        <GlaubenssatzTeaser />
         <AboutMe />
         <Newsletter />
         <AudioGuide />
@@ -153,6 +156,7 @@ function App() {
           <Route path="/persoenlichkeitstest" element={<Persoenlichkeitstest />} />
           <Route path="/kontakt" element={<Kontakt />} />
           <Route path="/stress-level-check" element={<StressLevelCheck />} />
+          <Route path="/glaubenssatz-test" element={<GlaubenssatzTest />} />
           <Route path="/termin-buchen" element={<TerminBuchen />} />
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/termine" element={<TerminVerwaltung />} />

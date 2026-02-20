@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowRight, BookOpen, Brain, Lightbulb, Globe, Sparkles } from 'lucide-react'
+import { ArrowRight, BookOpen, Brain, Lightbulb, Globe, Sparkles, Heart, ClipboardCheck } from 'lucide-react'
 import { akademieModules } from '../../data/akademieData'
 import SEOHead from '../../components/SEOHead'
 
@@ -146,37 +146,96 @@ export default function AkademieLanding() {
         </div>
       </section>
 
-      {/* Selbsttest Cross-Promotion */}
-      <section className="max-w-4xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 pb-20 md:pb-28">
+      {/* Interaktive Analysen */}
+      <section className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 pb-20 md:pb-28">
         <motion.div
-          className="glass-card p-8 md:p-10 border-gold/20 relative overflow-hidden"
+          className="text-center mb-10"
           initial={{ y: 20 }}
           whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 rounded-full blur-[80px] pointer-events-none" />
-          <div className="relative z-10 flex flex-col md:flex-row items-center gap-6">
-            <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center flex-shrink-0">
-              <Brain size={28} className="text-gold" />
-            </div>
-            <div className="text-center md:text-left flex-1">
-              <h3 className="text-xl md:text-2xl font-serif font-semibold mb-2">
-                Entdecken Sie zuerst Ihr Führungsprofil
-              </h3>
-              <p className="text-text-secondary text-sm">
-                Unser kostenloser Selbsttest analysiert Ihre Stärken in vier Dimensionen. 12 Fragen, 3 Minuten, sofortige Auswertung.
-              </p>
-            </div>
+          <span className="text-xs tracking-[0.25em] uppercase text-gold font-medium">Interaktiv</span>
+          <h2 className="text-3xl md:text-4xl font-serif font-semibold mt-4">
+            Interaktive Selbsttests
+          </h2>
+          <p className="text-text-secondary mt-3 max-w-xl mx-auto">
+            Kostenlose Analysen mit sofortiger Auswertung. Kein Login, keine Registrierung. Ergebnisse werden lokal auf Ihrem Gerät gespeichert.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {/* Glaubenssatz-Test */}
+          <motion.div
+            initial={{ y: 25 }}
+            whileInView={{ y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            <Link
+              to="/glaubenssatz-test"
+              className="glass-card p-6 md:p-8 block group hover:border-teal/30 transition-all duration-300 h-full relative overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-40 h-40 bg-teal/5 rounded-full blur-[60px] pointer-events-none" />
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-11 h-11 rounded-lg bg-teal/10 flex items-center justify-center">
+                    <Heart size={22} className="text-teal" />
+                  </div>
+                  <span className="text-xs px-2.5 py-1 rounded-full border border-teal/20 bg-teal/5 text-teal font-medium">Neu</span>
+                </div>
+                <h3 className="text-xl font-serif font-semibold mb-2 group-hover:text-teal transition-colors">
+                  Glaubenssatz-Analyse
+                </h3>
+                <p className="text-sm text-text-secondary leading-relaxed mb-4">
+                  Erkennen Sie Ihre limitierenden Überzeugungen in sechs Kernbereichen: Selbstwert, Leistung, Beziehungen, Veränderung, Kontrolle und Emotionen.
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-teal/60">24 Aussagen · 5 Min.</span>
+                  <ArrowRight
+                    size={16}
+                    className="text-text-secondary/30 group-hover:text-teal group-hover:translate-x-1 transition-all duration-300"
+                  />
+                </div>
+              </div>
+            </Link>
+          </motion.div>
+
+          {/* Führungsprofil-Analyse */}
+          <motion.div
+            initial={{ y: 25 }}
+            whileInView={{ y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             <Link
               to="/selbsttest"
-              className="px-6 py-3 bg-gold/10 border border-gold/30 text-gold rounded-full text-sm font-medium hover:bg-gold/20 transition-all duration-300 flex-shrink-0 inline-flex items-center gap-2"
+              className="glass-card p-6 md:p-8 block group hover:border-gold/30 transition-all duration-300 h-full relative overflow-hidden"
             >
-              <Brain size={16} />
-              Zum Selbsttest
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gold/5 rounded-full blur-[60px] pointer-events-none" />
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-11 h-11 rounded-lg bg-gold/10 flex items-center justify-center">
+                    <Brain size={22} className="text-gold" />
+                  </div>
+                </div>
+                <h3 className="text-xl font-serif font-semibold mb-2 group-hover:text-gold transition-colors">
+                  Führungsprofil-Analyse
+                </h3>
+                <p className="text-sm text-text-secondary leading-relaxed mb-4">
+                  Entdecken Sie Ihre Stärken und Wachstumsfelder als Führungskraft in vier Schlüsseldimensionen: Selbstführung, Kommunikation, Resilienz und Strategie.
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-gold/60">12 Fragen · 3 Min.</span>
+                  <ArrowRight
+                    size={16}
+                    className="text-text-secondary/30 group-hover:text-gold group-hover:translate-x-1 transition-all duration-300"
+                  />
+                </div>
+              </div>
             </Link>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </section>
 
       {/* FernUSG Disclaimer */}
