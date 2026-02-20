@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowRight, BookOpen, Brain, Lightbulb, Globe, Sparkles, Heart, ClipboardCheck } from 'lucide-react'
+import { ArrowRight, BookOpen, Brain, Lightbulb, Globe, Sparkles, Heart } from 'lucide-react'
 import { akademieModules } from '../../data/akademieData'
 import SEOHead from '../../components/SEOHead'
 
